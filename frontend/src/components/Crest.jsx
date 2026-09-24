@@ -1,4 +1,4 @@
-const RATIO = 318 / 440;
+const RATIO = 276 / 330;
 
 export default function Crest({ height = 32, alt = "" }) {
   return (

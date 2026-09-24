@@ -99,7 +99,7 @@ dev-mock/server.mjs       mock API
 
 ## Branding
 
-The crest in `public/ui-crest.png` was taken from the Postgraduate College site (`https://pgcollege.ui.edu.ng/logo.png`), cut out from its blue background and resized. The University's own site serves a smaller copy at `https://ui.edu.ng/sites/default/files/logo.gif`. The navy and gold in `styles.css` come from that crest and from the Postgraduate College stylesheet (`#0a2b4f` and gold). This is an unofficial student project, and the About dialog says so.
+The crest in `public/ui-crest.png` is the University's official crest (`UI LOGO Original.png`, 276 x 330 px, from https://computing.ui.edu.ng/sites/default/files/UI%20LOGO%20Original.png; the same artwork is used on the student portal), enlarged 3x with edge-aware resampling. No larger official copy exists online. The navy and gold in `styles.css` come from the crest and the Postgraduate College stylesheet (`#0a2b4f` and gold). This is an unofficial student project, and the About dialog says so.
 
 ## Storage
 

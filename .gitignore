@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+vector_store/
+data/processed/*.pages.json
+frontend/node_modules/
+.cache/
+*.log
+data/eval/results/answers_progress.json

@@ -1,0 +1,14 @@
+[
+  {
+    "mode": "hybrid_rerank",
+    "hit@5": 0.963,
+    "recall@5": 0.963,
+    "mrr": 0.799,
+    "avg_latency_s": 24.838,
+    "questions": 54,
+    "missed": [
+      "hb-01",
+      "pol-07"
+    ]
+  }
+]

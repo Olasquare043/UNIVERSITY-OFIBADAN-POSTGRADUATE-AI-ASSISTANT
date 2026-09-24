@@ -1,0 +1,15 @@
+[
+  {
+    "mode": "hybrid_rerank",
+    "hit@5": 0.944,
+    "recall@5": 0.935,
+    "mrr": 0.824,
+    "avg_latency_s": 11.175,
+    "questions": 54,
+    "missed": [
+      "hb-01",
+      "ag-05",
+      "cal-04"
+    ]
+  }
+]

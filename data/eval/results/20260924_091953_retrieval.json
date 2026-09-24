@@ -1,0 +1,32 @@
+[
+  {
+    "mode": "dense",
+    "hit@6": 0.889,
+    "recall@6": 0.889,
+    "mrr": 0.708,
+    "avg_latency_s": 0.065,
+    "questions": 54,
+    "missed": [
+      "hb-10",
+      "ag-05",
+      "ag-07",
+      "cal-04",
+      "fu-03",
+      "pol-09"
+    ]
+  },
+  {
+    "mode": "hybrid",
+    "hit@6": 0.926,
+    "recall@6": 0.917,
+    "mrr": 0.779,
+    "avg_latency_s": 0.06,
+    "questions": 54,
+    "missed": [
+      "hb-02",
+      "ag-05",
+      "cal-04",
+      "pol-07"
+    ]
+  }
+]

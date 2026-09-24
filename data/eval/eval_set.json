@@ -1,0 +1,700 @@
+[
+  {
+    "id": "hb-01",
+    "category": "factual",
+    "question": "What is the University of Ibadan motto and what does it mean?",
+    "reference_answer": "The motto is Recte Sapere Fons, meaning 'For Knowledge and Sound Judgment'.",
+    "evidence": [
+      [
+        "recte sapere fons"
+      ]
+    ]
+  },
+  {
+    "id": "hb-02",
+    "category": "factual",
+    "question": "When did the Postgraduate School become a College?",
+    "reference_answer": "Senate recommended it on 3 August 2018 and the Governing Council approved it on 5 October 2018, upgrading the Postgraduate School to a College.",
+    "evidence": [
+      [
+        "5 October, 2018"
+      ]
+    ]
+  },
+  {
+    "id": "hb-03",
+    "category": "procedural",
+    "question": "What are the steps to complete my registration as a newly admitted postgraduate student?",
+    "reference_answer": "Obtain 'Authority to Pay' from the Admission Office; print your invoice; pay at an authorised bank; wait for the confirmation of payment emailed to you; complete the registration form online; wait for matriculation number (if not a UI product) and hall allocation; print the forms and complete registration at your department and faculty.",
+    "evidence": [
+      [
+        "authority to pay",
+        "invoice"
+      ],
+      [
+        "matriculation number",
+        "hall allocation"
+      ]
+    ]
+  },
+  {
+    "id": "hb-04",
+    "category": "factual",
+    "question": "What types of financial awards does the Postgraduate College offer?",
+    "reference_answer": "Four awards: the UI Postgraduate College Scholarship Award, the Teaching and Research Assistantship Award, the Financial Aids Scheme for International Students, and the Scholarship for Postgraduate Students Living with Physical Disability.",
+    "evidence": [
+      [
+        "four types of award"
+      ]
+    ]
+  },
+  {
+    "id": "hb-05",
+    "category": "factual",
+    "question": "What happens if I cannot complete my programme within the maximum allowed duration?",
+    "reference_answer": "You will be advised to withdraw from the programme and denied further renewal of registration.",
+    "evidence": [
+      [
+        "maximum number of semesters",
+        "withdraw"
+      ]
+    ]
+  },
+  {
+    "id": "hb-06",
+    "category": "numeric",
+    "question": "What are the library opening hours on weekdays during session?",
+    "reference_answer": "8.00 a.m. to 10.00 p.m. on weekdays (also 8 a.m. to 1 p.m. on Saturdays and 5 p.m. to 10 p.m. on Sundays during sessions).",
+    "evidence": [
+      [
+        "10 00p m on weekdays"
+      ]
+    ]
+  },
+  {
+    "id": "hb-07",
+    "category": "factual",
+    "question": "How many postgraduate halls of residence does UI have and what are they called?",
+    "reference_answer": "Three postgraduate halls: Tafawa Balewa Hall, Obafemi Awolowo Hall and Abdulsalami Abubakar Hall.",
+    "evidence": [
+      [
+        "three postgraduate halls of residence"
+      ]
+    ]
+  },
+  {
+    "id": "hb-08",
+    "category": "numeric",
+    "question": "What is the capacity of Tafawa Balewa Hall and when was it opened?",
+    "reference_answer": "It has a capacity for 207 students and was opened in 1968 as the University's first postgraduate hall of residence.",
+    "evidence": [
+      [
+        "tafawa balewa hall",
+        "207"
+      ]
+    ]
+  },
+  {
+    "id": "hb-09",
+    "category": "factual",
+    "question": "What is the email address of the Postgraduate College information desk?",
+    "reference_answer": "informationdesk@pgcollege.ui.edu.ng",
+    "evidence": [
+      [
+        "informationdesk@pgcollege.ui.edu.ng"
+      ]
+    ]
+  },
+  {
+    "id": "hb-10",
+    "category": "factual",
+    "question": "Who was awarded the first PhD at the University of Ibadan and in what subject?",
+    "reference_answer": "Dr Sanya Dojo Onabamiro, in Zoology in 1952.",
+    "evidence": [
+      [
+        "first ph d was awarded in zoology in 1952"
+      ]
+    ]
+  },
+  {
+    "id": "tm-01",
+    "category": "numeric",
+    "question": "What is the maximum length of a thesis abstract and how many keywords should it have?",
+    "reference_answer": "Not more than 500 words, structured into four paragraphs, with a minimum of three and a maximum of five keywords.",
+    "evidence": [
+      [
+        "not more than 500 words"
+      ]
+    ]
+  },
+  {
+    "id": "tm-02",
+    "category": "factual",
+    "question": "What font and size should I use to type my dissertation?",
+    "reference_answer": "Times New Roman, point 12 for text; titles and headings should not be more than point 14.",
+    "evidence": [
+      [
+        "times new roman",
+        "point 12"
+      ]
+    ]
+  },
+  {
+    "id": "tm-03",
+    "category": "numeric",
+    "question": "What page margins and paper size does the thesis guideline require?",
+    "reference_answer": "A4 paper (not less than 80 grammes), with a 3.7 cm left margin and 2.5 cm for other margins; 5.0 cm above the heading at the top of a new chapter's first page.",
+    "evidence": [
+      [
+        "3 7 cm",
+        "2 5 cm"
+      ]
+    ]
+  },
+  {
+    "id": "tm-04",
+    "category": "numeric",
+    "question": "How many chapters should a thesis or dissertation have?",
+    "reference_answer": "Not less than five and not more than seven chapters.",
+    "evidence": [
+      [
+        "not less than five"
+      ]
+    ]
+  },
+  {
+    "id": "tm-05",
+    "category": "multi_fact",
+    "question": "What is the deadline for submitting my passed thesis for November graduation, and what must I submit?",
+    "reference_answer": "The deadline is 30 September of the same year. Submit five hard copies (more with co-supervisors) bound in hard National Green cover, plus two virus-free electronic copies on compact disks, to the Postgraduate College.",
+    "evidence": [
+      [
+        "30th of september"
+      ],
+      [
+        "two virus free electronic copies"
+      ]
+    ]
+  },
+  {
+    "id": "tm-06",
+    "category": "factual",
+    "question": "What line spacing should I use for the main body of my thesis?",
+    "reference_answer": "1.5 line spacing for the main body; in-text quotations are single-spaced.",
+    "evidence": [
+      [
+        "1 5 line spacing"
+      ]
+    ]
+  },
+  {
+    "id": "tm-07",
+    "category": "factual",
+    "question": "Am I allowed to use both footnotes and endnotes in my thesis?",
+    "reference_answer": "No. The combined use of footnotes and endnotes is not acceptable.",
+    "evidence": [
+      [
+        "combined use of footnotes and endnotes"
+      ]
+    ]
+  },
+  {
+    "id": "tm-08",
+    "category": "factual",
+    "question": "Should I use British or American spelling in my thesis?",
+    "reference_answer": "British spellings and punctuation are preferred; overlapping use of Americanisms is not allowed.",
+    "evidence": [
+      [
+        "british spellings"
+      ]
+    ]
+  },
+  {
+    "id": "tm-09",
+    "category": "factual",
+    "question": "How should the pages of my thesis be numbered?",
+    "reference_answer": "Consecutive Roman numerals (starting with i, not shown on the title page) for pages before the first chapter, then Arabic numerals starting from 1 for the main body, centred at the bottom of each page.",
+    "evidence": [
+      [
+        "consecutive roman numerals"
+      ]
+    ]
+  },
+  {
+    "id": "tm-10",
+    "category": "multi_fact",
+    "question": "What colour must the bound thesis be, and what should appear on the spine?",
+    "reference_answer": "Hard green cover in National Green (colour code 0-010). The title and author's name are in gold lettering on the front cover, and the spine carries the author information (degree, year and name) in gold lettering, 10-12 mm, from top to bottom.",
+    "evidence": [
+      [
+        "national green"
+      ],
+      [
+        "spine",
+        "gold lettering"
+      ]
+    ]
+  },
+  {
+    "id": "tm-11",
+    "category": "numeric",
+    "question": "How long can the acknowledgements section of a thesis be?",
+    "reference_answer": "It should be concise and not exceed two pages.",
+    "evidence": [
+      [
+        "not exceed two pages"
+      ]
+    ]
+  },
+  {
+    "id": "ag-01",
+    "category": "numeric",
+    "question": "How much are the postgraduate application forms for academic and professional programmes?",
+    "reference_answer": "N13,000 for academic programmes and N18,000 for professional programmes (Master and PGD applicants pay an extra N3,000 for the English proficiency test).",
+    "evidence": [
+      [
+        "13 000",
+        "18 000"
+      ]
+    ]
+  },
+  {
+    "id": "ag-02",
+    "category": "numeric",
+    "question": "What score do I need in the English proficiency test for Master's or Postgraduate Diploma admission?",
+    "reference_answer": "At least 40%.",
+    "evidence": [
+      [
+        "at least 40"
+      ]
+    ]
+  },
+  {
+    "id": "ag-03",
+    "category": "numeric",
+    "question": "How many letters of recommendation are required for the application?",
+    "reference_answer": "Three e-letters of recommendation from faculty members or others well acquainted with the applicant's academic work, submitted electronically as part of the online application.",
+    "evidence": [
+      [
+        "three e letters of recommendation"
+      ]
+    ]
+  },
+  {
+    "id": "ag-04",
+    "category": "factual",
+    "question": "Can I defer my admission offer to the following year?",
+    "reference_answer": "No. The Postgraduate College does not entertain deferment; an offer not taken up in the year given lapses and the candidate may reapply the following year.",
+    "evidence": [
+      [
+        "does not entertain deferment"
+      ]
+    ]
+  },
+  {
+    "id": "ag-05",
+    "category": "factual",
+    "question": "Can I apply to more than one department or programme at the same time?",
+    "reference_answer": "No. A candidate may apply to only one department or programme.",
+    "evidence": [
+      [
+        "only one department or programme"
+      ]
+    ]
+  },
+  {
+    "id": "ag-06",
+    "category": "factual",
+    "question": "Who is eligible for part-time admission?",
+    "reference_answer": "Candidates who are on the academic staff of the University or who satisfy the Postgraduate College that facilities for their work as part-time students are adequate; they may be asked to show evidence of release by their employers.",
+    "evidence": [
+      [
+        "admitted to part time registration"
+      ]
+    ]
+  },
+  {
+    "id": "ag-07",
+    "category": "factual",
+    "question": "What minimum degree class is expected of foreign applicants?",
+    "reference_answer": "A bachelor's degree with at least a Second Class Upper Division from a university recognised by Senate.",
+    "evidence": [
+      [
+        "second class upper division"
+      ]
+    ]
+  },
+  {
+    "id": "ag-08",
+    "category": "factual",
+    "question": "What is admission as an occasional student?",
+    "reference_answer": "Candidates who meet the minimum entry requirements and are recommended by the Faculty Postgraduate Committee may be admitted as occasional students, but they are not awarded a degree of the University of Ibadan.",
+    "evidence": [
+      [
+        "occasional students"
+      ]
+    ]
+  },
+  {
+    "id": "fs-01",
+    "category": "numeric",
+    "question": "How much is the acceptance fee for newly admitted postgraduate students?",
+    "reference_answer": "NGN 30,000.",
+    "evidence": [
+      [
+        "acceptance fee",
+        "30 000"
+      ]
+    ]
+  },
+  {
+    "id": "fs-02",
+    "category": "numeric",
+    "question": "What extra fees do foreign postgraduate students pay in USD?",
+    "reference_answer": "Examination fee of $300, Postgraduate Development Fee of $400, and a $300 bench fee for laboratory-based programmes.",
+    "evidence": [
+      [
+        "postgraduate development fee",
+        "400"
+      ]
+    ]
+  },
+  {
+    "id": "fs-03",
+    "category": "numeric",
+    "question": "How much is the late registration penalty for Nigerian students?",
+    "reference_answer": "NGN 5,000.",
+    "evidence": [
+      [
+        "late registration penalty",
+        "5 000"
+      ]
+    ]
+  },
+  {
+    "id": "fs-04",
+    "category": "factual",
+    "question": "What does my postgraduate tuition fee cover?",
+    "reference_answer": "Registration, tuition/instruction, supervision, examinations and graduation processing, plus membership of the Kenneth Dike Library and the Students' Union.",
+    "evidence": [
+      [
+        "tuition fees cover registration"
+      ]
+    ]
+  },
+  {
+    "id": "cal-01",
+    "category": "numeric",
+    "question": "According to the amended 2024/2025 calendar, when does second semester teaching run and for how many weeks?",
+    "reference_answer": "13 weeks for teaching, revision and continuous assessment from Monday 25/08/25 to Friday 21/11/25.",
+    "evidence": [
+      [
+        "13 weeks for teaching",
+        "21 11 25"
+      ]
+    ]
+  },
+  {
+    "id": "cal-02",
+    "category": "numeric",
+    "question": "In the 2025/2026 academic calendar, when do returning students resume on campus and start online registration?",
+    "reference_answer": "Thursday 05/03/26.",
+    "evidence": [
+      [
+        "returning students",
+        "05 03 26"
+      ]
+    ]
+  },
+  {
+    "id": "cal-03",
+    "category": "numeric",
+    "question": "When are the first semester GES examinations in the 2025/2026 session?",
+    "reference_answer": "Monday 25/05/26 to Friday 29/05/26.",
+    "evidence": [
+      [
+        "ges examinations",
+        "25 05 26"
+      ]
+    ]
+  },
+  {
+    "id": "cal-04",
+    "category": "factual",
+    "question": "Do postgraduate students resume at the same time as undergraduates?",
+    "reference_answer": "Yes, postgraduate students resume along with the undergraduate students.",
+    "evidence": [
+      [
+        "postgraduate students to resume along with the undergraduate"
+      ]
+    ]
+  },
+  {
+    "id": "fm-01",
+    "category": "procedural",
+    "question": "How early must I submit the request for my M.Phil/Ph.D conversion examination?",
+    "reference_answer": "At least one week before the examination date, with the student's last registration form attached. An examination held without approval or at a different venue/date is null and void.",
+    "evidence": [
+      [
+        "at least one week before the date of the examination"
+      ]
+    ]
+  },
+  {
+    "id": "fm-02",
+    "category": "procedural",
+    "question": "What is needed before approval is granted for my oral examination, and how early must the request go in?",
+    "reference_answer": "All examiners' reports must be submitted before approval can be granted, and the form must be returned to the Postgraduate College at least two weeks before the proposed oral examination date.",
+    "evidence": [
+      [
+        "all reports must be in before an approval"
+      ]
+    ]
+  },
+  {
+    "id": "fm-03",
+    "category": "factual",
+    "question": "Is orientation compulsory for newly admitted postgraduate students?",
+    "reference_answer": "Yes, orientation of newly admitted students is mandatory.",
+    "evidence": [
+      [
+        "orientation of newly admitted students is mandatory"
+      ]
+    ]
+  },
+  {
+    "id": "fu-01",
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "How much is the application form for academic programmes?"
+      },
+      {
+        "role": "assistant",
+        "content": "It costs N13,000 for academic programmes and N18,000 for professional programmes (Source: Admission Guide 2021 2022, p.8)."
+      }
+    ],
+    "question": "And is there any extra payment for Master's applicants?",
+    "reference_answer": "Yes, Master's and Postgraduate Diploma applicants pay an extra N3,000 for the English language proficiency test.",
+    "evidence": [
+      [
+        "extra n3 000",
+        "proficiency in english"
+      ]
+    ]
+  },
+  {
+    "id": "fu-02",
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "What font should I use in my thesis?"
+      },
+      {
+        "role": "assistant",
+        "content": "Times New Roman, point 12 (Source: Thesis Dissertation Manual of Style, p.10)."
+      }
+    ],
+    "question": "and what about the line spacing?",
+    "reference_answer": "The main body should be in 1.5 line spacing; in-text quotations use single spacing.",
+    "evidence": [
+      [
+        "1 5 line spacing"
+      ]
+    ]
+  },
+  {
+    "id": "fu-03",
+    "category": "follow_up",
+    "history": [
+      {
+        "role": "user",
+        "content": "What is the deadline for submitting my passed thesis for November graduation?"
+      },
+      {
+        "role": "assistant",
+        "content": "30 September of the same year (Source: Thesis Dissertation Manual of Style, p.8)."
+      }
+    ],
+    "question": "How many copies do I need to hand in?",
+    "reference_answer": "Five hard copies (more with co-supervisors) bound in hard green cover, plus two virus-free electronic copies on compact disks.",
+    "evidence": [
+      [
+        "hard copies",
+        "two virus free electronic copies"
+      ]
+    ]
+  },
+  {
+    "id": "oos-01",
+    "category": "out_of_scope",
+    "question": "What is the capital of France?",
+    "reference_answer": "Not answerable from the university documents; the assistant should say it doesn't have this information."
+  },
+  {
+    "id": "oos-02",
+    "category": "out_of_scope",
+    "question": "What is the JAMB cut-off mark for undergraduate Medicine at UI this year?",
+    "reference_answer": "Not in the postgraduate documents; the assistant should say it doesn't have this information."
+  },
+  {
+    "id": "oos-03",
+    "category": "out_of_scope",
+    "question": "What is the personal phone number of the Vice-Chancellor?",
+    "reference_answer": "Not in the documents; the assistant should say it doesn't have this information and must not invent a number."
+  },
+  {
+    "id": "oos-04",
+    "category": "out_of_scope",
+    "question": "Who won the last Nigerian presidential election?",
+    "reference_answer": "Not answerable from the university documents; the assistant should say it doesn't have this information."
+  },
+  {
+    "id": "chat-01",
+    "category": "chitchat",
+    "question": "hi",
+    "reference_answer": "A friendly greeting offering help with postgraduate questions."
+  },
+  {
+    "id": "chat-02",
+    "category": "chitchat",
+    "question": "Thanks a lot, that was helpful!",
+    "reference_answer": "A polite acknowledgement offering further help."
+  },
+  {
+    "id": "chat-03",
+    "category": "chitchat",
+    "question": "Who are you and what can you help me with?",
+    "reference_answer": "Introduces itself as the University of Ibadan Postgraduate AI Assistant and lists topics it can help with: admissions, fees, registration, examinations, thesis guidelines, academic calendar."
+  },
+  {
+    "id": "pol-01",
+    "category": "numeric",
+    "question": "What is the pass mark for a postgraduate course and how are marks graded?",
+    "reference_answer": "The pass mark is 40%. Grades: 0-39 E (Fail), 40-49 D (Pass), 50-59 C (Good), 60-69 B (Very Good), 70-100 A (Excellent).",
+    "evidence": [
+      [
+        "pass mark shall be 40"
+      ]
+    ]
+  },
+  {
+    "id": "pol-02",
+    "category": "numeric",
+    "question": "Until when can I withdraw from a course I registered for?",
+    "reference_answer": "Within the first six weeks of the semester in which the course is taught, on completion of the prescribed forms from the Postgraduate College.",
+    "evidence": [
+      [
+        "within the first six weeks"
+      ]
+    ]
+  },
+  {
+    "id": "pol-03",
+    "category": "procedural",
+    "question": "What happens if I fail a compulsory course?",
+    "reference_answer": "The student must re-register for the course (or project) and be re-examined at the next opportunity.",
+    "evidence": [
+      [
+        "re register for the course"
+      ]
+    ]
+  },
+  {
+    "id": "pol-04",
+    "category": "factual",
+    "question": "Who is allowed to supervise M.Phil and Ph.D candidates?",
+    "reference_answer": "Lecturers with a minimum of three years post-doctoral research/teaching experience can supervise M.Phil, M.D. and Ph.D. candidates.",
+    "evidence": [
+      [
+        "minimum of three years post doctoral"
+      ]
+    ]
+  },
+  {
+    "id": "pol-05",
+    "category": "numeric",
+    "question": "How many candidates can an external examiner examine in one session?",
+    "reference_answer": "No external examiner shall examine more than 25 candidates at any examination in a session, nor more than three areas of specialisation.",
+    "evidence": [
+      [
+        "more than 25 candidates"
+      ]
+    ]
+  },
+  {
+    "id": "pol-06",
+    "category": "numeric",
+    "question": "How many course units must a full-time academic Master's student register for?",
+    "reference_answer": "A minimum of 30 units and a maximum of 45 (including the project, which carries 6 units); seminar presentation is compulsory.",
+    "evidence": [
+      [
+        "minimum of 30 units and a maximum of 45"
+      ]
+    ]
+  },
+  {
+    "id": "pol-07",
+    "category": "procedural",
+    "question": "Who do I report a supervision or other grievance to first, and what is the escalation route?",
+    "reference_answer": "Grievances go to the Departmental Postgraduate Committee, then the Faculty Postgraduate Committee, and if unresolved the Executive Committee and/or the Board of the Postgraduate College.",
+    "evidence": [
+      [
+        "departmental postgraduate committee",
+        "faculty postgraduate committee"
+      ]
+    ]
+  },
+  {
+    "id": "pol-08",
+    "category": "procedural",
+    "question": "How is an allegation of research misconduct handled?",
+    "reference_answer": "The Provost of the Postgraduate College sets up a committee to examine the allegation; if a prima facie case exists, it is reported through the Board of the Postgraduate College to the Students' Disciplinary Committee, otherwise the allegation is dismissed.",
+    "evidence": [
+      [
+        "provost of the postgraduate college shall set up a committee"
+      ]
+    ]
+  },
+  {
+    "id": "pol-09",
+    "category": "procedural",
+    "question": "How do I request my academic transcript as a postgraduate student?",
+    "reference_answer": "Requests are made on the prescribed forms obtainable from the College portal, and each request attracts a fee prescribed by the Postgraduate College.",
+    "evidence": [
+      [
+        "request for academic transcript"
+      ]
+    ]
+  },
+  {
+    "id": "pol-10",
+    "category": "numeric",
+    "question": "How many units must full-time Diploma candidates register for?",
+    "reference_answer": "A minimum of 24 units and a maximum of 30 units (Certificate programme candidates register for 12 to 24 units).",
+    "evidence": [
+      [
+        "minimum of 24 units and a maximum of 30 units"
+      ]
+    ]
+  },
+  {
+    "id": "hb-11",
+    "category": "factual",
+    "question": "What sanctions can be imposed on a student found guilty of misconduct?",
+    "reference_answer": "Sanctions the University may apply include fines, disciplinary probation, suspension or rustication, expulsion, loss of privileges, and withdrawal from the programme.",
+    "evidence": [
+      [
+        "disciplinary probation"
+      ]
+    ]
+  },
+  {
+    "id": "oos-05",
+    "category": "out_of_scope",
+    "question": "How much is the hostel accommodation fee per session in Abdulsalami Abubakar Hall?",
+    "reference_answer": "The hostel fee amount is not stated in the documents; the assistant should say it doesn't have it and must not invent a figure."
+  }
+]

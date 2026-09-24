@@ -1,0 +1,16 @@
+[
+  {
+    "mode": "hybrid",
+    "hit@6": 0.926,
+    "recall@6": 0.917,
+    "mrr": 0.816,
+    "avg_latency_s": 0.119,
+    "questions": 54,
+    "missed": [
+      "hb-02",
+      "ag-05",
+      "cal-04",
+      "pol-07"
+    ]
+  }
+]

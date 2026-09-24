@@ -1,0 +1,1369 @@
+{
+  "mode": "hybrid",
+  "correctness": 0.831,
+  "faithfulness": 0.984,
+  "avg_latency_s": 4.394,
+  "by_category": {
+    "factual": 0.886,
+    "procedural": 0.929,
+    "numeric": 0.75,
+    "multi_fact": 0.5,
+    "follow_up": 0.833,
+    "out_of_scope": 1.0,
+    "chitchat": 0.667
+  },
+  "failures": [
+    {
+      "id": "hb-02",
+      "question": "When did the Postgraduate School become a College?",
+      "answer": "The Postgraduate School was upgraded to a full‑fledged College in **2018** (Source: PG College Policy, p.6).",
+      "reason": "The assistant correctly identifies the year 2018 but omits the specific dates (3 August and 5 October) and the distinct roles of the Senate and Governing Council required by the reference answer."
+    },
+    {
+      "id": "hb-06",
+      "question": "What are the library opening hours on weekdays during session?",
+      "answer": "During academic sessions the library is open on weekdays from **8:00 a.m. to 10:00 p.m.** (Source: Postgraduate Handbook, p.55).",
+      "reason": "The answer correctly identifies the weekday hours but omits the Saturday and Sunday hours specified in the reference answer."
+    },
+    {
+      "id": "hb-07",
+      "question": "How many postgraduate halls of residence does UI have and what are they called?",
+      "answer": "- The University of Ibadan has **three postgraduate halls of residence** (Source: Postgraduate Handbook, p.51; Admission Guide 2021‑2022, p.5).\n\n- Two of the halls are named in the handbook:\n  * **Tafawa Balewa Hall** – the university’s first postgraduate hall, opened in 1968 (Source: Postgraduate Handbook, p.51)  \n  * **Abdulsalami Abubakar Hall** – houses about 700 postgraduate students (Source: Postgraduate Handbook, p.53)\n\n- The third postgraduate hall is mentioned only as part of the total count; its name is not provided in the excerpts above.  \n\n*If you need the name of the third hall, please consult the University’s Postgraduate College office or the official UI website for the complete list.*",
+      "reason": "The assistant correctly identifies the number of halls and two of their names but fails to provide the name of the third hall (Obafemi Awolowo Hall), which is partially visible in the context but not explicitly named in the provided snippets, resulting in a missing key fact."
+    },
+    {
+      "id": "hb-08",
+      "question": "What is the capacity of Tafawa Balewa Hall and when was it opened?",
+      "answer": "- **Capacity:** 207 students (Source: Postgraduate Handbook, p.51)  \n- **Year opened:** 1968 (Source: Postgraduate Handbook, p.51)",
+      "reason": "The assistant correctly states the capacity and opening year but omits the key fact that it was the University's first postgraduate hall of residence."
+    },
+    {
+      "id": "tm-01",
+      "question": "What is the maximum length of a thesis abstract and how many keywords should it have?",
+      "answer": "- **Maximum abstract length:** No more than **500 words** (see [1] PG College Policy, p.38; [2] Thesis Dissertation Manual of Style, p.7; [4] PG College Policy, p.39).  \n- **Number of keywords:** A minimum of **three** and a maximum of **five** keywords should be supplied (see [2] Thesis Dissertation Manual of Style, p.7; [4] PG College Policy, p.39).",
+      "reason": "The assistant correctly states the word limit and keyword count but omits the requirement that the abstract be structured into four paragraphs."
+    },
+    {
+      "id": "tm-05",
+      "question": "What is the deadline for submitting my passed thesis for November graduation, and what must I submit?",
+      "answer": "- **Deadline:** The final submission of a passed thesis (or dissertation) for degrees to be conferred in November must be made **by 30 September of the same year** (Source: PG College Policy, p.42; Thesis Dissertation Manual of Style, p.8).\n\n- **What to submit:** You must deliver to the Postgraduate College:  \n  • **Five or six hard copies** of the thesis, each **suitably bound in a hard green cover**.  \n  • **Three virus‑free electronic copies** on compact discs.  \n\n  Of these, **three hard copies and three electronic copies become the property of the University**. Their allocation is:  \n  • **Two hard copies + one electronic copy** to the **University Library**.  \n  • **One hard copy + one electronic copy** to the **Department**.  \n  • The remaining copies stay with the **Postgraduate College** (Source: PG College Policy, p.42).",
+      "reason": "The assistant incorrectly states that three electronic copies are required, whereas the reference answer and context specify two."
+    },
+    {
+      "id": "tm-06",
+      "question": "What line spacing should I use for the main body of my thesis?",
+      "answer": "The main body of your thesis (the narrative, analysis and original argumentation) should be set in **1.5 line spacing**【Source: Thesis Dissertation Manual of Style, p.10】.",
+      "reason": "The assistant correctly identifies the 1.5 line spacing for the main body but fails to mention that in-text quotations should be single-spaced, which is a key part of the reference answer."
+    },
+    {
+      "id": "tm-10",
+      "question": "What colour must the bound thesis be, and what should appear on the spine?",
+      "answer": "- **Cover colour:** The thesis must be bound in a hard green cover, using the prescribed “National Green” (colour code 0‑010) (Source: Thesis Dissertation Manual of Style, p.8).  \n\n- **Spine lettering:** The spine should bear the author’s information—degree, year and name—written boldly in gold lettering (10‑12 mm high) from top to bottom (Source: Thesis Dissertation Manual of Style, p.13).",
+      "reason": "The assistant correctly identifies the cover color and spine details but omits the requirement for gold lettering on the front cover, which is a key fact in the reference answer."
+    },
+    {
+      "id": "ag-01",
+      "question": "How much are the postgraduate application forms for academic and professional programmes?",
+      "answer": "- **According to the Admission Guide 2021‑2022**:  \n  • Academic programme application form – **N 13,000**  \n  • Professional programme application form – **N 18,000** (Source: Admission Guide 2021 2022, p.8)  \n\n- **According to the current Fee Schedule**:  \n  • Academic programme application form – **N 7,750**  \n  • Professional programme application form – **N 10,750** (Source: Fee Schedule, “Other Sundry Charges”, NGN table)  \n\nBoth figures are given in the provided documents; you may wish to confirm the latest amount with the Postgraduate College office or website.",
+      "reason": "The answer correctly identifies the amounts from the Admission Guide but omits the extra N3,000 fee for the English proficiency test mentioned in the reference answer."
+    },
+    {
+      "id": "ag-03",
+      "question": "How many letters of recommendation are required for the application?",
+      "answer": "The provided documents do not specify a required number of letters of recommendation for any postgraduate application; they only mention endorsements on the application form by supervisors, heads of department and deans. Since the context does not contain this information, you should contact the University of Ibadan Postgraduate College office or consult the official website for the exact requirement.",
+      "reason": "The assistant failed to provide the required number of letters (three) specified in the ground truth, instead claiming the information was not in the context."
+    },
+    {
+      "id": "ag-05",
+      "question": "Can I apply to more than one department or programme at the same time?",
+      "answer": "The provided excerpts do not contain any statement about whether a postgraduate applicant may submit applications to more than one department or programme simultaneously.  \n\nIf you need clarification on this matter, please contact the University of Ibadan Postgraduate College office or consult the official postgraduate admissions guidelines on the university’s website.",
+      "reason": "The assistant failed to answer the question, claiming the information was not in the context, whereas the reference answer provides a definitive 'No'."
+    },
+    {
+      "id": "fm-01",
+      "question": "How early must I submit the request for my M.Phil/Ph.D conversion examination?",
+      "answer": "You must submit the request **at least one week before the scheduled examination date** (Source: Form Request for M.Phil./Ph.D. Conversion Examination, p.1).",
+      "reason": "The assistant correctly identifies the one-week deadline but omits the requirement to attach the last registration form and the consequence of null and void examinations."
+    },
+    {
+      "id": "fu-03",
+      "question": "How many copies do I need to hand in?",
+      "answer": "- **Hard‑copy requirement**  \n  - The *Thesis Dissertation Manual of Style* states you must submit **five hard copies** (or more if there are co‑supervisors) (Source: Thesis Dissertation Manual of Style, p.8).  \n  - The *PG College Policy* specifies **five or six hard copies** (the extra copy is for co‑supervisors) (Source: PG College Policy, p.42).\n\n- **Electronic‑copy requirement**  \n  - The *Thesis Dissertation Manual of Style* calls for **two virus‑free electronic copies** on compact discs (Source: Thesis Dissertation Manual of Style, p.8).  \n  - The *PG College Policy* requires **three virus‑free electronic copies** on compact discs (Source: PG College Policy, p.42).\n\n**Therefore, you need to hand in**:\n\n- **Hard copies:** 5 (or 6 if you have co‑supervisors).  \n- **Electronic copies:** 2 (or 3, depending on which guideline the College follows).  \n\nCheck with the Postgraduate College to confirm which set of numbers is currently being applied.",
+      "reason": "The assistant correctly identifies the hard copy count but fails to mention the 'hard green cover' requirement and presents conflicting electronic copy counts (2 vs 3) instead of the definitive 'two' specified in the ground truth, although it accurately reflects the provided context."
+    },
+    {
+      "id": "chat-02",
+      "question": "Thanks a lot, that was helpful!",
+      "answer": "You’re very welcome! If you have any more questions about admissions, fees, registration, examinations, thesis/dissertation requirements, or the academic calendar, feel free to ask.",
+      "reason": "The reply is polite and natural, but it lists specific topics (admissions, fees, etc.) that are not supported by the provided context."
+    },
+    {
+      "id": "chat-03",
+      "question": "Who are you and what can you help me with?",
+      "answer": "I’m sorry, but the information you’ve provided does not contain details about who I am or the range of assistance I can offer. Please contact the University of Ibadan Postgraduate College office or visit the official university website for clarification.",
+      "reason": "The assistant failed to introduce itself or list the specific topics it can help with as required by the reference answer, instead evasively directing the user to external resources."
+    },
+    {
+      "id": "pol-01",
+      "question": "What is the pass mark for a postgraduate course and how are marks graded?",
+      "answer": "- **Pass mark:** A candidate must obtain at least **40 %** in a postgraduate course to pass (Source: PG College Policy, p.34).  \n\n- **Grading of marks:** Percentage scores are interpreted as follows:  \n\n  * 0‑39 % → E (Fail)  \n  * 40‑49 % → D (Pass)  \n  * 50‑59 % → Good  \n  * 60‑69 % → B (Very Good)  \n  * 70‑100 % → A (Excellent)  \n\n(Source: PG College Policy, p.34)",
+      "reason": "The assistant omitted the letter grade 'C' for the 50-59% range, although all other facts were correct and supported by the context."
+    },
+    {
+      "id": "pol-05",
+      "question": "How many candidates can an external examiner examine in one session?",
+      "answer": "An external examiner may examine **no more than 25 candidates in a single examination session** (Source: PG College Policy, p.57; also reiterated on p.58).",
+      "reason": "The assistant correctly states the candidate limit but omits the key constraint regarding the three areas of specialisation."
+    },
+    {
+      "id": "pol-06",
+      "question": "How many course units must a full-time academic Master's student register for?",
+      "answer": "A full‑time student in the academic Master’s programme must register for **at least 30 units and may take up to 45 units (the project is counted within this total and carries 6 units)**【Source: PG College Policy, p.57】.",
+      "reason": "The assistant correctly states the unit limits and project weight but omits the compulsory seminar presentation mentioned in the reference answer."
+    },
+    {
+      "id": "pol-10",
+      "question": "How many units must full-time Diploma candidates register for?",
+      "answer": "Full‑time Diploma candidates must register for **between 24 units (minimum) and 30 units (maximum)** for the programme (Source: PG College Policy, p.52).",
+      "reason": "The assistant correctly identifies the unit range for Diploma candidates but fails to mention the Certificate programme details included in the reference answer."
+    }
+  ],
+  "details": [
+    {
+      "id": "hb-01",
+      "category": "factual",
+      "question": "What is the University of Ibadan motto and what does it mean?",
+      "answer": "- **Motto:** **RECTE SAPERE FONS**  \n- **Meaning:** “For Knowledge and Sound Judgment” (Source: Postgraduate Handbook, p.11).",
+      "sources": [
+        {
+          "document": "Postgraduate Handbook",
+          "page": 11
+        },
+        {
+          "document": "Postgraduate Handbook",
+          "page": 60
+        },
+        {
+          "document": "Postgraduate Handbook",
+          "page": 67
+        },
+        {
+          "document": "Postgraduate Handbook",
+          "page": 15
+        }
+      ],
+      "latency": 13.013523300061934,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the motto and its meaning as stated in the reference answer and supported by the provided context."
+    },
+    {
+      "id": "hb-02",
+      "category": "factual",
+      "question": "When did the Postgraduate School become a College?",
+      "answer": "The Postgraduate School was upgraded to a full‑fledged College in **2018** (Source: PG College Policy, p.6).",
+      "sources": [
+        {
+          "document": "PG College Policy",
+          "page": 6
+        },
+        {
+          "document": "PG College Policy",
+          "page": 19
+        }
+      ],
+      "latency": 1.0398568999953568,
+      "correctness": 0.5,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the year 2018 but omits the specific dates (3 August and 5 October) and the distinct roles of the Senate and Governing Council required by the reference answer."
+    },
+    {
+      "id": "hb-03",
+      "category": "procedural",
+      "question": "What are the steps to complete my registration as a newly admitted postgraduate student?",
+      "answer": "**Steps to complete registration for a newly admitted postgraduate student**\n\n1. **Obtain “Authority to Pay”** from the Admission Office. (Source: Postgraduate Handbook, p.44)  \n2. **Print out your invoice**. (Source: Postgraduate Handbook, p.44)  \n3. **Pay the invoice** at any of the authorised banks (list available at the PG College Finance Office, the Postgraduate School website, and notice boards). (Source: Postgraduate Handbook, p.44)  \n4. **Wait for the bank’s Confirmation of Payment** – the bank will email you the confirmation document. (Source: Postgraduate Handbook, p.44)  \n5. **Complete the registration form online** (you may need to contact your department to know which courses to select). (Source: Postgraduate Handbook, p.45)  \n6. **Await allocation of a Matriculation Number** (if you are not a UI product) **and hall allocation**. (Source: Postgraduate Handbook, p.45)  \n7. **Print the required forms** and proceed to your department and faculty to finalize the registration procedure. (Source: Postgraduate Handbook, p.45)",
+      "sources": [
+        {
+          "document": "Postgraduate Handbook",
+          "page": 44
+        },
+        {
+          "document": "Postgraduate Handbook",
+          "page": 45
+        }
+      ],
+      "latency": 1.9551157000241801,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant accurately lists all seven steps from the reference answer and supports every claim with the provided context."
+    },
+    {
+      "id": "hb-04",
+      "category": "factual",
+      "question": "What types of financial awards does the Postgraduate College offer?",
+      "answer": "The Postgraduate College provides **four distinct financial awards**:\n\n- **University of Ibadan Postgraduate College Scholarship Award** – a scholarship for postgraduate study.  \n- **Teaching and Research Assistantship Award** – an assistantship that supports doctoral candidates while they teach or conduct research.  \n- **Financial Aids Scheme for International Students** – a grant‑type aid open to both master’s and doctoral international students.  \n- **Scholarship for Postgraduate Students Living with Physical Disability** – a scholarship specifically for students with physical disabilities pursuing master’s or doctoral programmes.  \n\n(Source: Postgraduate Handbook, p.44)",
+      "sources": [
+        {
+          "document": "Postgraduate Handbook",
+          "page": 44
+        },
+        {
+          "document": "Postgraduate Handbook",
+          "page": 43
+        }
+      ],
+      "latency": 1.6307195000117645,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies all four specific financial awards mentioned in the reference answer and context, with no unsupported claims."
+    },
+    {
+      "id": "hb-05",
+      "category": "factual",
+      "question": "What happens if I cannot complete my programme within the maximum allowed duration?",
+      "answer": "- You will be **advised to withdraw** from the programme.  \n- You will be **denied any further renewal of registration** (i.e., you cannot continue the same registration).  \n- If your registration lapses because you did not finish within the maximum period, the same consequences apply: after a lapse of **two sessions the registration cannot be re‑activated** and you must apply for readmission.  \n\n(Source: Postgraduate Handbook, p.45; PG College Policy, p.31)",
+      "sources": [
+        {
+          "document": "Postgraduate Handbook",
+          "page": 45
+        },
+        {
+          "document": "PG College Policy",
+          "page": 31
+        }
+      ],
+      "latency": 1.4405791000463068,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the advice to withdraw and denial of renewal, and accurately supports the additional detail about lapsed registration and readmission with the provided context."
+    },
+    {
+      "id": "hb-06",
+      "category": "numeric",
+      "question": "What are the library opening hours on weekdays during session?",
+      "answer": "During academic sessions the library is open on weekdays from **8:00 a.m. to 10:00 p.m.** (Source: Postgraduate Handbook, p.55).",
+      "sources": [
+        {
+          "document": "Postgraduate Handbook",
+          "page": 55
+        },
+        {
+          "document": "Postgraduate Handbook",
+          "page": 65
+        },
+        {
+          "document": "Postgraduate Handbook",
+          "page": 59
+        }
+      ],
+      "latency": 0.9164787998888642,
+      "correctness": 0.5,
+      "faithfulness": 1.0,
+      "reason": "The answer correctly identifies the weekday hours but omits the Saturday and Sunday hours specified in the reference answer."
+    },
+    {
+      "id": "hb-07",
+      "category": "factual",
+      "question": "How many postgraduate halls of residence does UI have and what are they called?",
+      "answer": "- The University of Ibadan has **three postgraduate halls of residence** (Source: Postgraduate Handbook, p.51; Admission Guide 2021‑2022, p.5).\n\n- Two of the halls are named in the handbook:\n  * **Tafawa Balewa Hall** – the university’s first postgraduate hall, opened in 1968 (Source: Postgraduate Handbook, p.51)  \n  * **Abdulsalami Abubakar Hall** – houses about 700 postgraduate students (Source: Postgraduate Handbook, p.53)\n\n- The third postgraduate hall is mentioned only as part of the total count; its name is not provided in the excerpts above.  \n\n*If you need the name of the third hall, please consult the University’s Postgraduate College office or the official UI website for the complete list.*",
+      "sources": [
+        {
+          "document": "Postgraduate Handbook",
+          "page": 51
+        },
+        {
+          "document": "Postgraduate Handbook",
+          "page": 22
+        },
+        {
+          "document": "Postgraduate Handbook",
+          "page": 53
+        }
+      ],
+      "latency": 4.447595899924636,
+      "correctness": 0.5,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the number of halls and two of their names but fails to provide the name of the third hall (Obafemi Awolowo Hall), which is partially visible in the context but not explicitly named in the provided snippets, resulting in a missing key fact."
+    },
+    {
+      "id": "hb-08",
+      "category": "numeric",
+      "question": "What is the capacity of Tafawa Balewa Hall and when was it opened?",
+      "answer": "- **Capacity:** 207 students (Source: Postgraduate Handbook, p.51)  \n- **Year opened:** 1968 (Source: Postgraduate Handbook, p.51)",
+      "sources": [
+        {
+          "document": "Postgraduate Handbook",
+          "page": 51
+        },
+        {
+          "document": "Postgraduate Handbook",
+          "page": 52
+        },
+        {
+          "document": "Postgraduate Handbook",
+          "page": 2
+        },
+        {
+          "document": "Postgraduate Handbook",
+          "page": 3
+        },
+        {
+          "document": "Postgraduate Handbook",
+          "page": 53
+        }
+      ],
+      "latency": 9.643810200039297,
+      "correctness": 0.5,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly states the capacity and opening year but omits the key fact that it was the University's first postgraduate hall of residence."
+    },
+    {
+      "id": "hb-09",
+      "category": "factual",
+      "question": "What is the email address of the Postgraduate College information desk?",
+      "answer": "The Postgraduate College information desk can be reached at **informationdesk@pgcollege.ui.edu.ng** (Source: Postgraduate Handbook, p.38; Source: Postgraduate Handbook, p.39).",
+      "sources": [
+        {
+          "document": "Postgraduate Handbook",
+          "page": 38
+        },
+        {
+          "document": "Postgraduate Handbook",
+          "page": 57
+        },
+        {
+          "document": "Postgraduate Handbook",
+          "page": 39
+        },
+        {
+          "document": "Postgraduate Handbook",
+          "page": 55
+        }
+      ],
+      "latency": 7.324202800053172,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identified the email address from the context and cited the relevant sources accurately."
+    },
+    {
+      "id": "hb-10",
+      "category": "factual",
+      "question": "Who was awarded the first PhD at the University of Ibadan and in what subject?",
+      "answer": "The first PhD awarded by the University of Ibadan was to **Dr Sanya Dojo Onabamiro**, and it was in **Zoology** (Source: Postgraduate Handbook, p.35).",
+      "sources": [
+        {
+          "document": "Postgraduate Handbook",
+          "page": 80
+        },
+        {
+          "document": "Postgraduate Handbook",
+          "page": 35
+        }
+      ],
+      "latency": 9.63521259999834,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies Dr. Sanya Dojo Onabamiro and Zoology as the first PhD recipient and subject, which is fully supported by the provided context."
+    },
+    {
+      "id": "tm-01",
+      "category": "numeric",
+      "question": "What is the maximum length of a thesis abstract and how many keywords should it have?",
+      "answer": "- **Maximum abstract length:** No more than **500 words** (see [1] PG College Policy, p.38; [2] Thesis Dissertation Manual of Style, p.7; [4] PG College Policy, p.39).  \n- **Number of keywords:** A minimum of **three** and a maximum of **five** keywords should be supplied (see [2] Thesis Dissertation Manual of Style, p.7; [4] PG College Policy, p.39).",
+      "sources": [
+        {
+          "document": "PG College Policy",
+          "page": 38
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 7
+        },
+        {
+          "document": "PG College Policy",
+          "page": 40
+        },
+        {
+          "document": "PG College Policy",
+          "page": 39
+        }
+      ],
+      "latency": 8.70384810003452,
+      "correctness": 0.5,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly states the word limit and keyword count but omits the requirement that the abstract be structured into four paragraphs."
+    },
+    {
+      "id": "tm-02",
+      "category": "factual",
+      "question": "What font and size should I use to type my dissertation?",
+      "answer": "Use **Times New Roman** as the font and set the type size to **12 pt** for the main text of your dissertation (headings may be larger, e.g., 14 pt)【Source: PG College Policy, p.41】;【Source: PG College Policy, p.53】;【Source: Thesis Dissertation Manual of Style, p.10】.",
+      "sources": [
+        {
+          "document": "PG College Policy",
+          "page": 41
+        },
+        {
+          "document": "PG College Policy",
+          "page": 53
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 10
+        }
+      ],
+      "latency": 9.739642200060189,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the font and sizes for text and headings as specified in the reference answer and supported by the provided context."
+    },
+    {
+      "id": "tm-03",
+      "category": "numeric",
+      "question": "What page margins and paper size does the thesis guideline require?",
+      "answer": "The thesis must be prepared on **A4 paper (≈ 21.0 cm × 29.7 cm)**.  \nMargins are:\n\n* **Left margin:** 3.7 cm  \n* **All other margins (right, bottom):** 2.5 cm  \n* **Top of the first page of each new chapter:** 5.0 cm above the heading  \n\n(Source: PG College Policy, p.41; PG College Policy, p.53; Thesis Dissertation Manual of Style, p.6)",
+      "sources": [
+        {
+          "document": "PG College Policy",
+          "page": 41
+        },
+        {
+          "document": "PG College Policy",
+          "page": 53
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 6
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 12
+        }
+      ],
+      "latency": 8.7962251000572,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the paper size, weight, and specific margin requirements as stated in the reference answer and supported by the provided context."
+    },
+    {
+      "id": "tm-04",
+      "category": "numeric",
+      "question": "How many chapters should a thesis or dissertation have?",
+      "answer": "A thesis or dissertation should contain **at least five (5) chapters and no more than seven (7) chapters** (Source: Thesis Dissertation Manual of Style, p.7).",
+      "sources": [
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 7
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 12
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 10
+        }
+      ],
+      "latency": 10.534693600027822,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly states the chapter range (5-7) as specified in the reference answer and supported by context [1]."
+    },
+    {
+      "id": "tm-05",
+      "category": "multi_fact",
+      "question": "What is the deadline for submitting my passed thesis for November graduation, and what must I submit?",
+      "answer": "- **Deadline:** The final submission of a passed thesis (or dissertation) for degrees to be conferred in November must be made **by 30 September of the same year** (Source: PG College Policy, p.42; Thesis Dissertation Manual of Style, p.8).\n\n- **What to submit:** You must deliver to the Postgraduate College:  \n  • **Five or six hard copies** of the thesis, each **suitably bound in a hard green cover**.  \n  • **Three virus‑free electronic copies** on compact discs.  \n\n  Of these, **three hard copies and three electronic copies become the property of the University**. Their allocation is:  \n  • **Two hard copies + one electronic copy** to the **University Library**.  \n  • **One hard copy + one electronic copy** to the **Department**.  \n  • The remaining copies stay with the **Postgraduate College** (Source: PG College Policy, p.42).",
+      "sources": [
+        {
+          "document": "PG College Policy",
+          "page": 42
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 8
+        },
+        {
+          "document": "PG College Policy",
+          "page": 62
+        }
+      ],
+      "latency": 9.387546899961308,
+      "correctness": 0.5,
+      "faithfulness": 1.0,
+      "reason": "The assistant incorrectly states that three electronic copies are required, whereas the reference answer and context specify two."
+    },
+    {
+      "id": "tm-06",
+      "category": "factual",
+      "question": "What line spacing should I use for the main body of my thesis?",
+      "answer": "The main body of your thesis (the narrative, analysis and original argumentation) should be set in **1.5 line spacing**【Source: Thesis Dissertation Manual of Style, p.10】.",
+      "sources": [
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 10
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 16
+        }
+      ],
+      "latency": 11.503939699963666,
+      "correctness": 0.5,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the 1.5 line spacing for the main body but fails to mention that in-text quotations should be single-spaced, which is a key part of the reference answer."
+    },
+    {
+      "id": "tm-07",
+      "category": "factual",
+      "question": "Am I allowed to use both footnotes and endnotes in my thesis?",
+      "answer": "No. The manual states that “the combined use of footnotes and endnotes in a thesis or dissertation is not acceptable” (Source: Thesis Dissertation Manual of Style, p.11).",
+      "sources": [
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 11
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 15
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 12
+        }
+      ],
+      "latency": 9.349133999901824,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly states that the combined use is not acceptable and accurately cites the provided context to support this claim."
+    },
+    {
+      "id": "tm-08",
+      "category": "factual",
+      "question": "Should I use British or American spelling in my thesis?",
+      "answer": "Use British spellings (and British punctuation) in your thesis; the manual states that British spellings are preferred and the overlapping use of Americanisms should be avoided (Source: Thesis Dissertation Manual of Style, p.12).",
+      "sources": [
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 12
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 10
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 15
+        }
+      ],
+      "latency": 9.406234800000675,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the preference for British spelling and the prohibition of Americanisms, fully supported by the provided context."
+    },
+    {
+      "id": "tm-09",
+      "category": "factual",
+      "question": "How should the pages of my thesis be numbered?",
+      "answer": "- **Pre‑liminary pages (title page, dedication, acknowledgements, abstract, etc.)** – number them with **lower‑case Roman numerals** (i, ii, iii, …).  \n  - Begin with **(i)** for the first page **after** the title page; the title page itself carries **no numeral**. (Source: Thesis Dissertation Manual of Style, p.10)  \n\n- **Main body of the thesis/dissertation** – switch to **Arabic numerals** (1, 2, 3, …), starting with **(1)** on the first page of Chapter 1. (Source: Thesis Dissertation Manual of Style, p.10)  \n\n- **Placement of the page number** – centre it at the bottom of each page. (Source: Thesis Dissertation Manual of Style, p.10)",
+      "sources": [
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 7
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 10
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 11
+        }
+      ],
+      "latency": 9.261262100073509,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the Roman numeral system for preliminary pages (excluding the title page), the switch to Arabic numerals for the main body, and the bottom-center placement, all of which are fully supported by the provided context."
+    },
+    {
+      "id": "tm-10",
+      "category": "multi_fact",
+      "question": "What colour must the bound thesis be, and what should appear on the spine?",
+      "answer": "- **Cover colour:** The thesis must be bound in a hard green cover, using the prescribed “National Green” (colour code 0‑010) (Source: Thesis Dissertation Manual of Style, p.8).  \n\n- **Spine lettering:** The spine should bear the author’s information—degree, year and name—written boldly in gold lettering (10‑12 mm high) from top to bottom (Source: Thesis Dissertation Manual of Style, p.13).",
+      "sources": [
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 12
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 13
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 6
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 8
+        }
+      ],
+      "latency": 8.319111899938434,
+      "correctness": 0.5,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the cover color and spine details but omits the requirement for gold lettering on the front cover, which is a key fact in the reference answer."
+    },
+    {
+      "id": "tm-11",
+      "category": "numeric",
+      "question": "How long can the acknowledgements section of a thesis be?",
+      "answer": "The acknowledgement section should be concise and must not exceed **two pages** of the thesis or dissertation (Source: Thesis Dissertation Manual of Style, p.7).",
+      "sources": [
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 7
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 8
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 11
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 14
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 4
+        }
+      ],
+      "latency": 7.311423500068486,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly states the two-page limit and conciseness requirement, which are fully supported by the provided context."
+    },
+    {
+      "id": "ag-01",
+      "category": "numeric",
+      "question": "How much are the postgraduate application forms for academic and professional programmes?",
+      "answer": "- **According to the Admission Guide 2021‑2022**:  \n  • Academic programme application form – **N 13,000**  \n  • Professional programme application form – **N 18,000** (Source: Admission Guide 2021 2022, p.8)  \n\n- **According to the current Fee Schedule**:  \n  • Academic programme application form – **N 7,750**  \n  • Professional programme application form – **N 10,750** (Source: Fee Schedule, “Other Sundry Charges”, NGN table)  \n\nBoth figures are given in the provided documents; you may wish to confirm the latest amount with the Postgraduate College office or website.",
+      "sources": [
+        {
+          "document": "Fee Schedule",
+          "page": null
+        }
+      ],
+      "latency": 9.245234299916774,
+      "correctness": 0.5,
+      "faithfulness": 1.0,
+      "reason": "The answer correctly identifies the amounts from the Admission Guide but omits the extra N3,000 fee for the English proficiency test mentioned in the reference answer."
+    },
+    {
+      "id": "ag-02",
+      "category": "numeric",
+      "question": "What score do I need in the English proficiency test for Master's or Postgraduate Diploma admission?",
+      "answer": "You must obtain **at least a 40 % score** on the Postgraduate College English proficiency test to be eligible for admission to a Master’s programme or a Postgraduate Diploma.  \n\n- (Source: PG College Policy, p.28) – “A minimum score of 40 percent must be attained … before applicants could be eligible for shortlisting.”  \n- (Source: Admission Guide 2021‑2022, p.9) – “Applicants for the degree of Master and Postgraduate Diplomas shall be required to sit for a proficiency test and obtain a mark of at least 40% before their application can be considered.”",
+      "sources": [
+        {
+          "document": "PG College Policy",
+          "page": 28
+        },
+        {
+          "document": "PG College Policy",
+          "page": 35
+        }
+      ],
+      "latency": 7.803917900077067,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the 40% minimum score requirement and supports it with accurate citations from the provided context."
+    },
+    {
+      "id": "ag-03",
+      "category": "numeric",
+      "question": "How many letters of recommendation are required for the application?",
+      "answer": "The provided documents do not specify a required number of letters of recommendation for any postgraduate application; they only mention endorsements on the application form by supervisors, heads of department and deans. Since the context does not contain this information, you should contact the University of Ibadan Postgraduate College office or consult the official website for the exact requirement.",
+      "sources": [],
+      "latency": 7.668822899926454,
+      "correctness": 0.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant failed to provide the required number of letters (three) specified in the ground truth, instead claiming the information was not in the context."
+    },
+    {
+      "id": "ag-04",
+      "category": "factual",
+      "question": "Can I defer my admission offer to the following year?",
+      "answer": "No. The Postgraduate College does not allow deferment of an admission offer. If you do not take up the offer in the year it is made, it lapses and you must submit a new application for the next academic year, which will be considered afresh (Source: Admission Guide 2021 2022, p.10).",
+      "sources": [],
+      "latency": 5.2590509000001475,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly states that deferment is not allowed, the offer lapses, and the candidate must reapply, which aligns perfectly with the reference answer and is fully supported by context [1]."
+    },
+    {
+      "id": "ag-05",
+      "category": "factual",
+      "question": "Can I apply to more than one department or programme at the same time?",
+      "answer": "The provided excerpts do not contain any statement about whether a postgraduate applicant may submit applications to more than one department or programme simultaneously.  \n\nIf you need clarification on this matter, please contact the University of Ibadan Postgraduate College office or consult the official postgraduate admissions guidelines on the university’s website.",
+      "sources": [],
+      "latency": 6.326682400074787,
+      "correctness": 0.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant failed to answer the question, claiming the information was not in the context, whereas the reference answer provides a definitive 'No'."
+    },
+    {
+      "id": "ag-06",
+      "category": "factual",
+      "question": "Who is eligible for part-time admission?",
+      "answer": "**Eligibility for part‑time admission**\n\n- Candidates who are **staff of the University of Ibadan**, **or**  \n- Candidates who can **demonstrate to the Postgraduate College that they have adequate facilities to undertake part‑time study** (e.g., suitable work arrangements).  \n\nIn practice, applicants for part‑time registration **may be asked to provide evidence of release or permission from their employer** to confirm that they can meet these requirements.  \n\n**Sources**  \n- Admission Guide 2021‑2022, p. 7: “Candidates may be admitted to part‑time registration, if they are on the academic staff of the University or can satisfy the Postgraduate College that facilities for their work as part‑time students are adequate… may be asked to show evidence of release by their employers.” (Source: [1])  \n- PG College Policy, p. 29: Reiterates the same criteria for part‑time admission. (Source: [2])",
+      "sources": [
+        {
+          "document": "PG College Policy",
+          "page": 29
+        }
+      ],
+      "latency": 4.836946399998851,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant accurately conveys all key eligibility criteria from the reference answer and supports every claim with the provided context sources."
+    },
+    {
+      "id": "ag-07",
+      "category": "factual",
+      "question": "What minimum degree class is expected of foreign applicants?",
+      "answer": "Foreign applicants are required to hold a bachelor’s degree with **at least a Second Class Upper Division** from a university recognised by the Senate (Source: Admission Guide 2021 2022, p.9).",
+      "sources": [],
+      "latency": 6.697297799983062,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the minimum degree class as Second Class Upper Division from a Senate-recognised university, which is fully supported by the provided context."
+    },
+    {
+      "id": "ag-08",
+      "category": "factual",
+      "question": "What is admission as an occasional student?",
+      "answer": "**Admission as an occasional student**  \n\n- A candidate who meets the minimum entry requirements for a higher‑degree programme and receives a recommendation from the Faculty Postgraduate Committee may be admitted as an *occasional student*.  \n- Occasional students are **not awarded a University of Ibadan degree**.  \n- This admission route is also available to candidates who are already registered for higher‑degree programmes at other universities that are recognised by the Senate.  \n\n(Source: PG College Policy, p.29; Admission Guide 2021‑2022, p.8)",
+      "sources": [
+        {
+          "document": "PG College Policy",
+          "page": 29
+        }
+      ],
+      "latency": 5.30958030000329,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant accurately conveys all key facts from the reference answer and includes additional details that are fully supported by the provided context."
+    },
+    {
+      "id": "fs-01",
+      "category": "numeric",
+      "question": "How much is the acceptance fee for newly admitted postgraduate students?",
+      "answer": "The Acceptance Fee for all newly admitted postgraduate students is **NGN 30,000** (Source: Fee Schedule)​.",
+      "sources": [
+        {
+          "document": "Fee Schedule",
+          "page": null
+        }
+      ],
+      "latency": 10.631535500055179,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identified the acceptance fee as NGN 30,000, which matches the reference answer and is explicitly supported by the provided context."
+    },
+    {
+      "id": "fs-02",
+      "category": "numeric",
+      "question": "What extra fees do foreign postgraduate students pay in USD?",
+      "answer": "Foreign postgraduate students are required to pay the following extra charges (billed in USD) in addition to tuition:\n\n- **Examination fee (Masters/Diploma): $300**  \n- **Postgraduate Development Fee: $400**  \n- **Bench fee (laboratory‑based programmes): $300**  \n\n(Source: Fee Schedule, p. [2])",
+      "sources": [
+        {
+          "document": "Fee Schedule",
+          "page": null
+        }
+      ],
+      "latency": 4.450263599981554,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant accurately lists all three fees with correct amounts as stated in the reference answer and supported by the provided context."
+    },
+    {
+      "id": "fs-03",
+      "category": "numeric",
+      "question": "How much is the late registration penalty for Nigerian students?",
+      "answer": "The late registration penalty for Nigerian students is **₦5,000**【Source: Fee Schedule, p. 1】.",
+      "sources": [
+        {
+          "document": "Fee Schedule",
+          "page": null
+        }
+      ],
+      "latency": 0.8080625999718904,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identified the penalty amount as NGN 5,000, which is explicitly stated in the provided context."
+    },
+    {
+      "id": "fs-04",
+      "category": "factual",
+      "question": "What does my postgraduate tuition fee cover?",
+      "answer": "Your postgraduate tuition fee pays for the core academic components of your programme, including:\n\n- **Registration** for the programme  \n- **Instruction/tuition** (the teaching itself)  \n- **Supervision** of your research or project work  \n- **Examinations** and related assessment costs  \n- **Graduation processing** (the administrative steps to award your degree)  \n\nIn addition, the fee provides you with **membership of the Kenneth Dike Library** and the **Students’ Union** for the entire duration of your studies.  \n\n(Source: Fee Schedule)",
+      "sources": [
+        {
+          "document": "Fee Schedule",
+          "page": null
+        }
+      ],
+      "latency": 3.4185097999870777,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant accurately lists all components covered by the tuition fee as stated in the reference answer and supported by context [1]."
+    },
+    {
+      "id": "cal-01",
+      "category": "numeric",
+      "question": "According to the amended 2024/2025 calendar, when does second semester teaching run and for how many weeks?",
+      "answer": "- **Second‑semester teaching period:** Monday 25 August 2025 – Friday 21 November 2025  \n- **Duration:** 13 weeks of teaching, revision and continuous assessment  \n\n(Source: Academic Calendar Amendment, p.2)",
+      "sources": [
+        {
+          "document": "Academic Calendar Amendment",
+          "page": 1
+        },
+        {
+          "document": "Academic Calendar Amendment",
+          "page": 2
+        }
+      ],
+      "latency": 4.60510750010144,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the 13-week duration and the specific dates (25/08/25 to 21/11/25) from the amended calendar source provided in the context."
+    },
+    {
+      "id": "cal-02",
+      "category": "numeric",
+      "question": "In the 2025/2026 academic calendar, when do returning students resume on campus and start online registration?",
+      "answer": "Returning (and continuing) postgraduate students resume on campus and begin their online registration on **Thursday 5 March 2026** (Physical Resumption on campus for Returning Students / Commencement of online Registration for Returning Students) (Source: Academic Calendar 2025 2026, p. [1]).",
+      "sources": [],
+      "latency": 1.3121647000079975,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the date as Thursday 5 March 2026, which matches the reference answer and is explicitly supported by item (f) in context [1]."
+    },
+    {
+      "id": "cal-03",
+      "category": "numeric",
+      "question": "When are the first semester GES examinations in the 2025/2026 session?",
+      "answer": "The first‑semester GES examinations are scheduled for **Monday 25 May 2026 – Friday 29 May 2026** (Source: Academic Calendar 2025‑2026, p. [1]).",
+      "sources": [],
+      "latency": 1.3821917000459507,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identified the first semester GES examination dates as Monday 25/05/26 to Friday 29/05/26, which matches the reference answer and is explicitly supported by context [1]."
+    },
+    {
+      "id": "cal-04",
+      "category": "factual",
+      "question": "Do postgraduate students resume at the same time as undergraduates?",
+      "answer": "Yes. The postgraduate and undergraduate students will resume simultaneously at the start of the 2025/2026 academic session (Monday 09 March 2026) (Source: Academic Calendar Amendment, p.2).",
+      "sources": [
+        {
+          "document": "Academic Calendar Amendment",
+          "page": 2
+        }
+      ],
+      "latency": 0.8655373000074178,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly confirms that postgraduate and undergraduate students resume simultaneously, which is explicitly supported by the provided context."
+    },
+    {
+      "id": "fm-01",
+      "category": "procedural",
+      "question": "How early must I submit the request for my M.Phil/Ph.D conversion examination?",
+      "answer": "You must submit the request **at least one week before the scheduled examination date** (Source: Form Request for M.Phil./Ph.D. Conversion Examination, p.1).",
+      "sources": [],
+      "latency": 1.1469635999528691,
+      "correctness": 0.5,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the one-week deadline but omits the requirement to attach the last registration form and the consequence of null and void examinations."
+    },
+    {
+      "id": "fm-02",
+      "category": "procedural",
+      "question": "What is needed before approval is granted for my oral examination, and how early must the request go in?",
+      "answer": "**What must be in place before the Postgraduate College can approve your oral examination**\n\n- **All examiners’ reports** must be received by the College.  \n  - At least three reports are required, and **all three must be positive**, including the report of the External Examiner. (Source: PG College Policy, p.41)  \n- A **copy of the candidate’s current‑session registration form** must be attached to the request. (Source: Form Request for Approval to Conduct Oral Examination, p.1)  \n- The Department’s request form must be fully completed and signed (Head of Department, Provost comments, etc.). (Source: Form Request for Approval to Conduct Oral Examination, p.1)\n\n**How early the request must be submitted**\n\n- The completed request form must be **returned to the Postgraduate College at least two weeks before the proposed date of the oral examination**. (Source: Form Request for Approval to Conduct Oral Examination, p.1)  \n- The College’s policy also states that an oral examination may be scheduled **no sooner than two weeks after a formal request** from the Department. (Source: PG College Policy, p.41)\n\n*In summary, ensure all required examiner reports (with at least three positive, including the external) and the registration form are attached, and submit the request at least two weeks before the intended exam date.*",
+      "sources": [
+        {
+          "document": "Form Request for Approval to Conduct Oral Examination",
+          "page": 1
+        },
+        {
+          "document": "PG College Policy",
+          "page": 41
+        }
+      ],
+      "latency": 2.000145599944517,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies that all examiners' reports must be submitted and the form returned at least two weeks before the exam, with all details supported by the provided context."
+    },
+    {
+      "id": "fm-03",
+      "category": "factual",
+      "question": "Is orientation compulsory for newly admitted postgraduate students?",
+      "answer": "Yes. Orientation for newly admitted postgraduate students is mandatory (i.e., compulsory). (Source: Form Clearance, p.1) (Source: Form Clearance, p.1)",
+      "sources": [
+        {
+          "document": "Form Clearance",
+          "page": 1
+        }
+      ],
+      "latency": 0.6801663000369444,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies that orientation is mandatory based on the provided context, matching the reference answer."
+    },
+    {
+      "id": "fu-01",
+      "category": "follow_up",
+      "question": "And is there any extra payment for Master's applicants?",
+      "answer": "Yes. In addition to the standard application‑form fee, applicants for a Master’s degree (as well as for a Postgraduate Diploma) must pay an extra N 3,000 for the Test of Proficiency in English Language (Source: Admission Guide 2021 2022, p.8).",
+      "sources": [],
+      "latency": 1.7083612000569701,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the extra N3,000 fee for the English language test for Master's and PGD applicants, which is fully supported by the provided context."
+    },
+    {
+      "id": "fu-02",
+      "category": "follow_up",
+      "question": "and what about the line spacing?",
+      "answer": "- **Main body of the thesis** – use 1.5 line spacing (Source: PG College Policy, p.41).  \n- **In‑text quotations** – set in single line spacing (Source: Thesis Dissertation Manual of Style, p.10).  \n- **References list** – each reference entry is single‑spaced, with 1.5 line spacing separating the entries (Source: Thesis Dissertation Manual of Style, p.16).  \n\nThese line‑spacing rules should be applied consistently throughout your thesis.",
+      "sources": [
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 10
+        },
+        {
+          "document": "PG College Policy",
+          "page": 41
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 11
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 16
+        }
+      ],
+      "latency": 1.6269188000587747,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the line spacing rules for the main body and in-text quotations as per the reference answer, and all claims are supported by the provided context."
+    },
+    {
+      "id": "fu-03",
+      "category": "follow_up",
+      "question": "How many copies do I need to hand in?",
+      "answer": "- **Hard‑copy requirement**  \n  - The *Thesis Dissertation Manual of Style* states you must submit **five hard copies** (or more if there are co‑supervisors) (Source: Thesis Dissertation Manual of Style, p.8).  \n  - The *PG College Policy* specifies **five or six hard copies** (the extra copy is for co‑supervisors) (Source: PG College Policy, p.42).\n\n- **Electronic‑copy requirement**  \n  - The *Thesis Dissertation Manual of Style* calls for **two virus‑free electronic copies** on compact discs (Source: Thesis Dissertation Manual of Style, p.8).  \n  - The *PG College Policy* requires **three virus‑free electronic copies** on compact discs (Source: PG College Policy, p.42).\n\n**Therefore, you need to hand in**:\n\n- **Hard copies:** 5 (or 6 if you have co‑supervisors).  \n- **Electronic copies:** 2 (or 3, depending on which guideline the College follows).  \n\nCheck with the Postgraduate College to confirm which set of numbers is currently being applied.",
+      "sources": [
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 8
+        },
+        {
+          "document": "PG College Policy",
+          "page": 42
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 9
+        },
+        {
+          "document": "Thesis Dissertation Manual of Style",
+          "page": 6
+        }
+      ],
+      "latency": 3.4153900999808684,
+      "correctness": 0.5,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the hard copy count but fails to mention the 'hard green cover' requirement and presents conflicting electronic copy counts (2 vs 3) instead of the definitive 'two' specified in the ground truth, although it accurately reflects the provided context."
+    },
+    {
+      "id": "oos-01",
+      "category": "out_of_scope",
+      "question": "What is the capital of France?",
+      "answer": "I’m sorry, but the provided context does not contain information about the capital of France. Please consult an appropriate reference source or the University of Ibadan Postgraduate College office/website for that detail.",
+      "sources": [],
+      "latency": 0.7356828000629321,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly stated that the information is not in the context and did not invent any facts."
+    },
+    {
+      "id": "oos-02",
+      "category": "out_of_scope",
+      "question": "What is the JAMB cut-off mark for undergraduate Medicine at UI this year?",
+      "answer": "The provided context does not contain any information about the JAMB cut‑off mark for undergraduate Medicine at the University of Ibadan for this year. Please consult the University of Ibadan Postgraduate College office or the official university website for the most up‑to‑date admission requirements.",
+      "sources": [],
+      "latency": 2.1803695999551564,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identified that the information was not in the provided context and did not invent any facts."
+    },
+    {
+      "id": "oos-03",
+      "category": "out_of_scope",
+      "question": "What is the personal phone number of the Vice-Chancellor?",
+      "answer": "The provided excerpts do not include a personal phone number for the Vice‑Chancellor. Please contact the University of Ibadan Postgraduate College office or visit the official university website for that information.",
+      "sources": [],
+      "latency": 5.97440629999619,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly states that the information is not in the provided documents and does not invent a phone number."
+    },
+    {
+      "id": "oos-04",
+      "category": "out_of_scope",
+      "question": "Who won the last Nigerian presidential election?",
+      "answer": "The provided context does not contain any information about the outcome of the most recent Nigerian presidential election. Please consult the appropriate university office or the official election results on the relevant government website for that information.",
+      "sources": [],
+      "latency": 0.9972862999420613,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identified that the information is not in the context and did not invent any facts."
+    },
+    {
+      "id": "chat-01",
+      "category": "chitchat",
+      "question": "hi",
+      "answer": "Hello! How can I assist you today with admissions, fees, registration, examinations, thesis/dissertation requirements, or the academic calendar?",
+      "sources": [],
+      "latency": 0.8838798999786377,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant provides a polite, natural greeting and offers help with specific postgraduate topics supported by the context, matching the reference intent."
+    },
+    {
+      "id": "chat-02",
+      "category": "chitchat",
+      "question": "Thanks a lot, that was helpful!",
+      "answer": "You’re very welcome! If you have any more questions about admissions, fees, registration, examinations, thesis/dissertation requirements, or the academic calendar, feel free to ask.",
+      "sources": [],
+      "latency": 0.9819680000655353,
+      "correctness": 1.0,
+      "faithfulness": 0.0,
+      "reason": "The reply is polite and natural, but it lists specific topics (admissions, fees, etc.) that are not supported by the provided context."
+    },
+    {
+      "id": "chat-03",
+      "category": "chitchat",
+      "question": "Who are you and what can you help me with?",
+      "answer": "I’m sorry, but the information you’ve provided does not contain details about who I am or the range of assistance I can offer. Please contact the University of Ibadan Postgraduate College office or visit the official university website for clarification.",
+      "sources": [],
+      "latency": 0.9882621000288054,
+      "correctness": 0.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant failed to introduce itself or list the specific topics it can help with as required by the reference answer, instead evasively directing the user to external resources."
+    },
+    {
+      "id": "pol-01",
+      "category": "numeric",
+      "question": "What is the pass mark for a postgraduate course and how are marks graded?",
+      "answer": "- **Pass mark:** A candidate must obtain at least **40 %** in a postgraduate course to pass (Source: PG College Policy, p.34).  \n\n- **Grading of marks:** Percentage scores are interpreted as follows:  \n\n  * 0‑39 % → E (Fail)  \n  * 40‑49 % → D (Pass)  \n  * 50‑59 % → Good  \n  * 60‑69 % → B (Very Good)  \n  * 70‑100 % → A (Excellent)  \n\n(Source: PG College Policy, p.34)",
+      "sources": [
+        {
+          "document": "PG College Policy",
+          "page": 34
+        },
+        {
+          "document": "PG College Policy",
+          "page": 65
+        },
+        {
+          "document": "PG College Policy",
+          "page": 72
+        },
+        {
+          "document": "PG College Policy",
+          "page": 66
+        }
+      ],
+      "latency": 1.3005533999530599,
+      "correctness": 0.5,
+      "faithfulness": 1.0,
+      "reason": "The assistant omitted the letter grade 'C' for the 50-59% range, although all other facts were correct and supported by the context."
+    },
+    {
+      "id": "pol-02",
+      "category": "numeric",
+      "question": "Until when can I withdraw from a course I registered for?",
+      "answer": "You may withdraw from a course **within the first six weeks of the semester in which the course is taught**, provided you complete the required withdrawal forms from the Postgraduate College (Source: PG College Policy, p.34).",
+      "sources": [
+        {
+          "document": "PG College Policy",
+          "page": 34
+        },
+        {
+          "document": "PG College Policy",
+          "page": 50
+        },
+        {
+          "document": "PG College Policy",
+          "page": 59
+        },
+        {
+          "document": "PG College Policy",
+          "page": 51
+        }
+      ],
+      "latency": 1.0979083999991417,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant accurately conveys the six-week deadline and the requirement to complete forms from the Postgraduate College, fully supported by the provided context."
+    },
+    {
+      "id": "pol-03",
+      "category": "procedural",
+      "question": "What happens if I fail a compulsory course?",
+      "answer": "If you fail a compulsory course you must **re‑register for that course (or project) and be re‑examined at the next opportunity**. The policy requires you to retake the course rather than receive a re‑sit exam (Source: PG College Policy, p.53) and explicitly states that a student who fails any compulsory course “shall re‑register for the course (or project) and be re‑examined at the next opportunity” (Source: PG College Policy, p.35).",
+      "sources": [
+        {
+          "document": "PG College Policy",
+          "page": 53
+        },
+        {
+          "document": "PG College Policy",
+          "page": 34
+        },
+        {
+          "document": "PG College Policy",
+          "page": 33
+        },
+        {
+          "document": "PG College Policy",
+          "page": 35
+        }
+      ],
+      "latency": 1.2628451999044046,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly states the consequence of failing a compulsory course and accurately cites the provided context to support the claim."
+    },
+    {
+      "id": "pol-04",
+      "category": "factual",
+      "question": "Who is allowed to supervise M.Phil and Ph.D candidates?",
+      "answer": "**Allowed supervisors for M.Phil. and Ph.D. candidates**\n\n- **Lecturers who hold an M.Phil., M.P.H. (by dissertation), M.D. or Ph.D. degree, or an equivalent professional postgraduate fellowship** – they may supervise candidates at the Master’s level, which includes M.Phil. programmes (Source: PG College Policy, p.35).  \n\n- **Lecturers with at least three years of post‑doctoral research/teaching experience** – they are eligible to supervise candidates for M.Phil., M.D. and Ph.D. programmes (Source: PG College Policy, p.35‑36).  \n\n- **Lecturers of Professorial cadre who do not hold an M.D. or Ph.D.** – they may supervise M.Phil., M.D. and Ph.D. candidates provided they are not themselves pursuing higher studies (Source: PG College Policy, p.36).  \n\n- **Waiver provision** – The Board of the Postgraduate College may grant a waiver, on recommendation of the appropriate Faculty Postgraduate Committee, allowing a postgraduate teacher/supervisor to supervise even if they are pursuing a postgraduate programme themselves (Source: PG College Policy, p.36).",
+      "sources": [
+        {
+          "document": "PG College Policy",
+          "page": 35
+        },
+        {
+          "document": "PG College Policy",
+          "page": 36
+        },
+        {
+          "document": "PG College Policy",
+          "page": 37
+        },
+        {
+          "document": "PG College Policy",
+          "page": 60
+        }
+      ],
+      "latency": 1.7832115000346676,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the primary requirement (3 years post-doctoral experience) and includes additional valid categories from the context without contradicting the reference answer."
+    },
+    {
+      "id": "pol-05",
+      "category": "numeric",
+      "question": "How many candidates can an external examiner examine in one session?",
+      "answer": "An external examiner may examine **no more than 25 candidates in a single examination session** (Source: PG College Policy, p.57; also reiterated on p.58).",
+      "sources": [
+        {
+          "document": "PG College Policy",
+          "page": 57
+        },
+        {
+          "document": "PG College Policy",
+          "page": 58
+        },
+        {
+          "document": "PG College Policy",
+          "page": 60
+        },
+        {
+          "document": "PG College Policy",
+          "page": 53
+        }
+      ],
+      "latency": 0.9936234999913722,
+      "correctness": 0.5,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly states the candidate limit but omits the key constraint regarding the three areas of specialisation."
+    },
+    {
+      "id": "pol-06",
+      "category": "numeric",
+      "question": "How many course units must a full-time academic Master's student register for?",
+      "answer": "A full‑time student in the academic Master’s programme must register for **at least 30 units and may take up to 45 units (the project is counted within this total and carries 6 units)**【Source: PG College Policy, p.57】.",
+      "sources": [
+        {
+          "document": "PG College Policy",
+          "page": 57
+        },
+        {
+          "document": "PG College Policy",
+          "page": 52
+        },
+        {
+          "document": "PG College Policy",
+          "page": 35
+        },
+        {
+          "document": "PG College Policy",
+          "page": 51
+        }
+      ],
+      "latency": 1.1007382000098005,
+      "correctness": 0.5,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly states the unit limits and project weight but omits the compulsory seminar presentation mentioned in the reference answer."
+    },
+    {
+      "id": "pol-07",
+      "category": "procedural",
+      "question": "Who do I report a supervision or other grievance to first, and what is the escalation route?",
+      "answer": "- **First point of contact:** the **Departmental Postgraduate Committee** ( Source: PG College Policy, p.45 ).  \n- **Next level if not resolved:** the **Faculty Postgraduate Committee**.  \n- **Further escalation:** if the grievance remains unresolved, it is referred to the **Executive Committee** and/or the **Board of the Postgraduate College**.  \n\nThis sequence—Departmental → Faculty → Executive → Board—constitutes the prescribed escalation route for supervision or other grievances.",
+      "sources": [
+        {
+          "document": "PG College Policy",
+          "page": 46
+        },
+        {
+          "document": "PG College Policy",
+          "page": 43
+        },
+        {
+          "document": "PG College Policy",
+          "page": 36
+        },
+        {
+          "document": "PG College Policy",
+          "page": 45
+        }
+      ],
+      "latency": 1.198028999962844,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the escalation route (Departmental -> Faculty -> Executive/Board) which matches the reference answer and is fully supported by context [4]."
+    },
+    {
+      "id": "pol-08",
+      "category": "procedural",
+      "question": "How is an allegation of research misconduct handled?",
+      "answer": "**Handling of a research‑misconduct allegation**\n\n1. **Receipt of the complaint** – When a complaint or allegation is received, the Provost of the Postgraduate College must **constitute a Committee** to examine the allegation and assess its truth‑fulness using the available information or material (Source: PG College Policy, p.46)【2】.  \n\n2. **Determine whether a prima‑facie case exists** – The Committee checks that:  \n   * the conduct alleged is central to the allegation and, if proven, would constitute research misconduct; and  \n   * a prima‑facie case of research misconduct is present (Source: PG College Policy, p.46)【2】.  \n\n3. **If a prima‑facie case is established** – The Provost **reports the allegation** through the Board of the Postgraduate College to the **Students’ Disciplinary Committee** for further action (Source: PG College Policy, p.46)【1】.  \n\n4. **If the conditions are not met** – The Provost **dismisses the allegation** and informs both the Board of the Postgraduate College and the individual(s) who were the subject(s) of the allegation (Source: PG College Policy, p.46)【1】.  \n\nThese steps ensure that allegations are investigated promptly, that only substantiated cases proceed to disciplinary review, and that unfounded claims are formally closed.",
+      "sources": [
+        {
+          "document": "PG College Policy",
+          "page": 46
+        },
+        {
+          "document": "PG College Policy",
+          "page": 45
+        },
+        {
+          "document": "PG College Policy",
+          "page": 5
+        }
+      ],
+      "latency": 2.230856699985452,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant accurately captures all key steps of the process described in the reference answer and supports every claim with the provided context."
+    },
+    {
+      "id": "pol-09",
+      "category": "procedural",
+      "question": "How do I request my academic transcript as a postgraduate student?",
+      "answer": "To request an academic transcript you should:\n\n1. **Obtain the prescribed transcript request form** – the form is available on the Postgraduate College portal.  \n2. **Complete the form** with the required details and submit it to the Postgraduate College.  \n3. **Pay the applicable fee** (the amount is set by the Postgraduate College).  \n\nThe College will then process your request and send the transcript to the institution or establishment you specify.  \n\n(Source: PG College Policy, p.45)",
+      "sources": [
+        {
+          "document": "PG College Policy",
+          "page": 45
+        }
+      ],
+      "latency": 1.0893524000421166,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the use of prescribed forms from the College portal and the associated fee, fully aligning with the reference answer and supported by the provided context."
+    },
+    {
+      "id": "pol-10",
+      "category": "numeric",
+      "question": "How many units must full-time Diploma candidates register for?",
+      "answer": "Full‑time Diploma candidates must register for **between 24 units (minimum) and 30 units (maximum)** for the programme (Source: PG College Policy, p.52).",
+      "sources": [
+        {
+          "document": "PG College Policy",
+          "page": 52
+        },
+        {
+          "document": "PG College Policy",
+          "page": 57
+        },
+        {
+          "document": "PG College Policy",
+          "page": 51
+        },
+        {
+          "document": "PG College Policy",
+          "page": 32
+        }
+      ],
+      "latency": 1.1326178000308573,
+      "correctness": 0.5,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly identifies the unit range for Diploma candidates but fails to mention the Certificate programme details included in the reference answer."
+    },
+    {
+      "id": "hb-11",
+      "category": "factual",
+      "question": "What sanctions can be imposed on a student found guilty of misconduct?",
+      "answer": "The University may impose a range of disciplinary sanctions on a postgraduate student who is found guilty of misconduct, including:\n\n- **Fines**  \n- **Disciplinary probation**  \n- **Suspension or rustication**  \n- **Expulsion**  \n- **Loss of privileges** (e.g., access to facilities, library services)  \n- **Withdrawal from the programme and/or refusal of readmission**  \n\nThese sanctions are applied through the University’s established disciplinary processes (Source: Postgraduate Handbook, p.68).",
+      "sources": [
+        {
+          "document": "Postgraduate Handbook",
+          "page": 68
+        },
+        {
+          "document": "Postgraduate Handbook",
+          "page": 69
+        }
+      ],
+      "latency": 1.0594654000597075,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant accurately lists all sanctions mentioned in the reference answer and supports them with the provided context."
+    },
+    {
+      "id": "oos-05",
+      "category": "out_of_scope",
+      "question": "How much is the hostel accommodation fee per session in Abdulsalami Abubakar Hall?",
+      "answer": "The provided excerpts describe the location, capacity and general accommodation arrangements for Abdulsalami Abubakar Hall, but they do not specify the hostel accommodation fee per session.  \n\nPlease contact the Postgraduate College’s Lodging Office or consult the official University of Ibadan postgraduate fee schedule for the current accommodation charges.",
+      "sources": [],
+      "latency": 0.8888634999748319,
+      "correctness": 1.0,
+      "faithfulness": 1.0,
+      "reason": "The assistant correctly states that the fee is not specified in the provided documents and does not invent a figure."
+    }
+  ]
+}

@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<script src="https://kit.fontawesome.com/ba46c9c7c0.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+-->
+    <link rel="stylesheet" href="style.css">
+    <title>The Postgraduate College</title>
+
+    <link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+
+<body>
+
+
+    <nav id="navbars">
+        <div id="nav1" onmouseover="closeCity(event, 'Paris')">
+            <div class="top-logo">
+
+                <img src="logo.png" class="logo">
+                <h1>The&nbsp;Postgraduate&nbsp;College</h1>
+
+
+            </div>
+            <div class="social-nav">
+
+                <div class="social mb-3">
+                    <a href="https://www.facebook.com/groups/620264434751942" target="_blank" class="socialMediaLinks">
+                        <img class="lazy mr-2" src="img/facebook.png" width="15" height="15" alt="Facebook page for The University of Ibadan" style="display: inline;">
+
+                    </a>
+                    <a href="https://x.com/postgraduate_UI" target="_blank" class="socialMediaLinks">
+                        <img class="lazy mr-2" src="img/twitter.png" width="15" height="15" alt="Twitter page for The University of Ibadan" style="display: inline;">
+
+                    </a>
+
+                    <a href="https://www.instagram.com/ui_postgraduate_college/" target="_blank" class="socialMediaLinks">
+                        <img class="lazy" src="img/insta2.png" width="15" height="15" alt="Instagram page for The University of Ibadan" style="display: inline;">
+
+                    </a>
+                </div>
+                <div class="reach">
+                    <a href="tel:+234 907 1871 740"><i class="fas fa-phone"></i> &nbsp;+234 907 1871 740 </a>(9AM - 4PM)
+                </div>
+
+                <div class="reach">
+
+                    <div>
+                        <a href="mailto:pgcollegeuiinformationdesk@gmail.com"><i class="fas fa-envelope"></i> &nbsp;pgcollegeuiinformationdesk@gmail.com</a>
+                    </div>
+
+                </div>
+                <div class="reach">
+
+                    <div>
+                        <a href="mailto:informationdesk@pgcollege.ui.edu.ng"><i class="fas fa-envelope"></i> &nbsp;informationdesk@pgcollege.ui.edu.ng</a>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="md:hidden flex items-center">
+                <button class="outline-none mobile-menu-button">
+                    <svg class=" w-6 h-6 text-gray-500 hover:text-yellow-500 " x-show="!showMenu" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- mobile menu -->
+        <div class="hidden mobile-menu">
+            <ul>
+                <li class="relative group">
+                    <a href="#" class="mobile-bg block text-sm px-2 py-4 font-semibold">
+                        <i class="fas fa-home"></i>
+                    </a>
+
+                </li>
+                <li class="relative group">
+                    <a href="./academic/" class="mobile-colour block text-sm px-2 py-4 transition duration-300">
+                        Academics
+                    </a>
+                    <ul class="index absolute hidden bg-white group-hover:block">
+                        <li class="py-2 px-6"><a href="./why/" class="block text-sm transition duration-300">Why UI Postgraduate College</a></li>
+                        <li class="py-2 px-6"><a href="./areas/" class="block text-sm transition duration-300">Research Areas</a></li>
+                        <li class="py-2 px-6"><a href="./azprograms/" class="block text-sm transition duration-300">Programmes</a></li>
+                        <li class="py-2 px-6"><a href="./fee/" class="block text-sm transition duration-300">Fees & Funding</a></li>
+                        <li class="py-2 px-6"><a href="./admissions/" class="block text-sm transition duration-300">Admissions</a></li>
+                    </ul>
+                </li>
+                <li class="relative group">
+                    <a href="#" class="mobile-colour block text-sm px-2 py-4 transition duration-300">
+                        E-Portal
+                    </a>
+                    <ul class="index absolute hidden bg-white group-hover:block">
+                   <li class="py-2 px-6"><a href="https://app.pgcollege.ui.edu.ng/applicationfrontend/">Admissions / Application</a></li>
+                        <li class="py-2 px-6"><a href="https://registration.pgcollege.ui.edu.ng/">Student Portal</a></li>
+                    </ul>
+                </li>
+
+                <li class="relative group">
+                    <a href="./interstd" class="mobile-colour block text-sm px-2 py-4 transition duration-300">
+                        International Students
+                    </a>
+                    <ul class="index absolute hidden bg-white group-hover:block">
+
+
+
+
+                    </ul>
+                </li>
+
+                <li class="relative group">
+                    <a href="#" class="mobile-colour block text-sm px-2 py-4 transition duration-300">
+                        Doctoral Academy
+                    </a>
+
+                </li>
+
+                <li class="relative group">
+                    <a href="./form" class="mobile-colour block text-sm px-2 py-4 transition duration-300">
+                        Forms
+                    </a>
+
+                </li>
+
+                <li class="relative group">
+                    <a href="#" class="mobile-colour block text-sm px-2 py-4 transition duration-300">
+                        Publications
+                    </a>
+                    <ul class="index absolute hidden bg-white group-hover:block">
+
+                        <li class="py-2 px-6"><a href="http://repository.pgcollege.ui.edu.ng:8080/xmlui" class="block text-sm transition duration-300">Repository</a></li>
+                        <li class="py-2 px-6"><a href="#" class="block text-sm transition duration-300">Compedium of Abstract</a></li>
+                        <li class="py-2 px-6"><a href="image/PGHandbook.pdf" class="block text-sm transition duration-300">Student Handbook</a></li>
+                        <li class="py-2 px-6"><a href="forms/MANUALOFSTYLE.pdf" class="block text-sm transition duration-300">UI manual of writing style</a></li>
+                    </ul>
+                </li>
+
+                <li class="relative group">
+                    <a href="#" class="mobile-colour block text-sm px-2 py-4 transition duration-300">
+                        Payments
+                    </a>
+                    <ul class="index absolute hidden bg-white group-hover:block">
+
+                        <li class="py-2 px-6"><a href="./setup_fee" class="block text-sm transition duration-300">Fee Schedule</a></li>
+
+                        <li class="py-2 px-6"><a href="./intl_fee" class="block text-sm transition duration-300">Fee Schedule (International Student)</a></li>
+
+                        <li class="py-2 px-6"><a href="https://apps.pgcollege.ui.edu.ng/sundry/"class="block text-sm transition duration-300">Sundry Payment</a></li>
+                    </ul>
+                </li>
+
+               <li class="relative group">
+                   <a href="https://ecampus.ui.edu.ng" target=_blank class="mobile-colour block text-sm px-2 py-4 transition duration-300"> E-Campus</a>
+
+               </li>
+                <li class="relative group">
+                    <a href="./contact/" class="mobile-colour block text-sm px-2 py-4 transition duration-300">
+                        Contact Us
+                    </a>
+
+                </li>
+
+                <li class="relative group">
+                    <a href="#" class="mobile-colour block text-sm px-2 py-4 transition duration-300">
+                        About Us
+                    </a>
+                    <ul class="index absolute hidden bg-white group-hover:block">
+
+                        <li class="py-2 px-6"><a href="./about" class="block text-sm transition duration-300">The Postgraduate College</a></li>
+                        <li class="py-2 px-6"><a href="./head" class="block text-sm transition duration-300">Sectional Heads</a></li>
+
+                    </ul>
+                </li>
+
+                <!-- Repeat the same structure for other list items -->
+            </ul>
+        </div>
+        <script>
+            const btn = document.querySelector("button.mobile-menu-button");
+            const menu = document.querySelector(".mobile-menu");
+
+            btn.addEventListener("click", () => {
+                menu.classList.toggle("hidden");
+            });
+        </script>
+        <!-- <div id="nav2">
+        <ul>
+            <li><a href=""><i class="fas fa-home"></i></a></li>
+            <li><a href="">Academics</a></li>
+            <li><a href="">International Students</a></li>
+            <li><a href="">Forms</a></li>
+            <li><a href="">Fees</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><a href="">Doctoral Academy</a></li>
+            <li><form action="">
+                <div class="form-group">
+                    <input type="text" id="search" name="search" placeholder="Search PGC">
+                    <button type="submit"><i class="fas fa-arrow"></i></button>
+                </div>
+              
+            </form></li>
+        </ul>
+    </div> -->
+
+        <div class="tab">
+
+            <button class="tablinks no on"><a href="#"><i class="fas fa-home"></i></a></button>
+            <button class="tablinks" onmouseover="openCity(event, 'Paris')"><a href="./academic/">Academics</a></button>
+            <button class="tablinks" onmouseover="openCity(event, 'Eportal')"><a href="#">E-Portal</a></button>
+            <button class="tablinks" onmouseout="closeCity(event, 'Paris')"><a href="#">Doctoral Academy</a></button>
+            <button class="tablinks" onmouseout="openCity(event, 'forms')"><a>Publications</a></button>
+            <button class="tablinks" onmouseout="closeCity(event, 'Paris')"><a href="./form">Forms</a></button>
+            <button class="tablinks" onmouseout="openCity(event, 'Pay')"><a>Payments</a></button>
+            <button class="tablinks" onmouseout="closeCity(event, 'Paris')"><a href="https://ecampus.ui.edu.ng" target=_blank>E-Campus</a>
+            <button class="tablinks" onmouseout="closeCity(event, 'Paris')"><a href="./contact/">Contact Us</a></button>
+            <button class="tablinks" onmouseout="openCity(event, 'about')"><a>About Us</a></button>
+
+
+
+        </div>
+
+
+
+        <div id="Paris" class="tabcontent">
+            <div class="container">
+                <div class="tab-menu">
+                    <ul>
+                        <li><a href="./why/">Why UI Postgraduate College</a></li>
+
+
+                        <li><a href="./contact/">Contact Us</a></li>
+
+                    </ul>
+                    <ul>
+                        <li><a href="./areas/">Research Areas</a></li>
+
+                        <li><a href="./fee/">Fees & Funding</a></li>
+
+
+                    </ul>
+                    <ul>
+                        <li><a href="./azprograms/">Programmes</a></li>
+                        <li><a href="./admissions/">Admissions</a></li>
+
+
+                    </ul>
+                    <ul>
+                        <li><a href="./interstd">International Students</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="forms" class="tabcontent">
+            <div class="container">
+                <div class="tab-menu">
+                    <ul>
+                        <li><a href="http://repository.pgcollege.ui.edu.ng:8080/xmlui">Repository</a></li>
+                        <li><a href="#">Compedium of Abstract</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="image/PGHandbook.pdf">Student Handbook</a></li>
+                        <li><a href="image/policy.pdf">Policies and Regulations</a></li>
+                        <li><a href="forms/MANUALOFSTYLE.pdf">UI manual of writing style</a></li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!--
+        <div id="Tokyo" class="tabcontent">
+            <div class="container">
+                <div class="tab-menu">
+                    <ul>
+                        <li><a href="application.php">Application Process</a></li>
+                        <li><a href="why">Why UI Postgraduate College</a></li>
+
+
+                    </ul>
+                    <ul>
+                        <li><a href="language.php">Language Requirement</a></li>
+                        <li><a href="../areas/">Research Areas</a></li>
+
+
+                    </ul>
+                    <ul>
+                        <li><a href="visa.php">Visa Guidance</a></li>
+                        <li><a href="../azprograms/">Programmes</a></li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+-->
+
+
+        <div id="Pay" class="tabcontent">
+            <div class="container">
+                <div class="tab-menu">
+                    <ul>
+                        <li><a href="./setup_fee">Fee Schedule</a></li>
+                    </ul>
+                    <ul>
+
+                        <li><a href="./intl_fee">Fee Schedule (International Student)</a></li>
+                    </ul>
+
+                    <ul>
+                        <li><a href="https://apps.pgcollege.ui.edu.ng/sundry/">Sundry Payment</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="about" class="tabcontent">
+            <div class="containerr">
+                <div class="tab-menu">
+                    <ul>
+
+                        <li><a href="./about">The Postgraduate College</a></li>
+                        <li><a href="./head">Sectional Heads</a></li>
+
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <div id="Eportal" class="tabcontent">
+            <div class="containerr">
+                <div class="tab-menu">
+                    <ul>
+
+                        <li><a href="https://app.pgcollege.ui.edu.ng/applicationfrontend/">Admissions / Application</a></li>
+                        <li><a href="https://registration.pgcollege.ui.edu.ng/">Student Portal</a></li>
+
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+
+    </nav>
+
+    <div class="left-line">
+
+
+
+        <div class="head-tailer ">
+
+
+            <div id="tailer" onmouseover="closeCity(event, 'Paris')">
+
+
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+
+                    <div class="carousel-inner">
+                                                    <div class="carousel-item active">
+                                <a href="#" target="">
+                                    <img class="d-block w-100" src="./image/biology img.png" alt="First slide">
+                                </a>
+
+                            </div>
+
+                                                    <div class="carousel-item ">
+                                <a href="https://app.pgcollege.ui.edu.ng/applicationfrontend/sign-up" target="">
+                                    <img class="d-block w-100" src="./image/4 (1).png" alt="First slide">
+                                </a>
+
+                            </div>
+
+                                                    <div class="carousel-item ">
+                                <a href="#" target="">
+                                    <img class="d-block w-100" src="./image/UI - RF (5000 x 3000 px).png" alt="First slide">
+                                </a>
+
+                            </div>
+
+                                                    <div class="carousel-item ">
+                                <a href="#####" target="">
+                                    <img class="d-block w-100" src="./image/wallet_Payment4.jpg" alt="First slide">
+                                </a>
+
+                            </div>
+
+                                                    <div class="carousel-item ">
+                                <a href="#" target="">
+                                    <img class="d-block w-100" src="./image/EARLYCHILD.jpg" alt="First slide">
+                                </a>
+
+                            </div>
+
+                                                    <div class="carousel-item ">
+                                <a href="http://mis.ui.edu.ng/pghalls" target="">
+                                    <img class="d-block w-100" src="./image/n2.jpg" alt="First slide">
+                                </a>
+
+                            </div>
+
+                                                    <div class="carousel-item ">
+                                <a href="#" target="">
+                                    <img class="d-block w-100" src="./image/Ben2.jpg" alt="First slide">
+                                </a>
+
+                            </div>
+
+                                            </div>
+
+
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="search">
+                                            <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Accounting">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Adult Education">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Agricultural and Environmental Engineering">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Agricultural Economics">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Agricultural Extension and Rural Development">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Anaesthesia">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Anatomy">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Animal Science">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Aquaculture and Fisheries Management">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Arabic and Islamic Studies">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Archaeology and Anthropology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Architecture">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Arts and Social Sciences Education">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Banking and Finance">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Biochemistry">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Bioethics and Medical Humanities">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Biomedical Engineering">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Botany">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Business Entrepreneurship and Executive Education">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Centre for Child and Adolescent Mental Health">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Centre For Drug Discovery, Development and Production">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Centre for Educational Media Resource Studies">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Centre for Petroleum, Energy Economics and Law">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Centre For Sustainable Development">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Chemical Pathology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Chemistry">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Civil Engineering">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Classics">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Clinical Pharmacy and Pharmacy Administration">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Communication and Language Arts">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Community Medicine">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Computer Science">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Crop and Horticultural Sciences">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Crop Protection and Environmental Biology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Data and Information Science">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Dental Surgery">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Early Childhood and Educational Foundations">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Economics">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Educational Management">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Electrical and Electronic Engineering">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="English">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Environmental Health Sciences">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Epidemiology and Medical Statistics">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="European Studies">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Food Technology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Forest Production and Products">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Forest Resources Management">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Geography">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Geography (Science)">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Geology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Guidance and Counselling">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Haematology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Health Education">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Health Policy and Management">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Health Promotion and Education">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="History">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Human Kinetics">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Human Nutrition and Dietetics">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Immunology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Industrial and Production Engineering">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Institute of African Studies">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Institute of Child Health">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Institute of Education">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Law">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Library, Archival and Information Studies">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Linguistics and African Languages">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Marketing and Consumer Studies">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Mathematics">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Mechanical Engineering">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Medical Microbiology and Parasitology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Medicine">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Microbiology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Mineral, Petroleum, Energy Economics and Law">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Nursing">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Obstetrics and Gynaecology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Opthamology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Oral and Maxillofacial Surgery">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Oral Pathology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Otorhinolaryngology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Paediatrics">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Peace, Security and Humanitarian Studies">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Petroleum Engineering">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Pharmaceutical Chemistry">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Pharmaceutical Microbiology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Pharmaceutics and Industrial Pharmacy">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Pharmacognosy">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Pharmacology and Therapeutics">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Philosophy">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Physics">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Physiology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Physiotherapy">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Political Science">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Psychiatry">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Psychology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Radiation Oncology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Radiology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Radiotherapy">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Religious Studies">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="School Library and Media Technology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="School of Business">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Science and Technology Education">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Social and Environmental Forestry">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Social Work">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Sociology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Soil Resources Management">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Special Education">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Statistics">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Surgery">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Teacher Education">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Theatre Arts">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Theriogenology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Urban and Regional Planning">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Veterinary Anatomy">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Veterinary Medicine">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Veterinary Microbiology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Veterinary Microbiology and Parasitology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Veterinary Parasitology and Entomology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Veterinary Pathology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Veterinary Pharmacology And Toxicology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Veterinary Physiology and Biochemistry">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Veterinary Public Health and Preventive Medicine">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Veterinary Surgery and Radiology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Veterinary Theriogenology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Virology">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Wildlife and Ecotourism Management">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Wood Products Engineering">
+
+
+                            </option>
+
+                                                <input type="text" name="state" id="state" class="form-control" placeholder="Search by programme" list="origin">
+                        <button class="far" id="enter"><i class=" fas fa-search" id="enter"></i></button>
+
+                        <datalist id="origin">
+
+                            <option value="Zoology">
+
+
+                            </option>
+
+                        
+
+                        </datalist>
+
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <section id="speech" onmouseover="closeCity(event, 'Paris')">
+            <div class="containerr">
+                <h2 class="text-center hm mb-2">Provost's Speech</h2>
+                                    <div class="speech">
+                        <div class="speech-img">
+                            <img src="./image/provost2026.jpeg">
+                        </div>
+                        <div class="speech-content">
+                            <p><p>I have a great pleasure, on behalf of the Board of the Postgraduate College, University of Ibadan, to welcome you to the premier university in Nigeria. Whether you are a prospective applicant, a current student, an alumnus, a research collaborator or someone simply visiting our website, I am delighted that you are here.</p><p><br></p><p>The Postgraduate College is more than a centre for advanced learning; it is a vibrant community of scholars committed to excellence, innovation, integrity and service. For decades, it has nurtured generations of researchers, professionals and leaders across the globe whose contributions continue to shape academia, industry, government and society..</p><p><br></p><p>Embarking on postgraduate studies is a significant investment in your future. At the University of Ibadan, you will find a stimulating academic environment where distinguished faculty, cutting-edge research, interdisciplinary collaboration and a rich tradition of scholarship coalesce to help you realise your aspirations. We are committed not only to producing graduates with advanced knowledge but also to developing critical thinkers, creative problem-solvers and globally competitive scholars well equipped to address the challenges of our rapidly changing world.</p><p><br></p><p>As you explore our website, you will discover information about our academic programmes, admissions, scholarships, research opportunities, policies and other support services designed to enrich your postgraduate experience. We encourage you to visit this site regularly and take advantage of the opportunities available through the College.</p><p><br></p><p>As the flagship of postgraduate education and research in Nigeria, our vision is to consolidate the enduring legacy of academic excellence, while breaking new frontiers in postgraduate education through innovation, international collaboration, digital transformation and impactful research.</p><p><br></p><p>Thank you for your interest in the Postgraduate College. I welcome you into our community of scholars and wish you a rewarding journey of discovery, leadership and lifelong learning.</p><p><br></p><p><strong>Welcome to the Postgraduate College, where knowledge advances, innovation thrives and transformative leaders are raised.</strong></p>
+<p><br></p><p><strong><em>Professor K. M. Samuel</em></strong></p></p>
+
+                        </div>
+                    </div>
+                
+            </div>
+        </section>
+
+
+        <section id="more" onmouseover="closeCity(event, 'Paris')">
+            <h2 class="text-center hm">Discover More</h2>
+            <div class="containerr more">
+
+                <div id="cards">
+                    <div class="card">
+                        <div class="card-img "><img src="istockphoto-1288216799-170667a.jpg" alt="" srcset=""></div>
+                        <div class="card-btn">
+                            <a href="https://app.pgcollege.ui.edu.ng/applicationfrontend/" target="_blank" class="btn btn-double">Admissions/Application Portal</a>
+                            <i class="fas far fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+
+
+                    <div class="card">
+                        <div class="card-img"><img src="application-2076445_640.png" alt="" srcset=""></div>
+                        <div class="card-btn">
+                            <a href="https://pgcollege.ui.edu.ng/newuipgtranscript/index.php" target="_blank" class="btn">Transcripts</a>
+                            <i class="fas far fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img"><img class="" src="registration-4519979_640.jpg" alt="" srcset=""></div>
+                        <div class="card-btn">
+                 	<a href="https://registration.pgcollege.ui.edu.ng/" target="_blank" class="btn btn-double">Registration/Student Portal</a>
+                            <i class="fas far fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="card card-last">
+                        <div class="card-img"><img class="" src="personel.jpg" alt="" srcset=""></div>
+                        <div class="card-btn">
+                            <div class="btn dropdown dropup">
+                                <button class="btn-bor dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Personnel login
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" target="_blank" href="http://pguicgpa.ui.edu.ng/pguicgpa/">CGPA Portal</a>
+                                    <a class="dropdown-item" target="_blank" href="https://recommendations.pgcollege.ui.edu.ng/">Departmental Portal</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <section id="news" onmouseover="closeCity(event, 'Paris')">
+            <div class="containerr">
+                <h2 class="text-center hm mb-2">Flagship Programmes</h2>
+
+                <div class="container-fluid">
+
+
+                    <div class="scro">
+                        <a class="" href="#myCarousel" role="button" data-slide="prev">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512">
+                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path d="M380.6 81.7c7.9 15.8 1.5 35-14.3 42.9L103.6 256 366.3 387.4c15.8 7.9 22.2 27.1 14.3 42.9s-27.1 22.2-42.9 14.3l-320-160C6.8 279.2 0 268.1 0 256s6.8-23.2 17.7-28.6l320-160c15.8-7.9 35-1.5 42.9 14.3z" />
+                            </svg>
+                            <span class="sr-only">Previous</span>
+                        </a>
+
+                        <a class="" href="#myCarousel" role="button" data-slide="next">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512">
+                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <style>
+                                    svg {
+                                        fill: #ffffff
+                                    }
+                                </style>
+                                <path d="M3.4 81.7c-7.9 15.8-1.5 35 14.3 42.9L280.5 256 17.7 387.4C1.9 395.3-4.5 414.5 3.4 430.3s27.1 22.2 42.9 14.3l320-160c10.8-5.4 17.7-16.5 17.7-28.6s-6.8-23.2-17.7-28.6l-320-160c-15.8-7.9-35-1.5-42.9 14.3z" />
+                            </svg>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner carol-inn row w-100 mx-auto">
+                                                            <div class="carousel-item flag col-md-4 active">
+                                    <div class="news-card">
+                                        <img src="image/IRM.png" alt="">
+                                        <h2 class="tit">INFORMATION RESOURCE MANAGEMENT</h2>
+                                        <p>
+                                            Information Resource Management (IRM) is a field that focuses on the effective management of information resources within organizations. It encompasses the strategic planning, acquisition, organization, storage, retrieval, and utilization of informat...                                        </p>
+                                        <button class="read-more-button"><a href="program.php?department=Data and Information Science">Read More</a></button>
+                                    </div>
+                                </div>
+                                                            <div class="carousel-item flag col-md-4 ">
+                                    <div class="news-card">
+                                        <img src="image/epidemiology.jpg" alt="">
+                                        <h2 class="tit">EPIDEMIOLOGY AND MEDICAL STATISTICS</h2>
+                                        <p>
+                                            Epidemiology and Medical Statistics is a field of study that focuses on understanding and analyzing the patterns, causes, and effects of diseases in populations. It combines principles from epidemiology, biostatistics, and public health to study the ...                                        </p>
+                                        <button class="read-more-button"><a href="program.php?department=Agricultural Extension and Rural Development">Read More</a></button>
+                                    </div>
+                                </div>
+                                                            <div class="carousel-item flag col-md-4 ">
+                                    <div class="news-card">
+                                        <img src="image/ECONOMICS.jpg" alt="">
+                                        <h2 class="tit">ECONOMICS</h2>
+                                        <p>
+                                             Economics is a social science that studies the production, distribution, and consumption of goods and services. It examines how individuals, businesses, and governments make decisions regarding resource allocation to satisfy unlimited wants and need...                                        </p>
+                                        <button class="read-more-button"><a href="program.php?department=Economics">Read More</a></button>
+                                    </div>
+                                </div>
+                                                            <div class="carousel-item flag col-md-4 ">
+                                    <div class="news-card">
+                                        <img src="image/cpeal.avif" alt="">
+                                        <h2 class="tit">MINERAL, PETROLEUM, ENERGY ECONOMICS AND LAW</h2>
+                                        <p>
+                                            Our postgraduate degree programme in Petroleum, Energy, Economics, and Law Studies focuses on the interdisciplinary study of the petroleum industry, energy markets, economic principles, and legal frameworks related to the energy sector. The program a...                                        </p>
+                                        <button class="read-more-button"><a href="program.php?department=Mineral, Petroleum, Energy Economics and Law">Read More</a></button>
+                                    </div>
+                                </div>
+                                                            <div class="carousel-item flag col-md-4 ">
+                                    <div class="news-card">
+                                        <img src="image/public-policy16530132_xxl.jpg" alt="">
+                                        <h2 class="tit">PUBLIC POLICY</h2>
+                                        <p>
+                                            Public Policy studies equip students with the knowledge, skills, and analytical tools to understand, influence, and evaluate public policies. The programs cover policy analysis, formulation, implementation, and evaluation, with a focus on specific po...                                        </p>
+                                        <button class="read-more-button"><a href="program.php?department=Sociology">Read More</a></button>
+                                    </div>
+                                </div>
+                                                            <div class="carousel-item flag col-md-4 ">
+                                    <div class="news-card">
+                                        <img src="image/virology.jpeg" alt="">
+                                        <h2 class="tit"> VIROLOGY</h2>
+                                        <p>
+                                             Our Virology postgraduate programme is a stream of science that mainly focuses on the study of viruses and viral diseases.  We consider aspects such as immunity, the ability to destroy or infect the host cells, their evolution, classification, struc...                                        </p>
+                                        <button class="read-more-button"><a href="program.php?department=Virology">Read More</a></button>
+                                    </div>
+                                </div>
+                                                            <div class="carousel-item flag col-md-4 ">
+                                    <div class="news-card">
+                                        <img src="image/office-supplies (1).jpg" alt="">
+                                        <h2 class="tit"> BUSINESS ENTREPRENEURSHIP AND EXECUTIVE EDUCATION</h2>
+                                        <p>
+                                            The Business Entrepreneurship and Executive Education
+is an academic institution that offers a variety of business and management programs at the postgraduate level. It provides students with a solid foundation of knowledge and skills in areas such ...                                        </p>
+                                        <button class="read-more-button"><a href="program.php?department=Business Entrepreneurship and Executive Education">Read More</a></button>
+                                    </div>
+                                </div>
+                                                            <div class="carousel-item flag col-md-4 ">
+                                    <div class="news-card">
+                                        <img src="image/biomedical.jpg" alt="">
+                                        <h2 class="tit">BIOMEDICAL ENGINEERING</h2>
+                                        <p>
+                                            Biomedical Engineering is an interdisciplinary field that combines principles of engineering, biology, and medicine to develop innovative solutions for healthcare and improve patient outcomes. It involves the application of engineering concepts and t...                                        </p>
+                                        <button class="read-more-button"><a href="program.php?department=Biomedical Engineering">Read More</a></button>
+                                    </div>
+                                </div>
+                                                            <div class="carousel-item flag col-md-4 ">
+                                    <div class="news-card">
+                                        <img src="image/PSY.jpeg" alt="">
+                                        <h2 class="tit">MANAGERIAL PSYCHOLOGY AND STRATEGIC STUDIES</h2>
+                                        <p>
+                                            Managerial Psychology and Strategic Studies is an interdisciplinary field that combines principles of psychology, management, and strategic thinking to enhance organizational performance and leadership effectiveness. This field of study focuses on un...                                        </p>
+                                        <button class="read-more-button"><a href="program.php?department=Psychology">Read More</a></button>
+                                    </div>
+                                </div>
+                                                            <div class="carousel-item flag col-md-4 ">
+                                    <div class="news-card">
+                                        <img src="image/CESDEV.jpeg" alt="">
+                                        <h2 class="tit">SUSTAINABILITY STUDIES</h2>
+                                        <p>
+                                             Sustainability Studies is an interdisciplinary field that focuses on understanding and promoting sustainable development practices to address the environmental, social, and economic challenges facing our world. This field of study aims to develop pr...                                        </p>
+                                        <button class="read-more-button"><a href="program.php?department=Sustainability Studies">Read More</a></button>
+                                    </div>
+                                </div>
+                                                            <div class="carousel-item flag col-md-4 ">
+                                    <div class="news-card">
+                                        <img src="image/mental.jpg" alt="">
+                                        <h2 class="tit">CHILD AND ADOLESCENT MENTAL HEALTH</h2>
+                                        <p>
+                                            Child and Adolescent Mental Health Studies is a specialized field of study that focuses on understanding and addressing the mental health needs of children and adolescents. It combines knowledge from psychology, psychiatry, social work, education, an...                                        </p>
+                                        <button class="read-more-button"><a href="program.php?department=Centre for Child and Adolescent Mental Health">Read More</a></button>
+                                    </div>
+                                </div>
+                                                            <div class="carousel-item flag col-md-4 ">
+                                    <div class="news-card">
+                                        <img src="image/ddis.jpeg" alt="">
+                                        <h2 class="tit">INFORMATION SCIENCE</h2>
+                                        <p>
+                                              Our postgraduate degree program in Data and Information Science focuses on the study of data management, analysis, and information systems. Our students are equipped with the skills and knowledge to handle large datasets, extract valuable insights,...                                        </p>
+                                        <button class="read-more-button"><a href="program.php?department=Data and Information Science">Read More</a></button>
+                                    </div>
+                                </div>
+                                                            <div class="carousel-item flag col-md-4 ">
+                                    <div class="news-card">
+                                        <img src="image/ENERGY.jpeg" alt="">
+                                        <h2 class="tit">ENERGY TECHNOLOGY MANAGEMENT</h2>
+                                        <p>
+                                            Energy Technology and Management is a field of study that focuses on the efficient and sustainable utilization of energy resources, as well as the management of energy systems and technologies. This field combines principles of engineering, economics...                                        </p>
+                                        <button class="read-more-button"><a href="program.php?department=Electrical and Electronic Engineering">Read More</a></button>
+                                    </div>
+                                </div>
+                                                            <div class="carousel-item flag col-md-4 ">
+                                    <div class="news-card">
+                                        <img src="image/images.jpeg" alt="">
+                                        <h2 class="tit">ENGINEERING MANAGEMENT</h2>
+                                        <p>
+                                            A Masters of Engineering Management (MEM) degree  is an advanced degree that can help engineering professionals advance their careers, cultivate leadership skills, and increase their earning potential. The programme covers the gap between engineering...                                        </p>
+                                        <button class="read-more-button"><a href="program.php?department=Industrial and Production Engineering">Read More</a></button>
+                                    </div>
+                                </div>
+                                                    </div>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+
+    <footer id="main-footer" class="bg-dark" onmouseover="closeCity(event, 'Paris')">
+        <div class="footer mb-3">
+            <div class="contact-us">
+                <h1 class="">Contact us</h1>
+                <div class="mb-3">
+                    <a href="tel:+234 907 1871 740"><i class="fas fa-phone"></i> &nbsp;+234 907 1871 740 </a>(9AM - 4PM)
+                </div>
+
+                <div class="mb-3">
+                    <div>
+                        <a href="mailto:pgcollegeuiinformationdesk@gmail.com"><i class="fas fa-envelope"></i> &nbsp;pgcollegeuiinformationdesk@gmail.com</a>
+                    </div>
+
+                </div>
+                <div class="mb-3">
+                    <div>
+                        <a href="mailto:informationdesk@pgcollege.ui.edu.ng"><i class="fas fa-envelope"></i> &nbsp;informationdesk@pgcollege.ui.edu.ng</a>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="location">
+                <h1 class="">Locate us</h1>
+                <div>
+                    <a href="https://goo.gl/maps/8nPbQPcZMRBui2mr5" target="_blank">The Postgraduate College,<br> University of Ibadan, <br>Ibadan, <br>Nigeria.</a>
+                </div>
+
+            </div>
+            <div class="social">
+                <h1 class="">Social media</h1>
+                <div class="social mr">
+                    <a href="https://www.facebook.com/groups/620264434751942" target="_blank" class="socialMediaLinks">
+                        <img class="lazy mr-2" src="img/facebook.png" width="50" height="50" alt="Facebook page for The University of Ibadan" style="display: inline;">
+
+                    </a>
+                    <a href="https://x.com/postgraduate_UI" target="_blank" class="socialMediaLinks">
+                        <img class="lazy mr-2" src="img/twitter.png" width="50" height="50" alt="Twitter page for The University of Ibadan" style="display: inline;">
+
+                    </a>
+
+                    <a href="https://www.instagram.com/ui_postgraduate_college/" target="_blank" class="socialMediaLinks">
+                        <img class="lazy" src="img/insta2.png" width="50" height="50" alt="Instagram page for The University of Ibadan" style="display: inline;">
+
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <hr>
+        <p>Copyright &copy;2026, Postgraduate College, All Rights Reserved</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="jquery.js"></script>
+    <script src="script.js"></script>
+    <!-- Start of LiveChat (www.livechat.com) code -->
+    <script>
+        window.__lc = window.__lc || {};
+        window.__lc.license = 14616615;;
+        (function(n, t, c) {
+            function i(n) {
+                return e._h ? e._h.apply(null, n) : e._q.push(n)
+            }
+            var e = {
+                _q: [],
+                _h: null,
+                _v: "2.0",
+                on: function() {
+                    i(["on", c.call(arguments)])
+                },
+                once: function() {
+                    i(["once", c.call(arguments)])
+                },
+                off: function() {
+                    i(["off", c.call(arguments)])
+                },
+                get: function() {
+                    if (!e._h) throw new Error("[LiveChatWidget] You can't use getters before load.");
+                    return i(["get", c.call(arguments)])
+                },
+                call: function() {
+                    i(["call", c.call(arguments)])
+                },
+                init: function() {
+                    var n = t.createElement("script");
+                    n.async = !0, n.type = "text/javascript", n.src = "https://cdn.livechatinc.com/tracking.js", t.head.appendChild(n)
+                }
+            };
+            !n.__lc.asyncInit && e.init(), n.LiveChatWidget = n.LiveChatWidget || e
+        }(window, document, [].slice))
+    </script>
+
+
+    <noscript><a href="https://www.livechat.com/chat-with/14616615/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+    <!-- End of LiveChat code -->
+</body>
+
+</html>

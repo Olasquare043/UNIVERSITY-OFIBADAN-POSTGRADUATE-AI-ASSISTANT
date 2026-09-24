@@ -1,0 +1,47 @@
+[
+  {
+    "mode": "dense",
+    "hit@5": 0.907,
+    "recall@5": 0.907,
+    "mrr": 0.717,
+    "avg_latency_s": 0.263,
+    "questions": 54,
+    "missed": [
+      "hb-10",
+      "ag-05",
+      "ag-07",
+      "cal-04",
+      "pol-09"
+    ]
+  },
+  {
+    "mode": "hybrid",
+    "hit@5": 0.907,
+    "recall@5": 0.898,
+    "mrr": 0.781,
+    "avg_latency_s": 0.072,
+    "questions": 54,
+    "missed": [
+      "hb-02",
+      "ag-05",
+      "cal-01",
+      "cal-04",
+      "pol-07"
+    ]
+  },
+  {
+    "mode": "hybrid_rerank",
+    "hit@5": 0.907,
+    "recall@5": 0.907,
+    "mrr": 0.776,
+    "avg_latency_s": 3.996,
+    "questions": 54,
+    "missed": [
+      "hb-01",
+      "tm-09",
+      "cal-03",
+      "fm-01",
+      "fm-02"
+    ]
+  }
+]

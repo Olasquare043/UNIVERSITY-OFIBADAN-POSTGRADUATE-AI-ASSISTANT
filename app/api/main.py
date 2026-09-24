@@ -102,4 +102,8 @@ def _document_summary() -> dict:
     return {"documents": documents, "total_chunks": total_chunks}
 
 
-app.mount("/", StaticFiles(directory="frontend/dist", html=True), name="frontend")
+FRONTEND_DIR = Path("frontend/dist")
+if FRONTEND_DIR.exists():
+    app.mount("/", StaticFiles(directory=FRONTEND_DIR, html=True), name="frontend")
+else:
+    logger.warning("frontend/dist not found: serving the API only. Run 'npm run build' in frontend/.")

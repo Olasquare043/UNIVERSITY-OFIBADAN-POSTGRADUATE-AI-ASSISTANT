@@ -1,4 +1,7 @@
 """Endpoints the student app uses, apart from chat."""
+from pathlib import Path
+from urllib.parse import quote
+
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import Response
 from pydantic import BaseModel, Field
@@ -52,13 +55,31 @@ def documents(session: Session = Depends(get_session)) -> dict:
 
 @router.get("/documents/{document_id}/file")
 def document_file(document_id: int, session: Session = Depends(get_session)) -> Response:
+    """The original upload. Only PDFs and plain text may display in the browser; any other type (HTML above all)
+    is sent as a download, so an uploaded file can never run as a page on this site."""
     document = session.get(Document, document_id)
     if not document or not document.active or document.status != "ready" or document.original is None:
         raise HTTPException(status_code=404, detail="This document is not available.")
+
+    suffix = Path(document.filename).suffix.lower()
+    if suffix == ".pdf":
+        media_type, disposition, extra = "application/pdf", "inline", {}
+    elif suffix in (".txt", ".md"):
+        media_type, disposition = "text/plain; charset=utf-8", "inline"
+        extra = {"Content-Security-Policy": "sandbox; default-src 'none'"}
+    else:
+        media_type, disposition = "application/octet-stream", "attachment"
+        extra = {"Content-Security-Policy": "sandbox; default-src 'none'"}
+
     return Response(
         content=document.original,
-        media_type=document.content_type or "application/octet-stream",
-        headers={"Content-Disposition": f'inline; filename="{document.filename}"', "Cache-Control": "public, max-age=3600"},
+        media_type=media_type,
+        headers={
+            "Content-Disposition": f"{disposition}; filename*=UTF-8''{quote(document.filename)}",
+            "X-Content-Type-Options": "nosniff",
+            "Cache-Control": "public, max-age=3600",
+            **extra,
+        },
     )
 
 

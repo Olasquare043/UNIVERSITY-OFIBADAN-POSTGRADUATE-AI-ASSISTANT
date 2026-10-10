@@ -262,3 +262,22 @@ def test_session_check_is_not_an_error(client, admin):
     assert signed_out.status_code == 200 and signed_out.json() is None
     client.post("/api/admin/login", json={"email": "boss@example.com", "password": "a-long-test-password"})
     assert client.get("/api/admin/me").json()["email"] == "boss@example.com"
+
+
+def test_uploaded_files_cannot_run_as_pages(admin):
+    html = b"<html><body><script>alert(document.cookie)</script>Rules</body></html>"
+    page = upload_and_wait(admin, "Evil_Page.html", html)
+    note = upload_and_wait(admin, "Plain_Note.md", b"# Note\n\nSome plain text about notes and rules.\n")
+
+    served = admin.get(f"/api/documents/{page['id']}/file")
+    assert served.status_code == 200
+    assert served.headers["content-disposition"].startswith("attachment")  # downloaded, never shown as a page
+    assert served.headers["content-type"] == "application/octet-stream"
+    assert served.headers["x-content-type-options"] == "nosniff"
+    assert "sandbox" in served.headers["content-security-policy"]
+
+    text = admin.get(f"/api/documents/{note['id']}/file")
+    assert text.headers["content-type"].startswith("text/plain")  # markdown is shown as plain text, not rendered
+
+    admin.delete(f"/api/admin/documents/{page['id']}")
+    admin.delete(f"/api/admin/documents/{note['id']}")

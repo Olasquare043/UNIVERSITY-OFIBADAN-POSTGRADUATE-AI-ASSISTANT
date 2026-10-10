@@ -61,8 +61,12 @@ def logout(response: Response) -> dict:
 
 
 @router.get("/me")
-def me(admin: Admin = Depends(auth.current_admin)) -> dict:
-    return admin_info(admin)
+def me(request: Request, session: Session = Depends(get_session)) -> dict | None:
+    """The signed-in admin, or null when nobody is signed in (not an error, so the browser console stays clean)."""
+    try:
+        return admin_info(auth.current_admin(request, session))
+    except HTTPException:
+        return None
 
 
 @router.post("/me/password")

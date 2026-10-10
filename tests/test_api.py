@@ -254,3 +254,11 @@ def test_overview_warns_about_temporary_storage(admin, monkeypatch):
     assert admin.get("/api/admin/analytics/overview").json()["temporary_storage"] is False  # not on Render here
     monkeypatch.setenv("RENDER", "true")  # SQLite on a host with a wiped disk
     assert admin.get("/api/admin/analytics/overview").json()["temporary_storage"] is True
+
+
+def test_session_check_is_not_an_error(client, admin):
+    admin.post("/api/admin/logout")
+    signed_out = client.get("/api/admin/me")
+    assert signed_out.status_code == 200 and signed_out.json() is None
+    client.post("/api/admin/login", json={"email": "boss@example.com", "password": "a-long-test-password"})
+    assert client.get("/api/admin/me").json()["email"] == "boss@example.com"

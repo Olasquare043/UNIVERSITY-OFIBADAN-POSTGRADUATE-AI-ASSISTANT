@@ -22,7 +22,7 @@ export default function Login({ onSignedIn }) {
   }
 
   return (
-    <div className="ad-login">
+    <main className="ad-login">
       <form className="ad-login-card" onSubmit={submit}>
         <Crest height={64} alt="University of Ibadan crest" />
         <h1>Admin sign in</h1>
@@ -49,6 +49,6 @@ export default function Login({ onSignedIn }) {
           Back to the assistant
         </a>
       </form>
-    </div>
+    </main>
   );
 }

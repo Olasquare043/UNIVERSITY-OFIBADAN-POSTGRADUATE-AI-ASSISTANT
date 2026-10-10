@@ -15,13 +15,31 @@ export const DEFAULT_CONFIG = {
   default_model: "",
 };
 
+const CACHE_KEY = "ui-pg-config";
+
+// The last settings the server sent, so the home screen shows the right text at once (and offline).
+function readCached() {
+  try {
+    return { ...DEFAULT_CONFIG, ...JSON.parse(localStorage.getItem(CACHE_KEY) || "{}") };
+  } catch {
+    return DEFAULT_CONFIG;
+  }
+}
+
 export function useConfig() {
-  const [config, setConfig] = useState(DEFAULT_CONFIG);
+  const [config, setConfig] = useState(readCached);
 
   useEffect(() => {
     const controller = new AbortController();
     fetchConfig(controller.signal)
-      .then((data) => setConfig({ ...DEFAULT_CONFIG, ...data }))
+      .then((data) => {
+        setConfig({ ...DEFAULT_CONFIG, ...data });
+        try {
+          localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+        } catch {
+          // Storage can be blocked; the page then simply waits for the server each time.
+        }
+      })
       .catch(() => {});
     return () => controller.abort();
   }, []);

@@ -31,7 +31,7 @@ export default function AdminApp() {
   useEffect(() => {
     document.title = "Admin · UI Postgraduate Assistant";
     api("/me")
-      .then(setAdmin)
+      .then((data) => setAdmin(data ?? null))
       .catch(() => setAdmin(null));
   }, []);
 

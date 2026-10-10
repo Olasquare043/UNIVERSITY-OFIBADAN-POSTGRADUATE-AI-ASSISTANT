@@ -1,6 +1,6 @@
-// Lets the app open instantly and show saved chats offline. The build replaces mv27imkt, so every
+// Lets the app open instantly and show saved chats offline. The build replaces mv27rwrb, so every
 // release gets a new cache and the old one is deleted. API calls are never cached or touched.
-const CACHE = "ui-pg-mv27imkt";
+const CACHE = "ui-pg-mv27rwrb";
 const SHELL = ["/", "/manifest.webmanifest", "/icon-192.png", "/ui-crest.png"];
 
 self.addEventListener("install", (event) => {

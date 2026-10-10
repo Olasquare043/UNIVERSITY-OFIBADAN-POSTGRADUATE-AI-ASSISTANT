@@ -209,3 +209,48 @@ def test_provider_connections_are_guarded(monkeypatch):
 
     monkeypatch.setattr(config, "ALLOW_LOCAL_MODEL_HOSTS", True)
     providers.check_host("127.0.0.1", 11434, "http")  # allowed when the server owner switches it on
+
+
+def _request(forwarded=None, peer="10.0.0.1"):
+    from starlette.requests import Request
+
+    headers = [(b"x-forwarded-for", forwarded.encode())] if forwarded else []
+    return Request({"type": "http", "headers": headers, "client": (peer, 1234)})
+
+
+def test_visitor_address_ignores_what_the_visitor_writes(monkeypatch):
+    from app import config
+    from app.services.ratelimit import client_ip
+
+    spoofed = _request("6.6.6.6, 9.9.9.9")  # 6.6.6.6 was written by the visitor, 9.9.9.9 by our proxy
+    monkeypatch.setattr(config, "TRUSTED_PROXY_HOPS", 1)
+    assert client_ip(spoofed) == "9.9.9.9"
+    assert client_ip(_request("6.6.6.6", peer="10.0.0.1")) == "6.6.6.6"  # one proxy entry is the real address
+    assert client_ip(_request(None)) == "10.0.0.1"  # no header: use the connection itself
+
+    monkeypatch.setattr(config, "TRUSTED_PROXY_HOPS", 2)
+    assert client_ip(_request("6.6.6.6")) == "10.0.0.1"  # fewer entries than proxies: do not guess
+
+    monkeypatch.setattr(config, "TRUSTED_PROXY_HOPS", 0)
+    assert client_ip(spoofed) == "10.0.0.1"  # not behind a proxy: the header is ignored
+
+
+def test_login_is_limited_per_account_whatever_the_address(client):
+    from app.services import auth
+
+    codes = [
+        client.post(
+            "/api/admin/login",
+            json={"email": "nobody@example.com", "password": "guess-%d" % n},
+            headers={"X-Forwarded-For": f"1.2.3.{n}"},  # a different claimed address every time
+        ).status_code
+        for n in range(7)
+    ]
+    auth._failures.clear()
+    assert codes[:5] == [401] * 5 and codes[5] == 429
+
+
+def test_overview_warns_about_temporary_storage(admin, monkeypatch):
+    assert admin.get("/api/admin/analytics/overview").json()["temporary_storage"] is False  # not on Render here
+    monkeypatch.setenv("RENDER", "true")  # SQLite on a host with a wiped disk
+    assert admin.get("/api/admin/analytics/overview").json()["temporary_storage"] is True

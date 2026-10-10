@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 from app import config
 from app.db import get_session
 from app.models import Admin
-from app.services import auth
+from app.services import auth, ratelimit
 
 router = APIRouter(prefix="/api/admin")
 
@@ -27,16 +27,21 @@ def admin_info(admin: Admin) -> dict:
 
 @router.post("/login")
 def login(body: LoginRequest, request: Request, response: Response, session: Session = Depends(get_session)) -> dict:
-    throttle_key = f"{request.client.host if request.client else 'unknown'}|{body.email.strip().lower()}"
-    if auth.too_many_failures(throttle_key):
+    email = body.email.strip().lower()
+    # Two limits: one per address and account, and one per account alone, so guessing at one admin's
+    # password is capped even if the attacker keeps changing address.
+    keys = [f"{ratelimit.client_ip(request)}|{email}", f"account|{email}"]
+    if any(auth.too_many_failures(key) for key in keys):
         raise HTTPException(status_code=429, detail="Too many failed attempts. Try again in 15 minutes.")
 
     admin = auth.authenticate(session, body.email, body.password)
     if not admin:
-        auth.record_failure(throttle_key)
+        for key in keys:
+            auth.record_failure(key)
         raise HTTPException(status_code=401, detail="Wrong email or password.")
 
-    auth.clear_failures(throttle_key)
+    auth.clear_failures(keys[0])
+    auth.clear_failures(keys[1])
     response.set_cookie(
         auth.COOKIE_NAME,
         auth.make_session_token(admin),

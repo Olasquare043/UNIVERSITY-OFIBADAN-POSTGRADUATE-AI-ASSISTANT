@@ -40,6 +40,11 @@ ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "")
 
 MAX_UPLOAD_MB = _int("MAX_UPLOAD_MB", 10)
 
+# How many reverse proxies sit in front of this server (Render has one; Render sets RENDER=true).
+# 0 means do not trust X-Forwarded-For at all. With 1, the visitor's address is the LAST entry of the
+# header, which is the one our own proxy added; entries to its left are written by the visitor.
+TRUSTED_PROXY_HOPS = _int("TRUSTED_PROXY_HOPS", 1 if os.getenv("RENDER") else 0)
+
 # Lets an admin point a model provider at this computer or a private network (for example an Ollama
 # server). Off by default on a hosted server, where it could be abused to probe the internal network.
 ALLOW_LOCAL_MODEL_HOSTS = os.getenv("ALLOW_LOCAL_MODEL_HOSTS", "false" if REQUIRE_DATABASE else "true").lower() == "true"

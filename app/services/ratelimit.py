@@ -3,8 +3,23 @@ import threading
 import time
 from collections import defaultdict, deque
 
+from fastapi import Request
+
+from app import config
+
 _hits: dict[str, deque] = defaultdict(deque)
 _lock = threading.Lock()
+
+
+def client_ip(request: Request) -> str:
+    """The visitor's address, without trusting what the visitor writes in X-Forwarded-For."""
+    peer = request.client.host if request.client else "unknown"
+    hops = config.TRUSTED_PROXY_HOPS
+    if hops > 0:
+        parts = [p.strip() for p in request.headers.get("x-forwarded-for", "").split(",") if p.strip()]
+        if len(parts) >= hops:
+            return parts[-hops]
+    return peer
 
 
 def allow(key: str, limit: int, window_seconds: float) -> bool:

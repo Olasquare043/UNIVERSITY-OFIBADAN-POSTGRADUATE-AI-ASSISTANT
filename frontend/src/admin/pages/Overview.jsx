@@ -72,6 +72,14 @@ export default function Overview() {
       {error && <p className="ad-error">{error}</p>}
       {loading && <p className="ad-empty">Loading…</p>}
 
+      {data?.temporary_storage && (
+        <div className="ad-warnbox" role="alert">
+          <strong>Warning: temporary storage.</strong> This site is not connected to its permanent database, so uploaded
+          documents, settings and statistics will be lost the next time it restarts. Set DATABASE_URL on the server (see
+          the README, "Deploy").
+        </div>
+      )}
+
       {data && (
         <>
           <div className="ad-tiles">

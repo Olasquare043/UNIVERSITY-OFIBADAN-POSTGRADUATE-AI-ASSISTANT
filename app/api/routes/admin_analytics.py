@@ -1,9 +1,11 @@
 """Admin: usage statistics and the questions that show gaps in the knowledge base."""
+import os
+
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import Response
 from sqlalchemy.orm import Session
 
-from app.db import get_session
+from app.db import get_engine, get_session
 from app.models import QueryLog
 from app.services import analytics, auth
 
@@ -12,7 +14,10 @@ router = APIRouter(prefix="/api/admin/analytics", dependencies=[Depends(auth.cur
 
 @router.get("/overview")
 def overview(days: int = 30, session: Session = Depends(get_session)) -> dict:
-    return analytics.overview(session, max(1, min(days, 365)))
+    result = analytics.overview(session, max(1, min(days, 365)))
+    # On a host whose disk is wiped at every restart (Render), SQLite means uploads and statistics will be lost.
+    result["temporary_storage"] = get_engine().dialect.name == "sqlite" and bool(os.getenv("RENDER"))
+    return result
 
 
 @router.get("/unanswered")

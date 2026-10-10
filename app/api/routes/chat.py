@@ -39,7 +39,7 @@ class ChatResponse(BaseModel):
 def _check_request(request: Request, body: ChatRequest) -> None:
     """Apply the per-visitor limit and make sure a chosen model is one the admin allows."""
     window = settings.get("rate_limit_minutes") * 60
-    key = f"chat:{request.client.host if request.client else 'unknown'}"
+    key = f"chat:{ratelimit.client_ip(request)}"
     if not ratelimit.allow(key, settings.get("rate_limit_count"), window):
         wait = ratelimit.retry_after(key, window)
         raise HTTPException(

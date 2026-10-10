@@ -1,0 +1,124 @@
+/* Styles added with the admin console: banners, model picker, install hint, document links. */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 8px 16px 0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.banner svg {
+  flex: none;
+  margin-top: 2px;
+}
+
+.banner-announcement {
+  background: var(--gold-bg);
+  color: var(--gold-text);
+  border: 1px solid var(--gold-line);
+}
+
+.banner-status {
+  background: var(--accent-soft);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.composer-foot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.composer-foot .disclaimer {
+  margin-top: 0;
+}
+
+.model-pick select {
+  max-width: 130px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.8rem;
+}
+
+.doc-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.doc-open {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 999px;
+  color: var(--link);
+}
+
+.doc-open:hover {
+  background: var(--accent-soft);
+}
+
+.open-original {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  text-decoration: none;
+}
+
+.install-hint {
+  margin: 4px 12px 0;
+  color: var(--sidebar-muted);
+  font-size: 0.8rem;
+}
+
+.admin-loading {
+  padding: 40px;
+  text-align: center;
+  color: var(--muted);
+}
+
+@media (max-width: 859px) {
+  .composer-foot {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .model-pick select {
+    max-width: none;
+  }
+}
+
+/* Bigger tap targets on touch screens */
+@media (pointer: coarse) {
+  .icon-btn,
+  .action-btn,
+  .tool-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}

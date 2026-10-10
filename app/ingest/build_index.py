@@ -11,7 +11,6 @@ data/processed/ holds what this script produces:
                                  fresh server can rebuild its vector store without the model
 """
 import json
-import re
 from pathlib import Path
 
 import numpy as np
@@ -20,24 +19,14 @@ from app import config
 from app.ingest.chunk import chunk_document
 from app.ingest.clean import clean_text
 from app.ingest.embed import embed_passages
+from app.ingest.naming import display_name, embeddings_path, search_text
 from app.ingest.extract import Page, extract_pages
-from app.vectorstore import embeddings_path, get_collection, reset_collection
+
 
 SUPPORTED_SUFFIXES = {".pdf", ".docx", ".html", ".htm", ".md", ".txt"}
 PROCESSED_DIR = Path(config.PROCESSED_DIR)
 CHUNKS_FILE = PROCESSED_DIR / "chunks.jsonl"
 CORRECTIONS_FILE = Path("data/ocr_corrections.json")
-
-
-def display_name(file_path: Path) -> str:
-    stem = re.sub(r"^\d+[_\-]+", "", file_path.stem)  # drop a leading "01_" ordering prefix
-    name = stem.replace("_", " ").strip()
-    return re.sub(r"\b(20\d\d) (20\d\d)\b", r"\1/\2", name)  # "2024 2025" -> "2024/2025"
-
-
-def search_text(source: str, text: str) -> str:
-    """Prefix the document name so a chunk like "Second Semester ..." still says which calendar it is from."""
-    return f"{source}\n{text}" if config.CONTEXT_HEADERS else text
 
 
 def apply_ocr_corrections(file_path: Path, pages: list[Page]) -> list[Page]:
@@ -105,9 +94,7 @@ def build_index() -> None:
     print(f"Embedding {len(records)} chunks with {config.EMBEDDING_MODEL} ...")
     np.save(embeddings_path(), embed_passages([r["search_text"] for r in records]))
 
-    reset_collection()
-    get_collection()  # rebuilds the vector store from the files just written
-    print(f"\nIndexed {len(records)} chunks from {len(files)} documents into '{config.COLLECTION_NAME}'.")
+    print(f"\nIndexed {len(records)} chunks from {len(files)} documents.")
 
 
 if __name__ == "__main__":

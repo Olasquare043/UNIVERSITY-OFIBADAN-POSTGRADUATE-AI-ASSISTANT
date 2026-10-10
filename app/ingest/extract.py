@@ -9,23 +9,32 @@ import shutil
 from dataclasses import dataclass
 from pathlib import Path
 
-import pypdfium2
-import pytesseract
 from docx import Document
 from pypdf import PdfReader
+
+try:  # OCR is only installed on a developer machine, not on the web server
+    import pypdfium2
+    import pytesseract
+except ImportError:
+    pypdfium2 = pytesseract = None
 
 MIN_CHARS_BEFORE_OCR = 200
 OCR_RENDER_SCALE = 2.5
 
 _DEFAULT_TESSERACT_PATH = Path(r"C:\Program Files\Tesseract-OCR\tesseract.exe")
-if not shutil.which("tesseract") and _DEFAULT_TESSERACT_PATH.exists():
+if pytesseract and not shutil.which("tesseract") and _DEFAULT_TESSERACT_PATH.exists():
     pytesseract.pytesseract.tesseract_cmd = str(_DEFAULT_TESSERACT_PATH)
+
+
+def ocr_available() -> bool:
+    return pytesseract is not None and shutil.which(pytesseract.pytesseract.tesseract_cmd) is not None
 
 
 @dataclass
 class Page:
     text: str
     page_number: int | None  # None when the source has no page concept (e.g. .md)
+    scanned: bool = False  # True when the page has no text layer and OCR was not available
 
 
 def extract_pages(file_path: Path) -> list[Page]:
@@ -48,13 +57,17 @@ def _extract_pdf(file_path: Path) -> list[Page]:
 
     for i, page in enumerate(reader.pages):
         text = page.extract_text() or ""
+        scanned = False
         if len(text.strip()) < MIN_CHARS_BEFORE_OCR:
-            rendered = rendered or pypdfium2.PdfDocument(str(file_path))
-            print(f"  OCR {file_path.name} page {i + 1}/{len(reader.pages)}", flush=True)
-            ocr_text = _ocr_page(rendered[i])
-            text = ocr_text if len(ocr_text) > len(text) else text
-        if text.strip():
-            pages.append(Page(text=text, page_number=i + 1))
+            if ocr_available():
+                rendered = rendered or pypdfium2.PdfDocument(str(file_path))
+                print(f"  OCR {file_path.name} page {i + 1}/{len(reader.pages)}", flush=True)
+                ocr_text = _ocr_page(rendered[i])
+                text = ocr_text if len(ocr_text) > len(text) else text
+            else:
+                scanned = True
+        if text.strip() or scanned:
+            pages.append(Page(text=text, page_number=i + 1, scanned=scanned))
     return pages
 
 

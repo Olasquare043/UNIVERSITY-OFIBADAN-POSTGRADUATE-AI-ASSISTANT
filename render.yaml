@@ -4,7 +4,8 @@ services:
     runtime: python
     plan: free
     buildCommand: pip install -r requirements.txt && python -c "from fastembed import TextEmbedding; TextEmbedding('BAAI/bge-small-en-v1.5')"
-    startCommand: uvicorn app.api.main:app --host 0.0.0.0 --port $PORT
+    # Render sits behind a proxy; trusting its forwarded headers makes the per-visitor limit see real addresses
+    startCommand: uvicorn app.api.main:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips="*"
     healthCheckPath: /api/health
     envVars:
       - key: PYTHON_VERSION
@@ -15,3 +16,15 @@ services:
         value: BAAI/bge-small-en-v1.5
       - key: FASTEMBED_CACHE_PATH
         value: /opt/render/project/src/.cache/fastembed
+      # Free Postgres from Neon or Supabase (postgresql+psycopg://user:password@host/db?sslmode=require)
+      - key: DATABASE_URL
+        sync: false
+      # Refuse to start on a disk that is wiped at every restart (uploads would silently disappear)
+      - key: REQUIRE_DATABASE
+        value: "true"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false

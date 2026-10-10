@@ -1,9 +1,9 @@
 import Dialog from "./Dialog";
 import Crest from "./Crest";
 
-export default function AboutDialog({ open, onClose }) {
+export default function AboutDialog({ open, onClose, config }) {
   return (
-    <Dialog open={open} onClose={onClose} title="About this assistant">
+    <Dialog open={open} onClose={onClose} title={`About ${config.app_name}`}>
       <div className="about-motto">
         <Crest height={84} alt="University of Ibadan crest" />
         <div>
@@ -12,31 +12,28 @@ export default function AboutDialog({ open, onClose }) {
         </div>
       </div>
 
-      <p>
-        This assistant answers questions about postgraduate study at the University of Ibadan. It is an{" "}
-        <strong>unofficial student project</strong> built on publicly available documents from the Postgraduate College. It
-        is not an official University service.
-      </p>
-      <p>
-        Answers can be wrong or out of date. Check important details, such as fees, deadlines and submission rules, with the
-        Postgraduate College before you act on them.
-      </p>
+      <p>{config.tagline}</p>
+      <p>{config.notice}</p>
 
       <dl className="about-contact">
-        <div>
-          <dt>Email</dt>
-          <dd>
-            <a href="mailto:informationdesk@pgcollege.ui.edu.ng">informationdesk@pgcollege.ui.edu.ng</a>
-          </dd>
-        </div>
-        <div>
-          <dt>Website</dt>
-          <dd>
-            <a href="https://pgcollege.ui.edu.ng" target="_blank" rel="noopener noreferrer">
-              pgcollege.ui.edu.ng
-            </a>
-          </dd>
-        </div>
+        {config.contact_email && (
+          <div>
+            <dt>Email</dt>
+            <dd>
+              <a href={`mailto:${config.contact_email}`}>{config.contact_email}</a>
+            </dd>
+          </div>
+        )}
+        {config.contact_website && (
+          <div>
+            <dt>Website</dt>
+            <dd>
+              <a href={config.contact_website} target="_blank" rel="noopener noreferrer">
+                {config.contact_website.replace(/^https?:\/\//, "")}
+              </a>
+            </dd>
+          </div>
+        )}
       </dl>
     </Dialog>
   );

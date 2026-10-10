@@ -1,16 +1,7 @@
 import Crest from "./Crest";
-import { TOPICS } from "../topics";
+import { TOPIC_ICONS } from "../topics";
 
-function Stat({ value, label }) {
-  return (
-    <div className="stat">
-      <span className="stat-value">{value.toLocaleString()}</span>
-      <span className="stat-label">{label}</span>
-    </div>
-  );
-}
-
-export default function Welcome({ docs, onPick, disabled }) {
+export default function Welcome({ config, onPick, disabled }) {
   return (
     <div className="welcome">
       <section className="hero">
@@ -18,23 +9,14 @@ export default function Welcome({ docs, onPick, disabled }) {
         <div>
           <p className="motto">Recte Sapere Fons</p>
           <p className="motto-meaning">For knowledge and sound judgment</p>
-          <h1>Hello, scholar 👋</h1>
-          <p className="welcome-lead">
-            Ask about admission, registration, fees, thesis submission or examinations. Every answer comes from official
-            University of Ibadan documents, with the source shown beside it.
-          </p>
-          {docs.status === "ready" && docs.documents.length > 0 && (
-            <div className="stats">
-              <Stat value={docs.documents.length} label="documents" />
-              <Stat value={docs.totalChunks} label="indexed passages" />
-            </div>
-          )}
+          <h1>How can I help you today?</h1>
+          <p className="welcome-lead">{config.tagline}</p>
         </div>
       </section>
 
       <ul className="topics" aria-label="Topics">
-        {TOPICS.map((topic) => {
-          const Icon = topic.icon;
+        {config.suggested_topics.map((topic) => {
+          const Icon = TOPIC_ICONS[topic.icon] || TOPIC_ICONS["file-text"];
           return (
             <li key={topic.title} className="topic">
               <h2>

@@ -1,75 +1,76 @@
-"""Persistent Chroma collection shared by ingest and rag.
+"""In-memory vector index built from the knowledge base in the database.
 
-build_index saves every chunk's embedding next to chunks.jsonl. If the Chroma store
-is empty or missing (a fresh server, a new deployment, a corrupted index), it is
-rebuilt from those two files in seconds, with no embedding model and no OCR needed.
+The knowledge base is small (about a thousand chunks), so an exact cosine search over one
+numpy matrix is fast and needs no vector database. Only chunks of documents that are ready
+and switched on are searchable. After any change to the knowledge base call reset_index()
+and the next search reloads it.
 """
-import json
-from pathlib import Path
+import threading
+from dataclasses import dataclass
 
-import chromadb
 import numpy as np
+from sqlalchemy import select
 
 from app import config
-
-_client: chromadb.ClientAPI | None = None
-_BATCH = 500
-
-
-def _get_client() -> chromadb.ClientAPI:
-    global _client
-    if _client is None:
-        _client = chromadb.PersistentClient(path=config.VECTOR_STORE_DIR)
-    return _client
+from app.db import session_scope
+from app.models import Chunk, Document
 
 
-def _model_slug() -> str:
-    return config.EMBEDDING_MODEL.split("/")[-1]
+@dataclass
+class VectorIndex:
+    records: list[dict]
+    vectors: np.ndarray  # one L2-normalised row per record, same order
+
+    def search(self, query_vector: list[float], n: int) -> list[tuple[dict, float]]:
+        """Return the n most similar records with their cosine similarity, best first."""
+        if not self.records:
+            return []
+        scores = self.vectors @ np.asarray(query_vector, dtype=np.float32)
+        best = np.argsort(-scores)[:n]
+        return [(self.records[i], float(scores[i])) for i in best]
 
 
-def embeddings_path() -> Path:
-    return Path(config.PROCESSED_DIR) / f"embeddings_{_model_slug()}.npy"
+_index: VectorIndex | None = None
+_lock = threading.Lock()
 
 
-def _create_collection():
-    # One collection per embedding model, because vectors from different models can't be mixed
-    return _get_client().get_or_create_collection(
-        name=f"{config.COLLECTION_NAME}__{_model_slug()}",
-        metadata={"hnsw:space": "cosine"},
+def get_index() -> VectorIndex:
+    global _index
+    if _index is None:
+        with _lock:
+            if _index is None:
+                _index = _load_from_database()
+    return _index
+
+
+def reset_index() -> None:
+    """Forget the loaded index so the next search reads the database again."""
+    global _index
+    _index = None
+
+
+def _load_from_database() -> VectorIndex:
+    from app.services.kb import seed_if_empty  # imported here: kb imports this module
+
+    seed_if_empty()
+    query = (
+        select(Chunk, Document.name)
+        .join(Document)
+        .where(Document.active.is_(True), Document.status == "ready", Chunk.embedding_model == config.EMBEDDING_MODEL)
+        .order_by(Document.id, Chunk.idx)
     )
-
-
-def reset_collection():
-    """Drop and recreate the collection so a rebuild always starts from a clean index."""
-    client = _get_client()
-    name = f"{config.COLLECTION_NAME}__{_model_slug()}"
-    if name in [c.name for c in client.list_collections()]:
-        client.delete_collection(name)
-    return _create_collection()
-
-
-def get_collection():
-    collection = _create_collection()
-    if collection.count() == 0:
-        _restore_from_disk(collection)
-    return collection
-
-
-def _restore_from_disk(collection) -> None:
-    chunks_file = Path(config.PROCESSED_DIR) / "chunks.jsonl"
-    if not chunks_file.exists() or not embeddings_path().exists():
-        raise RuntimeError("The knowledge base is empty. Run: python -m app.ingest.build_index")
-
-    records = [json.loads(line) for line in chunks_file.read_text(encoding="utf-8").splitlines()]
-    vectors = np.load(embeddings_path())
-    if len(records) != len(vectors):
-        raise RuntimeError("chunks.jsonl and the embeddings file are out of sync. Rebuild the index.")
-
-    for start in range(0, len(records), _BATCH):
-        batch = records[start : start + _BATCH]
-        collection.add(
-            ids=[r["id"] for r in batch],
-            embeddings=vectors[start : start + _BATCH].tolist(),
-            documents=[r["text"] for r in batch],
-            metadatas=[{"source": r["source"], "page": r["page"]} for r in batch],
-        )
+    records, vectors = [], []
+    with session_scope() as session:
+        for chunk, source in session.execute(query):
+            records.append(
+                {
+                    "id": f"{chunk.document_id}::{chunk.idx}",
+                    "source": source,
+                    "page": chunk.page,
+                    "text": chunk.text,
+                    "search_text": chunk.search_text,
+                }
+            )
+            vectors.append(np.frombuffer(chunk.embedding, dtype=np.float32))
+    matrix = np.vstack(vectors) if vectors else np.zeros((0, 1), dtype=np.float32)
+    return VectorIndex(records=records, vectors=matrix)

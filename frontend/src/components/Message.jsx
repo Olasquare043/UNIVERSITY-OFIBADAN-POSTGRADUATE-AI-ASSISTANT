@@ -196,7 +196,7 @@ export default function Message({ message, isLast, canEdit, onRegenerate, onFeed
         <AssistantAvatar tone="error" />
         <div className="msg-body">
           <p className="error-text" role="alert">
-            {EMPTY_TEXT[message.state] || EMPTY_TEXT.failed}
+            {message.errorMessage || EMPTY_TEXT[message.state] || EMPTY_TEXT.failed}
           </p>
           {isLast && (
             <button className="retry-btn" onClick={onRegenerate}>

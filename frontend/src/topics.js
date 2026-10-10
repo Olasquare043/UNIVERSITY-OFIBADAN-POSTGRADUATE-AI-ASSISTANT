@@ -1,42 +1,33 @@
-import { CalendarDays, ClipboardCheck, FileSignature, Scale, ScrollText, UserPlus, Wallet } from "lucide-react";
+import {
+  Award,
+  BookOpen,
+  CalendarDays,
+  ClipboardCheck,
+  FileSignature,
+  FileText,
+  GraduationCap,
+  Lightbulb,
+  Scale,
+  ScrollText,
+  UserPlus,
+  Wallet,
+} from "lucide-react";
 
-export const TOPICS = [
-  {
-    title: "Admissions",
-    icon: UserPlus,
-    questions: ["What are the requirements for admission into the MPhil/PhD programme?", "What is the acceptance fee?"],
-  },
-  {
-    title: "Fees",
-    icon: Wallet,
-    questions: ["How much are the postgraduate school fees?", "Can I pay my school fees in instalments?"],
-  },
-  {
-    title: "Registration",
-    icon: ClipboardCheck,
-    questions: ["How do I register as a new postgraduate student?", "What is the deadline for late registration?"],
-  },
-  {
-    title: "Examinations and regulations",
-    icon: Scale,
-    questions: ["What is the pass mark for a course?", "What happens in case of examination misconduct?"],
-  },
-  {
-    title: "Thesis and dissertation",
-    icon: ScrollText,
-    questions: ["How many copies of my thesis must I submit?", "What is the deadline for thesis submission?"],
-  },
-  {
-    title: "Calendar",
-    icon: CalendarDays,
-    questions: ["When does the 2025/2026 academic session start?", "What are the key dates in the academic calendar?"],
-  },
-  {
-    title: "Forms and scholarships",
-    icon: FileSignature,
-    questions: ["How do I request conversion from MPhil to PhD?", "Are there scholarships for postgraduate students?"],
-  },
-];
+// Icon names an admin can pick for a topic (see Settings in the admin console).
+export const TOPIC_ICONS = {
+  "user-plus": UserPlus,
+  wallet: Wallet,
+  "clipboard-check": ClipboardCheck,
+  scale: Scale,
+  "scroll-text": ScrollText,
+  "calendar-days": CalendarDays,
+  "file-signature": FileSignature,
+  "graduation-cap": GraduationCap,
+  "book-open": BookOpen,
+  award: Award,
+  lightbulb: Lightbulb,
+  "file-text": FileText,
+};
 
 // Follow-up questions are picked from the topic of the question just asked.
 const FOLLOW_UP_RULES = [

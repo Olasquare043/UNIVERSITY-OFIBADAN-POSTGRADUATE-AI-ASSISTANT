@@ -3,14 +3,26 @@ let streamAvailable = true;
 
 const STALL_TIMEOUT_MS = 30000;
 
-export async function sendChat(message, history, signal) {
+// An error whose text is meant to be shown to the student (for example the usage limit).
+export class FriendlyError extends Error {}
+
+async function failOnBadResponse(response, label) {
+  if (response.ok) return;
+  if (response.status === 429 || response.status === 400) {
+    const body = await response.json().catch(() => null);
+    if (body?.detail) throw new FriendlyError(body.detail);
+  }
+  throw new Error(`${label} failed with status ${response.status}`);
+}
+
+export async function sendChat(message, history, signal, model) {
   const response = await fetch("/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message, history }),
+    body: JSON.stringify({ message, history, model }),
     signal,
   });
-  if (!response.ok) throw new Error(`Chat request failed with status ${response.status}`);
+  await failOnBadResponse(response, "Chat request");
 
   const data = await response.json();
   return {
@@ -57,7 +69,7 @@ async function readEvents(body, onEvent, onActivity) {
 // Reports progress through onEvent(name, data) using the stream event names
 // (status, retrieved, token, done). Falls back to the plain endpoint when the
 // backend has no stream route, so callers only deal with one shape.
-export async function askAssistant(message, history, signal, onEvent) {
+export async function askAssistant(message, history, signal, onEvent, model) {
   if (streamAvailable) {
     // A silent, half-open connection never errors on its own, so give up when nothing arrives for a while.
     const connection = new AbortController();
@@ -77,14 +89,15 @@ export async function askAssistant(message, history, signal, onEvent) {
       const response = await fetch("/api/chat/stream", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "text/event-stream" },
-        body: JSON.stringify({ message, history }),
+        body: JSON.stringify({ message, history, model }),
         signal: connection.signal,
       });
 
       if (response.status === 404 || response.status === 405) {
         streamAvailable = false;
       } else {
-        if (!response.ok || !response.body) throw new Error(`Stream request failed with status ${response.status}`);
+        await failOnBadResponse(response, "Stream request");
+        if (!response.body) throw new Error("The server sent no stream");
 
         let finished = false;
         await readEvents(
@@ -108,7 +121,7 @@ export async function askAssistant(message, history, signal, onEvent) {
   }
 
   onEvent("status", { stage: "searching" });
-  const { answer, sources } = await sendChat(message, history, signal);
+  const { answer, sources } = await sendChat(message, history, signal, model);
   onEvent("done", { answer, sources });
 }
 
@@ -128,8 +141,23 @@ export async function fetchDocuments(signal) {
   if (!response.ok) throw new Error(`Documents request failed with status ${response.status}`);
 
   const data = await response.json();
-  return {
-    documents: Array.isArray(data.documents) ? data.documents : [],
-    totalChunks: Number(data.total_chunks) || 0,
-  };
+  return Array.isArray(data.documents) ? data.documents : [];
+}
+
+export async function fetchConfig(signal) {
+  const response = await fetch("/api/config", { signal });
+  if (!response.ok) throw new Error(`Config request failed with status ${response.status}`);
+  return response.json();
+}
+
+export async function sendFeedback(logId, value, comment = "") {
+  try {
+    await fetch("/api/feedback", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ log_id: logId, value, comment }),
+    });
+  } catch {
+    // Feedback is a courtesy; the thumb still shows as chosen on this device.
+  }
 }

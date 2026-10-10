@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Download, Keyboard, MoreVertical, Moon, PanelLeft, Printer, Sun } from "lucide-react";
 
-const STATUS_LABEL = { checking: "Checking", online: "Online", offline: "Offline" };
-
 function MenuItem({ icon: Icon, label, disabled, onClick }) {
   return (
     <button className="menu-item" role="menuitem" disabled={disabled} onClick={onClick}>
@@ -51,7 +49,7 @@ function ChatMenu({ hasChat, onExport, onPrint, onShortcuts }) {
   );
 }
 
-export default function Header({ title, health, theme, sidebarOpen, hasChat, onToggleSidebar, onToggleTheme, onExport, onPrint, onShortcuts }) {
+export default function Header({ title, theme, sidebarOpen, hasChat, onToggleSidebar, onToggleTheme, onExport, onPrint, onShortcuts }) {
   return (
     <header className="header">
       <button
@@ -65,11 +63,6 @@ export default function Header({ title, health, theme, sidebarOpen, hasChat, onT
       </button>
 
       <h2 className="header-title">{title}</h2>
-
-      <span className="health" data-status={health} role="status" title={`Assistant is ${STATUS_LABEL[health].toLowerCase()}`}>
-        <span className="health-dot" aria-hidden="true" />
-        {STATUS_LABEL[health]}
-      </span>
 
       <button
         className="icon-btn"

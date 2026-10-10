@@ -6,20 +6,19 @@ lists are merged with reciprocal rank fusion.
 
 RETRIEVAL_MODE: "dense" | "hybrid"
 """
-import json
 import re
 from dataclasses import dataclass
-from pathlib import Path
 
 from rank_bm25 import BM25Okapi
 
 from app import config
 from app.ingest.embed import embed_query
-from app.vectorstore import get_collection
+from app.services import settings
+from app.vectorstore import get_index
 
 RRF_K = 60
 
-_keyword_index: tuple[BM25Okapi, list[dict]] | None = None
+_keyword_index: tuple[object, BM25Okapi | None] | None = None  # (vector index it was built from, BM25)
 
 
 @dataclass
@@ -32,7 +31,7 @@ class RetrievedChunk:
 
 
 def retrieve(query: str, top_k: int | None = None, mode: str | None = None) -> list[RetrievedChunk]:
-    top_k = top_k or config.TOP_K
+    top_k = top_k or settings.get("top_k")
     mode = mode or config.RETRIEVAL_MODE
 
     dense = _dense_search(query, config.CANDIDATES)
@@ -42,22 +41,35 @@ def retrieve(query: str, top_k: int | None = None, mode: str | None = None) -> l
     return _reciprocal_rank_fusion(dense, _keyword_search(query, config.CANDIDATES))[:top_k]
 
 
-def _dense_search(query: str, n: int) -> list[RetrievedChunk]:
-    results = get_collection().query(
-        query_embeddings=[embed_query(query)],
-        n_results=n,
-        include=["documents", "metadatas", "distances"],
-    )
+def explain(query: str, top_k: int = 8) -> list[dict]:
+    """For the admin playground: the results of a search and which kind of search found each one."""
+    dense = _dense_search(query, config.CANDIDATES)
+    keyword = _keyword_search(query, config.CANDIDATES)
+    by_meaning = {c.id for c in dense}
+    by_keywords = {c.id for c in keyword}
     return [
-        RetrievedChunk(id=chunk_id, text=text, source=meta["source"], page=meta["page"] or None, score=1 - distance)
-        for chunk_id, text, meta, distance in zip(
-            results["ids"][0], results["documents"][0], results["metadatas"][0], results["distances"][0]
-        )
+        {
+            "source": c.source,
+            "page": c.page,
+            "text": c.text,
+            "similarity": round(c.score, 3) if c.id in by_meaning else None,
+            "found_by": [name for name, ids in (("meaning", by_meaning), ("keywords", by_keywords)) if c.id in ids],
+        }
+        for c in _reciprocal_rank_fusion(dense, keyword)[:top_k]
+    ]
+
+
+def _dense_search(query: str, n: int) -> list[RetrievedChunk]:
+    return [
+        RetrievedChunk(id=r["id"], text=r["text"], source=r["source"], page=r["page"] or None, score=score)
+        for r, score in get_index().search(embed_query(query), n)
     ]
 
 
 def _keyword_search(query: str, n: int) -> list[RetrievedChunk]:
     bm25, records = _get_keyword_index()
+    if bm25 is None:
+        return []
     scores = bm25.get_scores(_tokenize(query))
     best = sorted(range(len(records)), key=lambda i: scores[i], reverse=True)[:n]
     return [
@@ -89,9 +101,10 @@ def _tokenize(text: str) -> list[str]:
 
 
 def _get_keyword_index() -> tuple[BM25Okapi, list[dict]]:
+    """BM25 over the same chunks as the vector index; rebuilt whenever that index is reloaded."""
     global _keyword_index
-    if _keyword_index is None:
-        lines = (Path(config.PROCESSED_DIR) / "chunks.jsonl").read_text(encoding="utf-8").splitlines()
-        records = [json.loads(line) for line in lines]
-        _keyword_index = (BM25Okapi([_tokenize(r["search_text"]) for r in records]), records)
-    return _keyword_index
+    index = get_index()
+    if _keyword_index is None or _keyword_index[0] is not index:
+        bm25 = BM25Okapi([_tokenize(r["search_text"]) for r in index.records]) if index.records else None
+        _keyword_index = (index, bm25)
+    return _keyword_index[1], index.records

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { askAssistant } from "../api";
+import { askAssistant, FriendlyError, sendFeedback } from "../api";
 import { createPacer } from "../pacer";
 import { CONVERSATIONS_KEY, readJSON, writeJSON } from "../storage";
 
@@ -44,12 +44,14 @@ function mergeDocuments(current, incoming) {
   return [...current, ...added];
 }
 
-export function useConversations() {
+export function useConversations(model) {
   const [conversations, setConversations] = useState(loadConversations);
   const [activeId, setActiveId] = useState(() => conversations[0]?.id ?? null);
   // The answer being written right now: { conversationId, stage, documents, text }.
   const [live, setLive] = useState(null);
   const abortRef = useRef(null);
+  const modelRef = useRef(model);
+  modelRef.current = model;
 
   useEffect(() => {
     writeJSON(CONVERSATIONS_KEY, conversations);
@@ -81,18 +83,21 @@ export function useConversations() {
         }
         if (name === "token") pacer.push(data.text ?? "");
         if (name === "done") final = data;
-      });
+      }, modelRef.current);
     } catch (error) {
-      if (!final) final = { failure: error.name === "AbortError" ? "stopped" : "failed" };
+      if (!final) {
+        const failure = error.name === "AbortError" ? "stopped" : "failed";
+        final = { failure, errorMessage: error instanceof FriendlyError ? error.message : undefined };
+      }
     }
     pacer.stop();
 
     const partial = pacer.received();
     let reply;
     if (final.failure) {
-      reply = { content: partial, sources: [], state: final.failure };
+      reply = { content: partial, sources: [], state: final.failure, errorMessage: final.errorMessage };
     } else {
-      reply = { content: final.answer, sources: final.sources ?? [], state: "done" };
+      reply = { content: final.answer, sources: final.sources ?? [], state: "done", logId: final.log_id ?? null };
     }
 
     patch(conversationId, (c) => ({
@@ -155,8 +160,10 @@ export function useConversations() {
     if (clean) patch(id, () => ({ title: clean }), false);
   }
 
-  function setFeedback(messageId, value) {
+  function setFeedback(messageId, value, comment = "") {
     if (!active) return;
+    const message = active.messages.find((m) => m.id === messageId);
+    if (message?.logId && message.feedback !== value) sendFeedback(message.logId, value, comment);
     patch(
       active.id,
       (c) => ({

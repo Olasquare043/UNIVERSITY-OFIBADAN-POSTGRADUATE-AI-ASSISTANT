@@ -8,3 +8,5 @@ frontend/node_modules/
 .cache/
 *.log
 data/eval/results/answers_progress.json
+data/app.db
+docs/

@@ -1,8 +1,13 @@
 fastapi
 uvicorn
 python-dotenv
-chromadb
-groq
 numpy
 rank-bm25
 fastembed
+sqlalchemy
+psycopg[binary]
+itsdangerous
+pypdf
+python-docx
+openai
+python-multipart

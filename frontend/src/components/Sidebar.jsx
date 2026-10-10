@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Check, Info, Library, Pencil, Plus, Search, Trash2, X } from "lucide-react";
+import { Check, Download, Info, Library, Pencil, Plus, Search, Trash2, X } from "lucide-react";
 import Crest from "./Crest";
 import { groupByDay } from "../format";
 
@@ -86,6 +86,8 @@ export default function Sidebar({
   onClose,
   onOpenKnowledge,
   onOpenAbout,
+  config,
+  install,
 }) {
   const [confirmingClear, setConfirmingClear] = useState(false);
   const [search, setSearch] = useState("");
@@ -106,7 +108,7 @@ export default function Sidebar({
           </span>
           <div>
             <p className="brand-name">University of Ibadan</p>
-            <p className="brand-sub">Postgraduate Assistant</p>
+            <p className="brand-sub">{config.app_name}</p>
           </div>
         </div>
 
@@ -155,12 +157,21 @@ export default function Sidebar({
         <div className="sidebar-foot">
           <button className="foot-btn" onClick={onOpenKnowledge}>
             <Library size={16} />
-            Knowledge base
+            Official documents
           </button>
           <button className="foot-btn" onClick={onOpenAbout}>
             <Info size={16} />
             About this assistant
           </button>
+          {install.available && (
+            <button className="foot-btn" onClick={install.prompt}>
+              <Download size={16} />
+              Install the app
+            </button>
+          )}
+          {install.iosHint && (
+            <p className="install-hint">To install: tap Share in Safari, then Add to Home Screen.</p>
+          )}
 
           {conversations.length > 0 &&
             (confirmingClear ? (

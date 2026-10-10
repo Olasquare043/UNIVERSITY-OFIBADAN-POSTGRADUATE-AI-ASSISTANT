@@ -1,0 +1,8 @@
+line-length = 130
+
+[lint]
+select = ["E", "F", "W"]
+ignore = ["E501"]
+
+[lint.per-file-ignores]
+"tests/conftest.py" = ["E402"]

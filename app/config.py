@@ -29,6 +29,17 @@ RETRIEVAL_MODE = os.getenv("RETRIEVAL_MODE", "hybrid")
 CANDIDATES = _int("CANDIDATES", 20)
 
 RAW_DOCS_DIR = os.getenv("RAW_DOCS_DIR", "data/raw_docs")
-VECTOR_STORE_DIR = os.getenv("VECTOR_STORE_DIR", "vector_store")
 PROCESSED_DIR = os.getenv("PROCESSED_DIR", "data/processed")
-COLLECTION_NAME = os.getenv("COLLECTION_NAME", "ui_pg_knowledge_base")
+
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///data/app.db")
+REQUIRE_DATABASE = os.getenv("REQUIRE_DATABASE", "false").lower() == "true"  # refuse SQLite on hosts with no disk
+
+SECRET_KEY = os.getenv("SECRET_KEY", "")
+ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", "")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "")
+
+MAX_UPLOAD_MB = _int("MAX_UPLOAD_MB", 10)
+
+# Lets an admin point a model provider at this computer or a private network (for example an Ollama
+# server). Off by default on a hosted server, where it could be abused to probe the internal network.
+ALLOW_LOCAL_MODEL_HOSTS = os.getenv("ALLOW_LOCAL_MODEL_HOSTS", "false" if REQUIRE_DATABASE else "true").lower() == "true"

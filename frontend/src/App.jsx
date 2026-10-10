@@ -8,7 +8,10 @@ import AboutDialog from "./components/AboutDialog";
 import KnowledgeBaseDialog from "./components/KnowledgeBaseDialog";
 import ShortcutsDialog from "./components/ShortcutsDialog";
 import SourceDialog from "./components/SourceDialog";
+import Banners from "./components/Banners";
+import { useConfig } from "./hooks/useConfig";
 import { useConversations } from "./hooks/useConversations";
+import { useInstallPrompt } from "./hooks/useInstallPrompt";
 import { useDocuments } from "./hooks/useDocuments";
 import { useHealth } from "./hooks/useHealth";
 import { useTheme } from "./hooks/useTheme";
@@ -20,11 +23,39 @@ function isTyping(target) {
   return target instanceof HTMLElement && (target.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName));
 }
 
+const MODEL_KEY = "ui-pg-model";
+
+function readModel() {
+  try {
+    return localStorage.getItem(MODEL_KEY) || "";
+  } catch {
+    return "";
+  }
+}
+
 export default function App() {
-  const chats = useConversations();
+  const config = useConfig();
+  const [chosenModel, setChosenModel] = useState(readModel);
+  // Only a model the admin currently offers counts; otherwise the server's default is used.
+  const model = config.model_choice && config.models.some((m) => m.id === chosenModel) ? chosenModel : config.default_model;
+  const chats = useConversations(config.model_choice ? model : undefined);
+  const install = useInstallPrompt();
   const docs = useDocuments();
   const health = useHealth();
   const { theme, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    document.title = config.app_name;
+  }, [config.app_name]);
+
+  function changeModel(id) {
+    setChosenModel(id);
+    try {
+      localStorage.setItem(MODEL_KEY, id);
+    } catch {
+      // The choice then lasts until the page is closed.
+    }
+  }
   const [sidebarOpen, setSidebarOpen] = useState(() => window.matchMedia(DESKTOP_QUERY).matches);
   const [dialog, setDialog] = useState(null); // "about" | "knowledge" | "shortcuts" | null
   const [openSource, setOpenSource] = useState(null);
@@ -84,12 +115,13 @@ export default function App() {
         onClose={() => setSidebarOpen(false)}
         onOpenKnowledge={() => openDialog("knowledge")}
         onOpenAbout={() => openDialog("about")}
+        config={config}
+        install={install}
       />
 
       <main className="main">
         <Header
           title={chats.active ? chats.active.title : "New chat"}
-          health={health}
           theme={theme}
           sidebarOpen={sidebarOpen}
           hasChat={chats.active !== null}
@@ -99,6 +131,8 @@ export default function App() {
           onPrint={() => window.print()}
           onShortcuts={() => setDialog("shortcuts")}
         />
+
+        <Banners health={health} announcement={config.announcement} />
 
         {chats.active ? (
           <MessageList
@@ -115,17 +149,17 @@ export default function App() {
           />
         ) : (
           <div className="thread">
-            <Welcome docs={docs} onPick={chats.send} disabled={chats.busy} />
+            <Welcome config={config} onPick={chats.send} disabled={chats.busy} />
           </div>
         )}
 
-        <Composer pending={chats.busy} focusKey={chats.activeId} inputRef={inputRef} onSend={chats.send} onStop={chats.stop} />
+        <Composer config={config} model={model} onModelChange={changeModel} pending={chats.busy} focusKey={chats.activeId} inputRef={inputRef} onSend={chats.send} onStop={chats.stop} />
       </main>
 
-      <AboutDialog open={dialog === "about"} onClose={() => setDialog(null)} />
+      <AboutDialog open={dialog === "about"} onClose={() => setDialog(null)} config={config} />
       <KnowledgeBaseDialog open={dialog === "knowledge"} onClose={() => setDialog(null)} docs={docs} />
       <ShortcutsDialog open={dialog === "shortcuts"} onClose={() => setDialog(null)} />
-      <SourceDialog source={openSource} onClose={() => setOpenSource(null)} />
+      <SourceDialog source={openSource} documents={docs.documents} onClose={() => setOpenSource(null)} />
     </div>
   );
 }

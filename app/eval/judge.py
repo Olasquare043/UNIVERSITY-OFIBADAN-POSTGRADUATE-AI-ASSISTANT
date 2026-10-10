@@ -6,7 +6,6 @@ system isn't grading its own writing style.
 import json
 import re
 
-from app import config
 from app.rag.generator import generate_answer
 
 JUDGE_MODEL = "qwen/qwen3.8-27b"

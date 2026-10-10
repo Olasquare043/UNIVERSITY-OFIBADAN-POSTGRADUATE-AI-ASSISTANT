@@ -6,7 +6,7 @@ const MAX_LENGTH = 2000;
 
 const Recognition = typeof window !== "undefined" ? window.SpeechRecognition || window.webkitSpeechRecognition : undefined;
 
-export default function Composer({ pending, focusKey, inputRef, onSend, onStop }) {
+export default function Composer({ config, model, onModelChange, pending, focusKey, inputRef, onSend, onStop }) {
   const [text, setText] = useState("");
   const [listening, setListening] = useState(false);
   const recognitionRef = useRef(null);
@@ -105,10 +105,21 @@ export default function Composer({ pending, focusKey, inputRef, onSend, onStop }
           </button>
         )}
       </form>
-      <p className="disclaimer">
-        Answers come from official University of Ibadan documents. Always verify important details with the Postgraduate
-        College.
-      </p>
+      <div className="composer-foot">
+        {config.model_choice && (
+          <label className="model-pick">
+            <span className="visually-hidden">Answer style</span>
+            <select name="model" value={model} onChange={(e) => onModelChange(e.target.value)} disabled={pending}>
+              {config.models.map((m) => (
+                <option key={m.id} value={m.id}>
+                  {m.label}
+                </option>
+              ))}
+            </select>
+          </label>
+        )}
+        <p className="disclaimer">{config.notice}</p>
+      </div>
     </div>
   );
 }

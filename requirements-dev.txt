@@ -1,5 +1,6 @@
 -r requirements.txt
-pypdf
 pypdfium2
 pytesseract
-python-docx
+pytest
+httpx
+ruff

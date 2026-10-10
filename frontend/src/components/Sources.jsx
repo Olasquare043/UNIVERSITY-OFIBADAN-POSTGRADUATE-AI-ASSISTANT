@@ -29,7 +29,7 @@ export default function Sources({ sources, onOpen }) {
               className="source-chip"
               onClick={() => onOpen(source)}
               title="Show the passage"
-              aria-label={`${source.document}${source.page != null ? `, page ${source.page}` : ""}. Show passage`}
+              aria-label={`${source.document}${source.page != null ? ` p.${source.page}` : ""}, show passage`}
             >
               <FileText size={14} aria-hidden="true" />
               <span className="source-name">{source.document}</span>

@@ -77,6 +77,9 @@ export default function AdminApp() {
             {admin.name || admin.email}
             <small>{admin.role === "super_admin" ? "Super admin" : "Editor"}</small>
           </span>
+          <a className="ad-btn" href="/">
+            Student view
+          </a>
           <button className="icon-btn" onClick={toggleTheme} aria-label="Switch theme">
             {theme === "dark" ? <Sun size={19} /> : <Moon size={19} />}
           </button>

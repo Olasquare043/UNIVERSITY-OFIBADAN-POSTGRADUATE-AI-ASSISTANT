@@ -1,7 +1,18 @@
 import { useEffect, useRef, useState } from "react";
-import { Download, Keyboard, MoreVertical, Moon, PanelLeft, Printer, Sun } from "lucide-react";
+import { Download, Keyboard, LogIn, MoreVertical, Moon, PanelLeft, Printer, Sun } from "lucide-react";
 
-function MenuItem({ icon: Icon, label, disabled, onClick }) {
+// Keyboard shortcuts mean nothing on a phone or tablet.
+const hasKeyboard = () => !window.matchMedia("(pointer: coarse)").matches;
+
+function MenuItem({ icon: Icon, label, disabled, onClick, href }) {
+  if (href) {
+    return (
+      <a className="menu-item" role="menuitem" href={href}>
+        <Icon size={17} aria-hidden="true" />
+        {label}
+      </a>
+    );
+  }
   return (
     <button className="menu-item" role="menuitem" disabled={disabled} onClick={onClick}>
       <Icon size={17} aria-hidden="true" />
@@ -42,7 +53,8 @@ function ChatMenu({ hasChat, onExport, onPrint, onShortcuts }) {
         <div className="menu" role="menu">
           <MenuItem icon={Download} label="Export as Markdown" disabled={!hasChat} onClick={() => run(onExport)} />
           <MenuItem icon={Printer} label="Print or save as PDF" disabled={!hasChat} onClick={() => run(onPrint)} />
-          <MenuItem icon={Keyboard} label="Keyboard shortcuts" onClick={() => run(onShortcuts)} />
+          {hasKeyboard() && <MenuItem icon={Keyboard} label="Keyboard shortcuts" onClick={() => run(onShortcuts)} />}
+          <MenuItem icon={LogIn} label="Staff sign in" href="/admin" />
         </div>
       )}
     </div>

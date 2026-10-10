@@ -122,3 +122,14 @@
     min-height: 44px;
   }
 }
+
+/* Links styled like the buttons beside them */
+a.menu-item,
+a.foot-btn {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.foot-btn {
+  color: var(--sidebar-muted);
+}

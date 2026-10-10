@@ -466,6 +466,8 @@ ul {
 
 /* ---------- Header ---------- */
 .header {
+  position: relative;
+  z-index: 20; /* above the chat area, so the dropdown menu is never painted under message text */
   display: flex;
   align-items: center;
   gap: 8px;

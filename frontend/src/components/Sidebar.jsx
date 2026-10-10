@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Check, Download, Info, Library, Pencil, Plus, Search, Trash2, X } from "lucide-react";
+import { Check, Download, Info, Library, LogIn, Pencil, Plus, Search, Trash2, X } from "lucide-react";
 import Crest from "./Crest";
 import { groupByDay } from "../format";
 
@@ -163,6 +163,10 @@ export default function Sidebar({
             <Info size={16} />
             About this assistant
           </button>
+          <a className="foot-btn" href="/admin">
+            <LogIn size={16} />
+            Staff sign in
+          </a>
           {install.available && (
             <button className="foot-btn" onClick={install.prompt}>
               <Download size={16} />

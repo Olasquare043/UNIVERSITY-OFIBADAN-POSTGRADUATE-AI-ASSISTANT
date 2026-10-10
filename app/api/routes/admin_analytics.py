@@ -3,10 +3,11 @@ import os
 
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import Response
+from sqlalchemy import delete, func, select
 from sqlalchemy.orm import Session
 
 from app.db import get_engine, get_session
-from app.models import QueryLog
+from app.models import Admin, Feedback, QueryLog
 from app.services import analytics, auth
 
 router = APIRouter(prefix="/api/admin/analytics", dependencies=[Depends(auth.current_admin)])
@@ -37,6 +38,17 @@ def resolve(log_id: int, resolved: bool = True, session: Session = Depends(get_s
         raise HTTPException(status_code=404, detail="Question not found.")
     log.resolved = resolved
     return {"ok": True}
+
+
+@router.delete("/data")
+def delete_saved_data(admin: Admin = Depends(auth.super_admin), session: Session = Depends(get_session)) -> dict:
+    """Erase every saved question and rating (statistics, gaps and poor-answer lists start again from zero)."""
+    questions = session.scalar(select(func.count()).select_from(QueryLog)) or 0
+    ratings = session.scalar(select(func.count()).select_from(Feedback)) or 0
+    session.execute(delete(Feedback))
+    session.execute(delete(QueryLog))
+    auth.audit(session, admin, "deleted saved questions and ratings", f"{questions} questions, {ratings} ratings")
+    return {"questions": questions, "ratings": ratings}
 
 
 @router.get("/export.csv")

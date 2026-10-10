@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Plus, Trash2 } from "lucide-react";
 import { api } from "../adminApi";
 import { TOPIC_ICONS } from "../../topics";
-import { Card, Field, PageHead, useAdminData, useNotice } from "../ui";
+import { Card, ConfirmButton, Field, PageHead, useAdminData, useNotice } from "../ui";
 
 const ICON_NAMES = Object.keys(TOPIC_ICONS);
 
@@ -41,7 +41,29 @@ function PasswordCard({ say }) {
   );
 }
 
-export default function Settings() {
+function ClearDataCard({ say }) {
+  async function clear() {
+    try {
+      const result = await api("/analytics/data", { method: "DELETE" });
+      say(`Deleted ${result.questions} saved question(s) and ${result.ratings} rating(s).`);
+    } catch (error) {
+      say(error.message, "error");
+    }
+  }
+
+  return (
+    <Card
+      title="Delete saved questions and ratings"
+      hint="Starts the statistics, the gaps list and the poor-answer list again from zero. This cannot be undone. Documents and settings are not touched."
+    >
+      <ConfirmButton onConfirm={clear} label="Yes, delete" className="ad-btn ad-btn-danger-outline">
+        Delete saved questions and ratings
+      </ConfirmButton>
+    </Card>
+  );
+}
+
+export default function Settings({ admin }) {
   const { data, reload } = useAdminData("/settings");
   const [form, setForm] = useState(null);
   const [notice, say] = useNotice();
@@ -174,6 +196,8 @@ export default function Settings() {
           <input type="number" min="0" max="3650" {...number("log_retention_days")} />
         </Field>
       </Card>
+
+      {admin.role === "super_admin" && <ClearDataCard say={say} />}
 
       <PasswordCard say={say} />
     </>

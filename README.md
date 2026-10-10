@@ -89,7 +89,7 @@ only super admins manage people and models (models decide where API keys are sen
 - **Insights**: questions the documents could not answer (gaps to fill) and answers rated poor.
 - **Models**: add providers (Groq, OpenRouter, or a local Ollama server) and models, choose the
   default and the fallback, test each one, and decide whether students may choose.
-- **Settings**: app name, notice, contacts, announcement banner, suggested questions, usage limit.
+- **Settings**: app name, notice, contacts, announcement banner, suggested questions, usage limit, and a button that erases saved questions and ratings (for example after testing).
 
 Scanned PDFs: the web server has no OCR. Read them on your computer (with Tesseract installed and
 `DATABASE_URL` pointing at the online database) using `python -m app.ingest.push file.pdf`, or type

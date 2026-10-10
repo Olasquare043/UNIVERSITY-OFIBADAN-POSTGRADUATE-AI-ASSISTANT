@@ -5,8 +5,6 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:mock": "node dev-mock/server.mjs",
-    "dev:ui-mock": "vite --mode mock",
     "build": "vite build && node scripts/stamp-sw.mjs",
     "preview": "vite preview"
   },

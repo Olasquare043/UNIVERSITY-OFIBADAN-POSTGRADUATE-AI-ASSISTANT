@@ -281,3 +281,24 @@ def test_uploaded_files_cannot_run_as_pages(admin):
 
     admin.delete(f"/api/admin/documents/{page['id']}")
     admin.delete(f"/api/admin/documents/{note['id']}")
+
+
+def test_super_admin_can_delete_saved_questions_and_ratings(client, admin, fake_model):
+    admin.put("/api/admin/settings", json={"min_relevance": 0.0})
+    answer = done_event(ask(client, "hello"))
+    client.post("/api/feedback", json={"log_id": answer["log_id"], "value": "down"})
+    assert admin.get("/api/admin/analytics/overview").json()["questions"] >= 1
+
+    cleared = admin.delete("/api/admin/analytics/data")
+    assert cleared.status_code == 200 and cleared.json()["questions"] >= 1 and cleared.json()["ratings"] >= 1
+    overview = admin.get("/api/admin/analytics/overview").json()
+    assert overview["questions"] == 0 and overview["thumbs_down"] == 0
+    assert admin.get("/api/admin/analytics/downvoted").json()["questions"] == []
+    assert any(e["action"] == "deleted saved questions and ratings" for e in admin.get("/api/admin/audit").json()["entries"])
+
+
+def test_editor_cannot_delete_saved_data(admin):
+    admin.post("/api/admin/users", json={"email": "editor3@example.com", "password": "third-long-password", "role": "editor"})
+    admin.post("/api/admin/logout")
+    admin.post("/api/admin/login", json={"email": "editor3@example.com", "password": "third-long-password"})
+    assert admin.delete("/api/admin/analytics/data").status_code == 403

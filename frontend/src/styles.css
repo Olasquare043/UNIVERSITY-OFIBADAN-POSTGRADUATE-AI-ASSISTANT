@@ -503,33 +503,6 @@ ul {
   color: var(--text);
 }
 
-.health {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 4px 11px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  color: var(--muted);
-  font-size: 0.82rem;
-}
-
-.health-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--muted);
-}
-
-.health[data-status="online"] .health-dot {
-  background: var(--ok);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok) 25%, transparent);
-}
-
-.health[data-status="offline"] .health-dot {
-  background: var(--danger);
-}
-
 .menu-wrap {
   position: relative;
 }
@@ -1122,34 +1095,6 @@ ul {
   color: var(--muted);
 }
 
-.stats {
-  display: flex;
-  gap: 28px;
-  margin-top: 16px;
-}
-
-.stat {
-  display: flex;
-  flex-direction: column;
-}
-
-.stat-value {
-  font-family: var(--font-display);
-  font-size: 1.7rem;
-  font-weight: 600;
-  line-height: 1.1;
-  color: var(--accent);
-}
-
-:root[data-theme="dark"] .stat-value {
-  color: var(--gold-300);
-}
-
-.stat-label {
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
 .topics {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
@@ -1629,10 +1574,6 @@ kbd {
     font-size: 0.95rem;
   }
 
-  .stats {
-    margin-top: 12px;
-  }
-
   .msg-assistant {
     gap: 10px;
   }
@@ -1644,10 +1585,6 @@ kbd {
 
   .follow-ups {
     padding-left: 0;
-  }
-
-  .health {
-    padding: 4px 9px;
   }
 
   .header {

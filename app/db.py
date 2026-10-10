@@ -46,14 +46,6 @@ def get_session() -> Iterator[Session]:
         yield session
 
 
-def reset_engine() -> None:
-    """Used by tests to point the app at a fresh database."""
-    global _engine, _sessions
-    if _engine is not None:
-        _engine.dispose()
-    _engine = _sessions = None
-
-
 def init_db() -> None:
     from app.models import Base
 

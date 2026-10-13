@@ -22,7 +22,7 @@ export default function Models() {
     setNewModel((m) => ({ ...m, provider: m.provider || providers[0]?.id || "" }));
   }, [data]);
 
-  if (!draft) return <p className="ad-empty">Loading…</p>;
+  if (!draft) return <p className="admin-empty">Loading…</p>;
 
   const change = (patch) => setDraft({ ...draft, ...patch });
   const enabledModels = draft.models.filter((m) => m.enabled);
@@ -83,17 +83,17 @@ export default function Models() {
   return (
     <>
       <PageHead title="Models">
-        <button className="ad-btn ad-btn-primary" onClick={save}>
+        <button className="admin-btn admin-btn-primary" onClick={save}>
           Save changes
         </button>
       </PageHead>
       {notice}
-      <p className="ad-hint ad-intro">
+      <p className="admin-hint admin-intro">
         Save after changing anything below. Test a model first: a model that fails its test will make students wait or see an error.
       </p>
 
       <Card title="Which model answers" hint="The fallback takes over when the default is busy, over its limit, or switched off.">
-        <div className="ad-grid">
+        <div className="admin-grid">
           <Field label="Default model">
             <select value={draft.default_model} onChange={(e) => change({ default_model: e.target.value })}>
               {enabledModels.map((m) => (
@@ -113,37 +113,37 @@ export default function Models() {
             </select>
           </Field>
         </div>
-        <label className="ad-check">
+        <label className="admin-check">
           <input type="checkbox" checked={draft.student_model_choice} onChange={(e) => change({ student_model_choice: e.target.checked })} />
           Let students choose between the enabled models
         </label>
       </Card>
 
       <Card title="Available models" hint="Turn a model off to stop using it. The label is what students see if they can choose.">
-        <ul className="ad-list">
+        <ul className="admin-list">
           {draft.models.map((m) => {
             const result = tests[m.id];
             return (
-              <li key={m.id} className="ad-model">
-                <div className="ad-model-main">
+              <li key={m.id} className="admin-model">
+                <div className="admin-model-main">
                   <input value={m.label} onChange={(e) => updateModel(m.id, { label: e.target.value })} aria-label={`Label for ${m.id}`} />
-                  <p className="ad-hint">
+                  <p className="admin-hint">
                     {m.id} · {draft.providers.find((p) => p.id === m.provider)?.name ?? m.provider}
                   </p>
                   {result && !result.busy && (
-                    <p className={result.ok ? "ad-ok-text" : "ad-error-text"}>
+                    <p className={result.ok ? "admin-ok-text" : "admin-error-text"}>
                       {result.ok ? `Working: replied in ${(result.latency_ms / 1000).toFixed(1)} s` : result.error}
                     </p>
                   )}
                 </div>
-                <label className="ad-check">
+                <label className="admin-check">
                   <input type="checkbox" checked={m.enabled} disabled={m.id === draft.default_model || m.id === draft.fallback_model} onChange={(e) => updateModel(m.id, { enabled: e.target.checked })} />
                   On
                 </label>
-                <button className="ad-btn" onClick={() => test(m.id)} disabled={result?.busy}>
+                <button className="admin-btn" onClick={() => test(m.id)} disabled={result?.busy}>
                   {result?.busy ? "Testing…" : "Test"}
                 </button>
-                <button className="ad-icon-btn" onClick={() => removeModel(m.id)} aria-label={`Remove ${m.id}`}>
+                <button className="admin-icon-btn" onClick={() => removeModel(m.id)} aria-label={`Remove ${m.id}`}>
                   <Trash2 size={16} />
                 </button>
               </li>
@@ -151,8 +151,8 @@ export default function Models() {
           })}
         </ul>
 
-        <h3 className="ad-sub">Add a model</h3>
-        <div className="ad-grid ad-grid-3">
+        <h3 className="admin-sub">Add a model</h3>
+        <div className="admin-grid admin-grid-3">
           <Field label="Provider">
             <select value={newModel.provider} onChange={(e) => setNewModel({ ...newModel, provider: e.target.value })}>
               {draft.providers.map((p) => (
@@ -174,7 +174,7 @@ export default function Models() {
             <input value={newModel.label} onChange={(e) => setNewModel({ ...newModel, label: e.target.value })} placeholder="for example Offline" />
           </Field>
         </div>
-        <button className="ad-btn" onClick={addModel}>
+        <button className="admin-btn" onClick={addModel}>
           <Plus size={16} aria-hidden="true" />
           Add model
         </button>
@@ -184,10 +184,10 @@ export default function Models() {
         title="Providers"
         hint="A provider is any service that speaks the OpenAI format. Keys are never stored here: enter the name of the server setting that holds the key."
       >
-        <ul className="ad-list">
+        <ul className="admin-list">
           {draft.providers.map((p) => (
-            <li key={p.id} className="ad-provider">
-              <div className="ad-grid ad-grid-3">
+            <li key={p.id} className="admin-provider">
+              <div className="admin-grid admin-grid-3">
                 <Field label="Name">
                   <input value={p.name} onChange={(e) => updateProvider(p.id, { name: e.target.value })} />
                 </Field>
@@ -198,30 +198,30 @@ export default function Models() {
                   <input value={p.api_key_env} onChange={(e) => updateProvider(p.id, { api_key_env: e.target.value })} placeholder="none needed" />
                 </Field>
               </div>
-              <div className="ad-row">
+              <div className="admin-row">
                 <Field label="Token limit per minute" hint="Leave empty if there is no limit (a local model has none)">
                   <input type="number" min="0" value={p.tokens_per_minute ?? ""} onChange={(e) => updateProvider(p.id, { tokens_per_minute: e.target.value ? Number(e.target.value) : null })} />
                 </Field>
                 <Chip tone="neutral">{Object.keys(data.available).includes(p.id) && data.available[p.id].models.length ? "Reachable" : "Not checked"}</Chip>
-                <button className="ad-btn ad-btn-danger-outline" onClick={() => removeProvider(p.id)}>
+                <button className="admin-btn admin-btn-danger-outline" onClick={() => removeProvider(p.id)}>
                   Remove
                 </button>
               </div>
             </li>
           ))}
         </ul>
-        <div className="ad-row">
-          <button className="ad-btn" onClick={() => addProvider()}>
+        <div className="admin-row">
+          <button className="admin-btn" onClick={() => addProvider()}>
             <Plus size={16} aria-hidden="true" />
             Add provider
           </button>
           {PRESETS.filter((preset) => !draft.providers.some((p) => p.id === preset.id)).map((preset) => (
-            <button key={preset.id} className="ad-btn" onClick={() => addProvider(preset)}>
+            <button key={preset.id} className="admin-btn" onClick={() => addProvider(preset)}>
               Add {preset.name}
             </button>
           ))}
         </div>
-        <p className="ad-hint">
+        <p className="admin-hint">
           A model that runs on a university computer (with Ollama) has no usage limit and no cost, but that computer must stay on and be reachable from this server.
         </p>
       </Card>

@@ -20,8 +20,8 @@ function NewAdmin({ onCreated, say }) {
 
   return (
     <Card title="Add an admin" hint="Editors manage documents, settings and insights. Super admins can also manage admins and models.">
-      <form className="ad-stack" onSubmit={create}>
-        <div className="ad-grid">
+      <form className="admin-stack" onSubmit={create}>
+        <div className="admin-grid">
           <Field label="Email">
             <input type="email" value={form.email} onChange={set("email")} required />
           </Field>
@@ -39,7 +39,7 @@ function NewAdmin({ onCreated, say }) {
           </Field>
         </div>
         <div>
-          <button className="ad-btn ad-btn-primary">Create admin</button>
+          <button className="admin-btn admin-btn-primary">Create admin</button>
         </div>
       </form>
     </Card>
@@ -72,28 +72,28 @@ export default function People() {
       <PageHead title="Admins" />
       {notice}
 
-      <Card className="ad-flush">
-        <ul className="ad-docs">
+      <Card className="admin-flush">
+        <ul className="admin-docs">
           {users.data?.users.map((user) => (
             <li key={user.id} data-hidden={!user.active}>
-              <div className="ad-doc-main">
-                <p className="ad-doc-name">{user.name || user.email}</p>
-                <p className="ad-hint">
+              <div className="admin-doc-main">
+                <p className="admin-doc-name">{user.name || user.email}</p>
+                <p className="admin-hint">
                   {user.email} · {user.last_login ? `last sign-in ${formatDateTime(user.last_login)}` : "never signed in"}
                 </p>
               </div>
-              <div className="ad-doc-side">
+              <div className="admin-doc-side">
                 <Chip tone={user.role === "super_admin" ? "info" : "neutral"}>{user.role === "super_admin" ? "Super admin" : "Editor"}</Chip>
                 {!user.active && <Chip tone="warn">Deactivated</Chip>}
               </div>
-              <div className="ad-doc-actions ad-wrap">
-                <button className="ad-btn" onClick={() => update(user.id, { role: user.role === "super_admin" ? "editor" : "super_admin" }, "Role changed.")}>
+              <div className="admin-doc-actions admin-wrap">
+                <button className="admin-btn" onClick={() => update(user.id, { role: user.role === "super_admin" ? "editor" : "super_admin" }, "Role changed.")}>
                   Make {user.role === "super_admin" ? "editor" : "super admin"}
                 </button>
-                <button className="ad-btn" onClick={() => resetPassword(user)}>
+                <button className="admin-btn" onClick={() => resetPassword(user)}>
                   Reset password
                 </button>
-                <button className="ad-btn" onClick={() => update(user.id, { active: !user.active }, user.active ? "Admin deactivated." : "Admin activated.")}>
+                <button className="admin-btn" onClick={() => update(user.id, { active: !user.active }, user.active ? "Admin deactivated." : "Admin activated.")}>
                   {user.active ? "Deactivate" : "Activate"}
                 </button>
               </div>
@@ -105,11 +105,11 @@ export default function People() {
       <NewAdmin onCreated={() => { users.reload(); audit.reload(); }} say={say} />
 
       <Card title="Recent changes" hint="Who changed what.">
-        {audit.data?.entries.length === 0 && <p className="ad-empty">Nothing yet.</p>}
-        <ul className="ad-audit">
+        {audit.data?.entries.length === 0 && <p className="admin-empty">Nothing yet.</p>}
+        <ul className="admin-audit">
           {audit.data?.entries.map((entry, i) => (
             <li key={i}>
-              <span className="ad-hint">{formatDateTime(entry.time)}</span>
+              <span className="admin-hint">{formatDateTime(entry.time)}</span>
               <span>
                 <strong>{entry.admin}</strong> {entry.action}
                 {entry.target && `: ${entry.target}`}

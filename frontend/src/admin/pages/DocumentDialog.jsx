@@ -44,7 +44,7 @@ function Details({ doc, categories, onClose, onChanged, say }) {
   }
 
   return (
-    <div className="ad-stack">
+    <div className="admin-stack">
       <Field label="Name" hint="Students see this name in the sources of an answer.">
         <input value={name} onChange={(e) => setName(e.target.value)} />
       </Field>
@@ -55,18 +55,18 @@ function Details({ doc, categories, onClose, onChanged, say }) {
           ))}
         </select>
       </Field>
-      <button className="ad-btn ad-btn-primary" onClick={save} disabled={!name.trim()}>
+      <button className="admin-btn admin-btn-primary" onClick={save} disabled={!name.trim()}>
         Save changes
       </button>
 
-      <hr className="ad-rule" />
-      <p className="ad-hint">File: {doc.filename}{doc.has_file ? "" : " (the original is too large to keep, so students cannot open it)"}</p>
-      <div className="ad-row">
-        <button className="ad-btn" onClick={() => replaceInput.current.click()}>
+      <hr className="admin-rule" />
+      <p className="admin-hint">File: {doc.filename}{doc.has_file ? "" : " (the original is too large to keep, so students cannot open it)"}</p>
+      <div className="admin-row">
+        <button className="admin-btn" onClick={() => replaceInput.current.click()}>
           Replace with a new version
         </button>
         <input ref={replaceInput} type="file" accept=".pdf,.docx,.html,.htm,.md,.txt" hidden onChange={(e) => replace(e.target.files[0])} />
-        <ConfirmButton onConfirm={remove} className="ad-btn ad-btn-danger-outline">
+        <ConfirmButton onConfirm={remove} className="admin-btn admin-btn-danger-outline">
           Delete document
         </ConfirmButton>
       </div>
@@ -122,18 +122,18 @@ function PageText({ doc, onChanged, say }) {
     }
   }
 
-  if (pages === null) return <p className="ad-empty">Loading…</p>;
+  if (pages === null) return <p className="admin-empty">Loading…</p>;
   if (pages.length === 0) {
     return (
-      <p className="ad-empty">
+      <p className="admin-empty">
         The text of this document was not saved page by page, so it cannot be edited here. Use "Replace with a new version" on the Details tab to read it again.
       </p>
     );
   }
 
   return (
-    <div className="ad-stack">
-      <p className="ad-hint">Fix a misread word or type the text of a scanned page, then save and re-index. Pages with no text are marked.</p>
+    <div className="admin-stack">
+      <p className="admin-hint">Fix a misread word or type the text of a scanned page, then save and re-index. Pages with no text are marked.</p>
       <Field label="Page">
         <select value={current ?? ""} onChange={(e) => choose(Number(e.target.value))}>
           {pages.map((p) => (
@@ -145,7 +145,7 @@ function PageText({ doc, onChanged, say }) {
         </select>
       </Field>
       <textarea
-        className="ad-pagetext"
+        className="admin-pagetext"
         value={text}
         onChange={(e) => {
           setText(e.target.value);
@@ -154,11 +154,11 @@ function PageText({ doc, onChanged, say }) {
         rows={14}
         aria-label="Page text"
       />
-      <div className="ad-row">
-        <button className="ad-btn" onClick={savePage} disabled={!dirty}>
+      <div className="admin-row">
+        <button className="admin-btn" onClick={savePage} disabled={!dirty}>
           Save page text
         </button>
-        <button className="ad-btn ad-btn-primary" onClick={reindex} disabled={dirty}>
+        <button className="admin-btn admin-btn-primary" onClick={reindex} disabled={dirty}>
           Re-index document
         </button>
       </div>
@@ -183,12 +183,12 @@ export default function DocumentDialog({ doc, categories, onClose, onChanged, sa
       {doc && (
         <>
           {notice}
-          <div className="ad-tabs" role="tablist">
+          <div className="admin-tabs" role="tablist">
             {[
               ["details", "Details"],
               ["pages", "Page text"],
             ].map(([id, label]) => (
-              <button key={id} role="tab" aria-selected={tab === id} className="ad-tab" onClick={() => setTab(id)}>
+              <button key={id} role="tab" aria-selected={tab === id} className="admin-tab" onClick={() => setTab(id)}>
                 {label}
               </button>
             ))}

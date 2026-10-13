@@ -1,6 +1,6 @@
-// Lets the app open instantly and show saved chats offline. The build replaces mv2i9dsr, so every
+// Lets the app open instantly and show saved chats offline. The build replaces mv6hh2jj, so every
 // release gets a new cache and the old one is deleted. API calls are never cached or touched.
-const CACHE = "ui-pg-mv2i9dsr";
+const CACHE = "ui-pg-mv6hh2jj";
 const SHELL = ["/", "/manifest.webmanifest", "/icon-192.png", "/ui-crest.png"];
 
 self.addEventListener("install", (event) => {

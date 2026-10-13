@@ -24,7 +24,7 @@ function PasswordCard({ say }) {
 
   return (
     <Card title="Your password">
-      <form className="ad-grid" onSubmit={change}>
+      <form className="admin-grid" onSubmit={change}>
         <Field label="Current password">
           <input type="password" autoComplete="current-password" value={current} onChange={(e) => setCurrent(e.target.value)} />
         </Field>
@@ -32,7 +32,7 @@ function PasswordCard({ say }) {
           <input type="password" autoComplete="new-password" value={next} onChange={(e) => setNext(e.target.value)} />
         </Field>
         <div>
-          <button className="ad-btn" disabled={!current || next.length < 10}>
+          <button className="admin-btn" disabled={!current || next.length < 10}>
             Change password
           </button>
         </div>
@@ -56,7 +56,7 @@ function ClearDataCard({ say }) {
       title="Delete saved questions and ratings"
       hint="Starts the statistics, the gaps list and the poor-answer list again from zero. This cannot be undone. Documents and settings are not touched."
     >
-      <ConfirmButton onConfirm={clear} label="Yes, delete" className="ad-btn ad-btn-danger-outline">
+      <ConfirmButton onConfirm={clear} label="Yes, delete" className="admin-btn admin-btn-danger-outline">
         Delete saved questions and ratings
       </ConfirmButton>
     </Card>
@@ -72,7 +72,7 @@ export default function Settings({ admin }) {
     if (data) setForm(data);
   }, [data]);
 
-  if (!form) return <p className="ad-empty">Loading…</p>;
+  if (!form) return <p className="admin-empty">Loading…</p>;
 
   const set = (key, value) => setForm({ ...form, [key]: value });
   const text = (key) => ({ value: form[key] ?? "", onChange: (e) => set(key, e.target.value) });
@@ -101,14 +101,14 @@ export default function Settings({ admin }) {
   return (
     <>
       <PageHead title="Settings">
-        <button className="ad-btn ad-btn-primary" onClick={save}>
+        <button className="admin-btn admin-btn-primary" onClick={save}>
           Save changes
         </button>
       </PageHead>
       {notice}
 
       <Card title="What students see" hint="This is the text on the home screen, in the About window and under the message box.">
-        <div className="ad-stack">
+        <div className="admin-stack">
           <Field label="Name of the assistant">
             <input {...text("app_name")} maxLength={80} />
           </Field>
@@ -118,7 +118,7 @@ export default function Settings({ admin }) {
           <Field label="Notice about answers" hint="Shown under the message box and in About. Keep it short.">
             <textarea rows={3} {...text("notice")} maxLength={1000} />
           </Field>
-          <div className="ad-grid">
+          <div className="admin-grid">
             <Field label="Contact email">
               <input type="email" {...text("contact_email")} />
             </Field>
@@ -134,8 +134,8 @@ export default function Settings({ admin }) {
 
       <Card title="Suggested questions" hint="Groups of example questions on the home screen. One question per line.">
         {form.suggested_topics.map((topic, index) => (
-          <div key={index} className="ad-topic">
-            <div className="ad-grid">
+          <div key={index} className="admin-topic">
+            <div className="admin-grid">
               <Field label="Group title">
                 <input value={topic.title} onChange={(e) => updateTopic(index, { title: e.target.value })} maxLength={80} />
               </Field>
@@ -150,20 +150,20 @@ export default function Settings({ admin }) {
             <Field label="Questions">
               <textarea rows={3} value={topic.questions.join("\n")} onChange={(e) => updateTopic(index, { questions: e.target.value.split("\n") })} />
             </Field>
-            <button className="ad-btn ad-btn-danger-outline" onClick={() => set("suggested_topics", form.suggested_topics.filter((_, i) => i !== index))}>
+            <button className="admin-btn admin-btn-danger-outline" onClick={() => set("suggested_topics", form.suggested_topics.filter((_, i) => i !== index))}>
               <Trash2 size={15} aria-hidden="true" />
               Remove group
             </button>
           </div>
         ))}
-        <button className="ad-btn" onClick={() => set("suggested_topics", [...form.suggested_topics, { title: "New group", icon: "file-text", questions: [] }])}>
+        <button className="admin-btn" onClick={() => set("suggested_topics", [...form.suggested_topics, { title: "New group", icon: "file-text", questions: [] }])}>
           <Plus size={16} aria-hidden="true" />
           Add group
         </button>
       </Card>
 
       <Card title="Usage limits" hint="Protects the shared model quota from one person asking too many questions.">
-        <div className="ad-grid">
+        <div className="admin-grid">
           <Field label="Questions allowed per person" hint="0 turns the limit off">
             <input type="number" min="0" max="1000" {...number("rate_limit_count")} />
           </Field>
@@ -174,7 +174,7 @@ export default function Settings({ admin }) {
       </Card>
 
       <Card title="How answers are found" hint="Change these only if answers are missing relevant details or are wrong.">
-        <div className="ad-grid ad-grid-3">
+        <div className="admin-grid admin-grid-3">
           <Field label="Passages read per question" hint="Default 6">
             <input type="number" min="1" max="15" {...number("top_k")} />
           </Field>
@@ -188,7 +188,7 @@ export default function Settings({ admin }) {
       </Card>
 
       <Card title="Privacy" hint="Questions are stored without any name or address, to show you what students need. Switch this off to stop saving them; ratings and the gap list will then stop working.">
-        <label className="ad-check">
+        <label className="admin-check">
           <input type="checkbox" checked={form.log_questions} onChange={(e) => set("log_questions", e.target.checked)} />
           Save students’ questions
         </label>

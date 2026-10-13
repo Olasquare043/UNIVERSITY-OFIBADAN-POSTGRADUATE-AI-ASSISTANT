@@ -46,50 +46,50 @@ export default function AdminApp() {
   const links = NAV.filter((item) => !item.superOnly || admin.role === "super_admin");
 
   return (
-    <div className="ad-shell">
-      <aside className="ad-side">
-        <a className="ad-brand" href="/admin">
+    <div className="admin-shell">
+      <aside className="admin-side">
+        <a className="admin-brand" href="/admin">
           <Crest height={34} />
           <span>
             <strong>Admin console</strong>
             <small>UI Postgraduate Assistant</small>
           </span>
         </a>
-        <nav className="ad-nav" aria-label="Admin sections">
+        <nav className="admin-nav" aria-label="Admin sections">
           {links.map(({ to, end, label, short, icon: Icon }) => (
-            <NavLink key={to} to={to} end={end} className="ad-navlink">
+            <NavLink key={to} to={to} end={end} className="admin-navlink">
               <Icon size={19} aria-hidden="true" />
-              <span className="ad-label-long">{label}</span>
-              <span className="ad-label-short">{short ?? label}</span>
+              <span className="admin-label-long">{label}</span>
+              <span className="admin-label-short">{short ?? label}</span>
             </NavLink>
           ))}
         </nav>
-        <div className="ad-side-foot">
-          <a className="ad-navlink" href="/">
+        <div className="admin-side-foot">
+          <a className="admin-navlink" href="/">
             <span>Open the assistant</span>
           </a>
         </div>
       </aside>
 
-      <div className="ad-main">
-        <header className="ad-top">
-          <span className="ad-who">
+      <div className="admin-main">
+        <header className="admin-top">
+          <span className="admin-who">
             {admin.name || admin.email}
             <small>{admin.role === "super_admin" ? "Super admin" : "Editor"}</small>
           </span>
-          <a className="ad-btn" href="/">
+          <a className="admin-btn" href="/">
             Student view
           </a>
           <button className="icon-btn" onClick={toggleTheme} aria-label="Switch theme">
             {theme === "dark" ? <Sun size={19} /> : <Moon size={19} />}
           </button>
-          <button className="ad-btn" onClick={signOut}>
+          <button className="admin-btn" onClick={signOut}>
             <LogOut size={16} aria-hidden="true" />
             Sign out
           </button>
         </header>
 
-        <main className="ad-content">
+        <main className="admin-content">
           <Routes>
             <Route index element={<Overview />} />
             <Route path="knowledge" element={<Knowledge />} />

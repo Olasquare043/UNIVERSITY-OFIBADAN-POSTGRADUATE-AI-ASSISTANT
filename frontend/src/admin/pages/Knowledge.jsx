@@ -68,7 +68,7 @@ export default function Knowledge() {
       {notice}
 
       <div
-        className="ad-drop"
+        className="admin-drop"
         data-active={dragging}
         onDragOver={(e) => {
           e.preventDefault();
@@ -84,11 +84,11 @@ export default function Knowledge() {
         <UploadCloud size={28} aria-hidden="true" />
         <p>
           <strong>Drop files here</strong> or{" "}
-          <button className="ad-link" onClick={() => fileInput.current.click()} disabled={uploading}>
+          <button className="admin-link" onClick={() => fileInput.current.click()} disabled={uploading}>
             choose files
           </button>
         </p>
-        <p className="ad-hint">PDF, Word, HTML, Markdown or text, up to 10 MB each. Changes reach students within a minute.</p>
+        <p className="admin-hint">PDF, Word, HTML, Markdown or text, up to 10 MB each. Changes reach students within a minute.</p>
         <input
           ref={fileInput}
           type="file"
@@ -102,45 +102,45 @@ export default function Knowledge() {
         />
       </div>
 
-      {error && <p className="ad-error">{error}</p>}
-      {loading && <p className="ad-empty">Loading…</p>}
+      {error && <p className="admin-error">{error}</p>}
+      {loading && <p className="admin-empty">Loading…</p>}
 
-      <Card className="ad-flush">
-        <ul className="ad-docs">
+      <Card className="admin-flush">
+        <ul className="admin-docs">
           {visible.map((doc) => (
             <li key={doc.id} data-hidden={!doc.active}>
-              <span className="ad-doc-icon" aria-hidden="true">
+              <span className="admin-doc-icon" aria-hidden="true">
                 <FileText size={18} />
               </span>
-              <div className="ad-doc-main">
-                <p className="ad-doc-name">{doc.name}</p>
-                <p className="ad-hint">
+              <div className="admin-doc-main">
+                <p className="admin-doc-name">{doc.name}</p>
+                <p className="admin-hint">
                   {doc.category}
                   {doc.pages != null && ` · ${doc.pages} page${doc.pages === 1 ? "" : "s"}`}
                   {doc.status === "ready" && ` · ${doc.chunks} passage${doc.chunks === 1 ? "" : "s"}`}
                   {` · updated ${formatDateTime(doc.updated)}`}
                 </p>
-                {doc.status === "failed" && doc.error && <p className="ad-error-text">{doc.error}</p>}
+                {doc.status === "failed" && doc.error && <p className="admin-error-text">{doc.error}</p>}
                 {doc.needs_ocr_pages > 0 && doc.status !== "failed" && (
-                  <p className="ad-warn-text">{doc.needs_ocr_pages} page(s) have no readable text (scanned).</p>
+                  <p className="admin-warn-text">{doc.needs_ocr_pages} page(s) have no readable text (scanned).</p>
                 )}
               </div>
-              <div className="ad-doc-side">
+              <div className="admin-doc-side">
                 <Chip tone={STATUS_TONE[doc.status]}>{STATUS_LABEL[doc.status]}</Chip>
                 {!doc.active && <Chip tone="warn">Hidden</Chip>}
               </div>
-              <div className="ad-doc-actions">
-                <button className="ad-icon-btn" onClick={() => toggleActive(doc)} aria-label={doc.active ? `Hide ${doc.name}` : `Show ${doc.name}`} title={doc.active ? "Hide from the assistant" : "Use in the assistant"}>
+              <div className="admin-doc-actions">
+                <button className="admin-icon-btn" onClick={() => toggleActive(doc)} aria-label={doc.active ? `Hide ${doc.name}` : `Show ${doc.name}`} title={doc.active ? "Hide from the assistant" : "Use in the assistant"}>
                   {doc.active ? <Eye size={17} /> : <EyeOff size={17} />}
                 </button>
-                <button className="ad-icon-btn" onClick={() => setOpenId(doc.id)} aria-label={`Manage ${doc.name}`} title="Manage">
+                <button className="admin-icon-btn" onClick={() => setOpenId(doc.id)} aria-label={`Manage ${doc.name}`} title="Manage">
                   <Settings2 size={17} />
                 </button>
               </div>
             </li>
           ))}
         </ul>
-        {!loading && visible.length === 0 && <p className="ad-empty">{documents.length === 0 ? "No documents yet. Upload the first one above." : `No document matches “${filter}”.`}</p>}
+        {!loading && visible.length === 0 && <p className="admin-empty">{documents.length === 0 ? "No documents yet. Upload the first one above." : `No document matches “${filter}”.`}</p>}
       </Card>
 
       <DocumentDialog

@@ -4,18 +4,18 @@ import { api } from "./adminApi";
 
 export function PageHead({ title, children }) {
   return (
-    <div className="ad-pagehead">
+    <div className="admin-pagehead">
       <h1>{title}</h1>
-      <div className="ad-pagehead-actions">{children}</div>
+      <div className="admin-pagehead-actions">{children}</div>
     </div>
   );
 }
 
 export function Card({ title, hint, children, className = "" }) {
   return (
-    <section className={`ad-card ${className}`}>
+    <section className={`admin-card ${className}`}>
       {title && <h2>{title}</h2>}
-      {hint && <p className="ad-hint">{hint}</p>}
+      {hint && <p className="admin-hint">{hint}</p>}
       {children}
     </section>
   );
@@ -23,17 +23,17 @@ export function Card({ title, hint, children, className = "" }) {
 
 export function Field({ label, hint, children }) {
   return (
-    <label className="ad-field">
-      <span className="ad-label">{label}</span>
+    <label className="admin-field">
+      <span className="admin-label">{label}</span>
       {children}
-      {hint && <span className="ad-hint">{hint}</span>}
+      {hint && <span className="admin-hint">{hint}</span>}
     </label>
   );
 }
 
 export function Chip({ tone = "neutral", children }) {
   return (
-    <span className="ad-chip" data-tone={tone}>
+    <span className="admin-chip" data-tone={tone}>
       {children}
     </span>
   );
@@ -53,7 +53,7 @@ export function useNotice() {
   useEffect(() => () => clearTimeout(timer.current), []);
 
   const node = message && (
-    <div className="ad-notice" data-tone={message.tone} role={message.tone === "ok" ? "status" : "alert"}>
+    <div className="admin-notice" data-tone={message.tone} role={message.tone === "ok" ? "status" : "alert"}>
       {message.tone === "ok" ? <CheckCircle2 size={16} /> : <AlertCircle size={16} />}
       {message.text}
     </div>
@@ -80,7 +80,7 @@ export function useAdminData(path, deps = []) {
 }
 
 // Two-step delete: the first click asks, the second confirms.
-export function ConfirmButton({ children, onConfirm, label = "Delete", className = "ad-btn" }) {
+export function ConfirmButton({ children, onConfirm, label = "Delete", className = "admin-btn" }) {
   const [asking, setAsking] = useState(false);
   if (!asking) {
     return (
@@ -90,9 +90,9 @@ export function ConfirmButton({ children, onConfirm, label = "Delete", className
     );
   }
   return (
-    <span className="ad-confirm">
+    <span className="admin-confirm">
       <button
-        className="ad-btn ad-btn-danger"
+        className="admin-btn admin-btn-danger"
         onClick={() => {
           setAsking(false);
           onConfirm();
@@ -100,7 +100,7 @@ export function ConfirmButton({ children, onConfirm, label = "Delete", className
       >
         {label}?
       </button>
-      <button className="ad-btn" onClick={() => setAsking(false)}>
+      <button className="admin-btn" onClick={() => setAsking(false)}>
         Cancel
       </button>
     </span>

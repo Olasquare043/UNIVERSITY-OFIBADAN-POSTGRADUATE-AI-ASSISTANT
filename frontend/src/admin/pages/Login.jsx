@@ -22,30 +22,30 @@ export default function Login({ onSignedIn }) {
   }
 
   return (
-    <main className="ad-login">
-      <form className="ad-login-card" onSubmit={submit}>
+    <main className="admin-login">
+      <form className="admin-login-card" onSubmit={submit}>
         <Crest height={64} alt="University of Ibadan crest" />
         <h1>Admin sign in</h1>
-        <p className="ad-hint">For staff who manage the Postgraduate Assistant.</p>
+        <p className="admin-hint">For staff who manage the Postgraduate Assistant.</p>
 
-        <label className="ad-field">
-          <span className="ad-label">Email</span>
+        <label className="admin-field">
+          <span className="admin-label">Email</span>
           <input type="email" name="email" autoComplete="username" value={email} onChange={(e) => setEmail(e.target.value)} required autoFocus />
         </label>
-        <label className="ad-field">
-          <span className="ad-label">Password</span>
+        <label className="admin-field">
+          <span className="admin-label">Password</span>
           <input type="password" name="password" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </label>
 
         {error && (
-          <p className="ad-error" role="alert">
+          <p className="admin-error" role="alert">
             {error}
           </p>
         )}
-        <button className="ad-btn ad-btn-primary ad-btn-wide" disabled={busy}>
+        <button className="admin-btn admin-btn-primary admin-btn-wide" disabled={busy}>
           {busy ? "Signing in…" : "Sign in"}
         </button>
-        <a className="ad-back" href="/">
+        <a className="admin-back" href="/">
           Back to the assistant
         </a>
       </form>

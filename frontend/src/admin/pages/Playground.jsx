@@ -25,9 +25,9 @@ export default function Playground() {
     <>
       <PageHead title="Test search" />
       <Card hint="Type a question to see which passages the assistant would read to answer it. This does not use the language model, so it costs nothing.">
-        <form className="ad-searchbar" onSubmit={run}>
+        <form className="admin-searchbar" onSubmit={run}>
           <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="For example: How many copies of my thesis must I submit?" aria-label="Question" />
-          <button className="ad-btn ad-btn-primary" disabled={busy || !query.trim()}>
+          <button className="admin-btn admin-btn-primary" disabled={busy || !query.trim()}>
             <Search size={16} aria-hidden="true" />
             Search
           </button>
@@ -35,11 +35,11 @@ export default function Playground() {
         {notice}
       </Card>
 
-      {results && results.length === 0 && <p className="ad-empty">Nothing was found. The documents may not cover this question.</p>}
+      {results && results.length === 0 && <p className="admin-empty">Nothing was found. The documents may not cover this question.</p>}
 
       {results?.map((result, i) => (
-        <Card key={i} className="ad-result">
-          <div className="ad-result-head">
+        <Card key={i} className="admin-result">
+          <div className="admin-result-head">
             <strong>
               {result.source}
               {result.page != null && ` · page ${result.page}`}
@@ -53,7 +53,7 @@ export default function Playground() {
               {result.similarity != null && <Chip>{`similarity ${result.similarity}`}</Chip>}
             </span>
           </div>
-          <p className="ad-passage">{result.text}</p>
+          <p className="admin-passage">{result.text}</p>
         </Card>
       ))}
     </>

@@ -115,7 +115,7 @@ def _tidy_citations(answer: str, chunks: list[RetrievedChunk]) -> str:
             lambda m: chunks[int(m.group(1)) - 1].source if 0 < int(m.group(1)) <= len(chunks) else m.group(0),
             citation.group(0),
         )
-        return re.sub(r",\s*p\.\s*(?!\d)[^;)]*", "", text)
+        return re.sub(r",\s*p\.(?!\s*\d)[^;)]*", "", text)
 
     answer = re.sub(r"\(Source:[^)]*\)", name_passages, answer)
     for source in {c.source for c in chunks if c.page is None} - {c.source for c in chunks if c.page is not None}:

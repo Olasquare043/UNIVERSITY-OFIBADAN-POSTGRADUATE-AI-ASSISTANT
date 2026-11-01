@@ -188,6 +188,9 @@ def test_citations_are_tidied(client):
     text = "Deposit is 15,000 (Source: Hostel Rules, p.1)(2). Fees apply (Source: Handbook, p.4)(1, 2)."
     assert pipeline._tidy_citations(text, chunks) == "Deposit is 15,000 (Source: Hostel Rules). Fees apply (Source: Handbook, p.4)."
 
+    numbered = "Apply at the embassy (Source: [1], p. –; [2], p.4)."
+    assert pipeline._tidy_citations(numbered, chunks) == "Apply at the embassy (Source: Hostel Rules; Handbook, p.4)."
+
 
 def test_provider_connections_are_guarded(monkeypatch):
     import httpx

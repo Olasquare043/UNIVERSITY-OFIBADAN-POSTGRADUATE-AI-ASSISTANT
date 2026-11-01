@@ -105,8 +105,19 @@ def _distinct_documents(chunks: list[RetrievedChunk]) -> list[dict]:
 
 
 def _tidy_citations(answer: str, chunks: list[RetrievedChunk]) -> str:
-    """Clean up citations: drop the stray "(2)" after one, and the page number the model makes up for a document without pages."""
+    """Clean up citations: drop the stray "(2)" after one, name the document when the model cites a passage
+    number such as "[1]", and drop a page number the model makes up or leaves blank for a document without pages."""
     answer = re.sub(r"(?<=\))\(\d+(?:\s*,\s*\d+)*\)", "", answer)
+
+    def name_passages(citation: re.Match) -> str:
+        text = re.sub(
+            r"\[(\d+)\]",
+            lambda m: chunks[int(m.group(1)) - 1].source if 0 < int(m.group(1)) <= len(chunks) else m.group(0),
+            citation.group(0),
+        )
+        return re.sub(r",\s*p\.?\s*[–—-]+", "", text)
+
+    answer = re.sub(r"\(Source:[^)]*\)", name_passages, answer)
     for source in {c.source for c in chunks if c.page is None} - {c.source for c in chunks if c.page is not None}:
         answer = re.sub(rf"(Source:\s*{re.escape(source)}),\s*p\.?\s*\d+", lambda m: m.group(1), answer)
     return answer

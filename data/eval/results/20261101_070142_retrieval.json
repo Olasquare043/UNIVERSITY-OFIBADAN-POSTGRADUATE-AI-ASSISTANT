@@ -1,0 +1,44 @@
+[
+  {
+    "mode": "dense",
+    "hit@6": 0.823,
+    "recall@6": 0.823,
+    "mrr": 0.666,
+    "avg_latency_s": 0.325,
+    "questions": 79,
+    "missed": [
+      "hb-01",
+      "hb-10",
+      "ag-05",
+      "ag-07",
+      "cal-03",
+      "cal-04",
+      "fu-03",
+      "pol-07",
+      "pol-09",
+      "sh-01",
+      "sh-05",
+      "nd-05",
+      "nd-07",
+      "nd-12"
+    ]
+  },
+  {
+    "mode": "hybrid",
+    "hit@6": 0.899,
+    "recall@6": 0.892,
+    "mrr": 0.715,
+    "avg_latency_s": 0.053,
+    "questions": 79,
+    "missed": [
+      "hb-02",
+      "ag-05",
+      "cal-04",
+      "pol-07",
+      "sh-05",
+      "in-01",
+      "in-02",
+      "nd-05"
+    ]
+  }
+]

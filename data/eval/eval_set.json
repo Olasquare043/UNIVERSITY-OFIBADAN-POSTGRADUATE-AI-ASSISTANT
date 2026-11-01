@@ -696,5 +696,292 @@
     "category": "out_of_scope",
     "question": "How much is the hostel accommodation fee per session in Abdulsalami Abubakar Hall?",
     "reference_answer": "The hostel fee amount is not stated in the documents; the assistant should say it doesn't have it and must not invent a figure."
+  },
+  {
+    "id": "sh-01",
+    "category": "factual",
+    "question": "What is the penalty for double matriculation at the University of Ibadan?",
+    "reference_answer": "The penalty is expulsion. Double matriculation means a matriculated student retakes JAMB to change to another course in the same or another institution.",
+    "evidence": [
+      [
+        "double matriculation",
+        "expulsion"
+      ]
+    ]
+  },
+  {
+    "id": "sh-02",
+    "category": "factual",
+    "question": "What happens to a student who got admission with fake or irregular credentials?",
+    "reference_answer": "The student is asked to withdraw from the University regardless of level and will not get another opportunity to study there.",
+    "evidence": [
+      [
+        "irregular or inauthentic credentials"
+      ]
+    ]
+  },
+  {
+    "id": "sh-03",
+    "category": "factual",
+    "question": "Do I get a new matriculation number if I change my faculty or programme?",
+    "reference_answer": "No. A student keeps the same matriculation number even if the faculty or programme of study changes.",
+    "evidence": [
+      [
+        "retain it even if"
+      ]
+    ]
+  },
+  {
+    "id": "sh-04",
+    "category": "procedural",
+    "question": "I am a UI graduate starting a postgraduate programme. Which matriculation number do I register with?",
+    "reference_answer": "Use your undergraduate matriculation number for registration; trying to obtain more than one matriculation number leads to disciplinary action including expulsion.",
+    "evidence": [
+      [
+        "undergraduate matriculation number for registration"
+      ]
+    ]
+  },
+  {
+    "id": "sh-05",
+    "category": "factual",
+    "question": "What sanction applies to sexual harassment by a student?",
+    "reference_answer": "Reprimand, or rustication for one semester up to expulsion, depending on the gravity of the offence.",
+    "evidence": [
+      [
+        "sexual harassment",
+        "expulsion"
+      ]
+    ]
+  },
+  {
+    "id": "sh-06",
+    "category": "factual",
+    "question": "Can a male student change his name while at the university?",
+    "reference_answer": "No. Only female students may change their names, because of a change in marital status and with acceptable documentary proof; no change of name by a male student is recognised.",
+    "evidence": [
+      [
+        "no change of name by any male student"
+      ]
+    ]
+  },
+  {
+    "id": "sh-07",
+    "category": "factual",
+    "question": "What sanctions can follow other examination misconduct that is not specifically listed?",
+    "reference_answer": "Sanctions range from reprimand to outright expulsion, at the discretion of the Central Student Disciplinary Committee (CSDC), considering each case on its merit.",
+    "evidence": [
+      [
+        "reprimand to outright expulsion"
+      ]
+    ]
+  },
+  {
+    "id": "sh-08",
+    "category": "procedural",
+    "question": "What must I do with my student identity card when I graduate or withdraw?",
+    "reference_answer": "Surrender it to the Records Officer.",
+    "evidence": [
+      [
+        "surrender their identity cards to the records officer"
+      ]
+    ]
+  },
+  {
+    "id": "gp-01",
+    "category": "factual",
+    "question": "How does the gender policy describe gender violence?",
+    "reference_answer": "It can take the form of sexual harassment of female and male staff and students by peers, superiors and others.",
+    "evidence": [
+      [
+        "gender violence",
+        "sexual harassment of female and male staff and students"
+      ]
+    ]
+  },
+  {
+    "id": "in-01",
+    "category": "numeric",
+    "question": "What was the total student enrolment at the University of Ibadan in 2022/2023?",
+    "reference_answer": "36,851 students.",
+    "evidence": [
+      [
+        "36 851"
+      ]
+    ]
+  },
+  {
+    "id": "in-02",
+    "category": "factual",
+    "question": "When was the University of Ibadan founded and what was it originally called?",
+    "reference_answer": "Founded in 1948 as University College, Ibadan, a constituent of the University of London; it became the University of Ibadan in 1962.",
+    "evidence": [
+      [
+        "1948",
+        "university college"
+      ]
+    ]
+  },
+  {
+    "id": "nd-01",
+    "category": "factual",
+    "question": "What degrees does the Department of Statistics award at postgraduate level?",
+    "reference_answer": "M.Phil, M.Phil/Ph.D, M.Sc, PGD and Ph.D.",
+    "evidence": [
+      [
+        "department of statistics",
+        "degrees awarded",
+        "pgd"
+      ]
+    ]
+  },
+  {
+    "id": "nd-02",
+    "category": "factual",
+    "question": "Which programmes does the Department of Computer Science offer for postgraduates?",
+    "reference_answer": "Master of Science in Computer Science and Master in Business Computing.",
+    "evidence": [
+      [
+        "master of science in computer science",
+        "master in business computing"
+      ]
+    ]
+  },
+  {
+    "id": "nd-03",
+    "category": "factual",
+    "question": "What fields of interest can I choose in postgraduate Statistics?",
+    "reference_answer": "Examples include Time Series Analysis, Stochastic Processes, Bayesian Statistics and Decision Theory, Biometrics, Econometric Theory and Methods, and Statistical Inference.",
+    "evidence": [
+      [
+        "time series analysis",
+        "stochastic processes"
+      ]
+    ]
+  },
+  {
+    "id": "nd-04",
+    "category": "factual",
+    "question": "Is there a Postgraduate Diploma in Statistics at the University of Ibadan?",
+    "reference_answer": "Yes, the Department of Statistics offers a Postgraduate Diploma in Statistics alongside the Master of Science in Statistics.",
+    "evidence": [
+      [
+        "postgraduate diploma in statistics"
+      ]
+    ]
+  },
+  {
+    "id": "nd-05",
+    "category": "factual",
+    "question": "What example courses are listed for postgraduate Medicine?",
+    "reference_answer": "Examples include MED 701 Cardiology, MED 702 Nephrology, MED 703 Pulmonology, MED 704 Neurology, MED 705 Gastroenterology and MED 706 Endocrinology.",
+    "evidence": [
+      [
+        "med 701 cardiology"
+      ]
+    ]
+  },
+  {
+    "id": "nd-06",
+    "category": "numeric",
+    "question": "How much is the postgraduate application form for professional programmes?",
+    "reference_answer": "N25,000 for professional programmes (N20,000 for academic programmes), with an extra N5,000 for the English proficiency test for Master's and PGD applicants, according to the Postgraduate College website.",
+    "evidence": [
+      [
+        "n25 000"
+      ]
+    ]
+  },
+  {
+    "id": "nd-07",
+    "category": "procedural",
+    "question": "How can I track the status of my postgraduate application?",
+    "reference_answer": "Click 'Print Documents' on the application portal and select 'Application Status' to see stages such as Eligibility, Referees Report, Recommendation and Admission Letter Ready.",
+    "evidence": [
+      [
+        "print documents",
+        "application status"
+      ]
+    ]
+  },
+  {
+    "id": "nd-08",
+    "category": "procedural",
+    "question": "What do I need before applying for a Nigerian visa as an international postgraduate student?",
+    "reference_answer": "An admission letter and a letter of introduction from the Postgraduate College; the visa application follows the procedure of the Nigerian mission in the applicant's country.",
+    "evidence": [
+      [
+        "admission letter",
+        "letter of introduction"
+      ]
+    ]
+  },
+  {
+    "id": "nd-09",
+    "category": "factual",
+    "question": "Are there language programmes for applicants from non-English-speaking countries?",
+    "reference_answer": "Yes, language immersion programmes are available for non-English-speaking candidates.",
+    "evidence": [
+      [
+        "language immersion"
+      ]
+    ]
+  },
+  {
+    "id": "nd-10",
+    "category": "factual",
+    "question": "Which form do I use to claim an honorarium for supervising a PhD as a retired academic?",
+    "reference_answer": "The PhD Supervision by Retired Academics Honorarium Claims Form.",
+    "evidence": [
+      [
+        "supervision by retired academics"
+      ]
+    ]
+  },
+  {
+    "id": "nd-11",
+    "category": "factual",
+    "question": "What penalties can apply to someone found to have violated the sexual harassment policy?",
+    "reference_answer": "Penalties can include monitoring, counselling or therapy, oral admonition, a written warning or oral reprimand, referral to the Staff or Student Disciplinary Committee, or any other disciplinary action.",
+    "evidence": [
+      [
+        "written warning",
+        "oral reprimand"
+      ]
+    ]
+  },
+  {
+    "id": "nd-12",
+    "category": "factual",
+    "question": "Is a person who reports sexual harassment protected from retaliation?",
+    "reference_answer": "Yes. Victimisation of anyone who makes a complaint, or exercises their rights in good faith under the policy, is prohibited and punishable by disciplinary action.",
+    "evidence": [
+      [
+        "victimisation",
+        "good faith"
+      ]
+    ]
+  },
+  {
+    "id": "nd-13",
+    "category": "factual",
+    "question": "Which department offers the Professional Master's in Business Computing?",
+    "reference_answer": "The Department of Computer Science (Faculty of Science).",
+    "evidence": [
+      [
+        "professional masters in business computing"
+      ]
+    ]
+  },
+  {
+    "id": "nd-14",
+    "category": "factual",
+    "question": "Which form do external examiners use to claim payment for examining higher degrees?",
+    "reference_answer": "The Postgraduate College Claims Form for External Examiners for Higher Degrees.",
+    "evidence": [
+      [
+        "claims form for external examiners"
+      ]
+    ]
   }
 ]

@@ -21,9 +21,13 @@ def embeddings_path() -> Path:
     return Path(config.PROCESSED_DIR) / f"embeddings_{slug}.npy"
 
 
+GENERAL_CATEGORY = "General university"  # documents for every student, not only postgraduates
+
 # First match wins, so more specific patterns come first.
 _CATEGORIES = [
+    (r"student information|infostatistic|gender policy|sexual harassment", GENERAL_CATEGORY),
     (r"\bform\b", "Form"),
+    (r"programmes? by department", "Programmes"),
     (r"calendar", "Calendar"),
     (r"\bfee", "Fee schedule"),
     (r"thesis|dissertation|manual of style", "Thesis guide"),

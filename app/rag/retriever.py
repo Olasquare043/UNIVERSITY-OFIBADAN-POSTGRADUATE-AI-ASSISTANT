@@ -2,7 +2,7 @@
 
 Dense (embedding) search matches meaning, while BM25 keyword search catches exact
 terms such as "NGN 30,000" or "MPhil/PhD" that embeddings can blur. The two ranked
-lists are merged with reciprocal rank fusion.
+lists are merged with reciprocal rank fusion; documents meant for every student rank a little lower.
 
 RETRIEVAL_MODE: "dense" | "hybrid"
 """
@@ -13,6 +13,7 @@ from rank_bm25 import BM25Okapi
 
 from app import config
 from app.ingest.embed import embed_query
+from app.ingest.naming import GENERAL_CATEGORY
 from app.services import settings
 from app.vectorstore import get_index
 
@@ -28,6 +29,7 @@ class RetrievedChunk:
     source: str
     page: int | None
     score: float  # dense cosine similarity; 0.0 if only the keyword search found it
+    category: str = ""
 
 
 def retrieve(query: str, top_k: int | None = None, mode: str | None = None) -> list[RetrievedChunk]:
@@ -61,7 +63,9 @@ def explain(query: str, top_k: int = 8) -> list[dict]:
 
 def _dense_search(query: str, n: int) -> list[RetrievedChunk]:
     return [
-        RetrievedChunk(id=r["id"], text=r["text"], source=r["source"], page=r["page"] or None, score=score)
+        RetrievedChunk(
+            id=r["id"], text=r["text"], source=r["source"], page=r["page"] or None, score=score, category=r.get("category", "")
+        )
         for r, score in get_index().search(embed_query(query), n)
     ]
 
@@ -79,6 +83,7 @@ def _keyword_search(query: str, n: int) -> list[RetrievedChunk]:
             source=records[i]["source"],
             page=records[i]["page"] or None,
             score=0.0,
+            category=records[i].get("category", ""),
         )
         for i in best
         if scores[i] > 0
@@ -90,7 +95,8 @@ def _reciprocal_rank_fusion(*rankings: list[RetrievedChunk]) -> list[RetrievedCh
     chunks: dict[str, RetrievedChunk] = {}
     for ranking in rankings:
         for rank, chunk in enumerate(ranking):
-            fused_scores[chunk.id] = fused_scores.get(chunk.id, 0.0) + 1 / (RRF_K + rank + 1)
+            weight = config.GENERAL_DOC_WEIGHT if chunk.category == GENERAL_CATEGORY else 1.0
+            fused_scores[chunk.id] = fused_scores.get(chunk.id, 0.0) + weight / (RRF_K + rank + 1)
             if chunk.id not in chunks or chunk.score > chunks[chunk.id].score:
                 chunks[chunk.id] = chunk
     return [chunks[cid] for cid in sorted(fused_scores, key=fused_scores.get, reverse=True)]

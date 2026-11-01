@@ -54,18 +54,19 @@ def _load_from_database() -> VectorIndex:
 
     seed_if_empty()
     query = (
-        select(Chunk, Document.name)
+        select(Chunk, Document.name, Document.category)
         .join(Document)
         .where(Document.active.is_(True), Document.status == "ready", Chunk.embedding_model == config.EMBEDDING_MODEL)
         .order_by(Document.id, Chunk.idx)
     )
     records, vectors = [], []
     with session_scope() as session:
-        for chunk, source in session.execute(query):
+        for chunk, source, category in session.execute(query):
             records.append(
                 {
                     "id": f"{chunk.document_id}::{chunk.idx}",
                     "source": source,
+                    "category": category,
                     "page": chunk.page,
                     "text": chunk.text,
                     "search_text": chunk.search_text,

@@ -1,4 +1,6 @@
 """Local embedding model wrapper (no API key, no PyTorch): runs on ONNX via fastembed."""
+import threading
+
 import numpy as np
 from fastembed import TextEmbedding
 
@@ -10,6 +12,11 @@ _BGE_QUERY_PREFIX = "Represent this sentence for searching relevant passages: "
 
 _model: TextEmbedding | None = None
 
+# A small batch keeps memory low (a batch of 32 long passages needs several hundred MB, more than a free
+# 512 MB server has), and one document at a time avoids several uploads exhausting memory together.
+PASSAGE_BATCH_SIZE = 2
+_passage_lock = threading.Lock()
+
 
 def _get_model() -> TextEmbedding:
     global _model
@@ -19,7 +26,8 @@ def _get_model() -> TextEmbedding:
 
 
 def embed_passages(texts: list[str]) -> np.ndarray:
-    return _normalize(np.array(list(_get_model().embed(texts, batch_size=32))))
+    with _passage_lock:
+        return _normalize(np.array(list(_get_model().embed(texts, batch_size=PASSAGE_BATCH_SIZE))))
 
 
 def embed_query(text: str) -> list[float]:

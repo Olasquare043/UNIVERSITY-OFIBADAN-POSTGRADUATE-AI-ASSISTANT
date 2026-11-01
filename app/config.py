@@ -25,7 +25,10 @@ TOP_K = _int("TOP_K", 6)
 MIN_RELEVANCE_SCORE = _float("MIN_RELEVANCE_SCORE", 0.35)
 
 RETRIEVAL_MODE = os.getenv("RETRIEVAL_MODE", "hybrid")
-CANDIDATES = _int("CANDIDATES", 20)
+CANDIDATES = _int("CANDIDATES", 40)
+# Documents written for every student (not only postgraduates) rank slightly lower, so a general handbook
+# does not push the postgraduate answer out of the top results.
+GENERAL_DOC_WEIGHT = _float("GENERAL_DOC_WEIGHT", 0.8)
 
 RAW_DOCS_DIR = os.getenv("RAW_DOCS_DIR", "data/raw_docs")
 PROCESSED_DIR = os.getenv("PROCESSED_DIR", "data/processed")

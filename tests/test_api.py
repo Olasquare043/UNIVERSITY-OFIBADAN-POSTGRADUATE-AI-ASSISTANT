@@ -191,6 +191,9 @@ def test_citations_are_tidied(client):
     numbered = "Apply at the embassy (Source: [1], p. –; [2], p.4)."
     assert pipeline._tidy_citations(numbered, chunks) == "Apply at the embassy (Source: Hostel Rules; Handbook, p.4)."
 
+    named = "Visit the mission (Source: Hostel Rules, p. Hostel Rules; Handbook, p. 95)."
+    assert pipeline._tidy_citations(named, chunks) == "Visit the mission (Source: Hostel Rules; Handbook, p. 95)."
+
 
 def test_provider_connections_are_guarded(monkeypatch):
     import httpx

@@ -23,9 +23,13 @@ DEFAULTS: dict = {
     "announcement": "",
     "suggested_topics": [
         {"title": "Admissions", "icon": "user-plus", "questions": [
-            "What are the requirements for admission into the MPhil/PhD programme?", "What is the acceptance fee?"]},
-        {"title": "Fees", "icon": "wallet", "questions": [
-            "How much are the postgraduate school fees?", "Can I pay my school fees in instalments?"]},
+            "What are the requirements for admission into the MPhil/PhD programme?",
+            "How do I apply for postgraduate admission online?"]},
+        {"title": "Programmes", "icon": "graduation-cap", "questions": [
+            "What postgraduate degrees does the Department of Computer Science offer?",
+            "What research fields are available in Computer Science?"]},
+        {"title": "Fees and funding", "icon": "wallet", "questions": [
+            "How much are the postgraduate school fees?", "Are there scholarships for postgraduate students?"]},
         {"title": "Registration", "icon": "clipboard-check", "questions": [
             "How do I register as a new postgraduate student?", "What is the deadline for late registration?"]},
         {"title": "Examinations and regulations", "icon": "scale", "questions": [
@@ -34,8 +38,10 @@ DEFAULTS: dict = {
             "How many copies of my thesis must I submit?", "What is the deadline for thesis submission?"]},
         {"title": "Calendar", "icon": "calendar-days", "questions": [
             "When does the 2025/2026 academic session start?", "What are the key dates in the academic calendar?"]},
-        {"title": "Forms and scholarships", "icon": "file-signature", "questions": [
-            "How do I request conversion from MPhil to PhD?", "Are there scholarships for postgraduate students?"]},
+        {"title": "International students", "icon": "globe", "questions": [
+            "How do international students get a Nigerian visa?", "Is there language support for non-English speakers?"]},
+        {"title": "Forms", "icon": "file-signature", "questions": [
+            "How do I request conversion from MPhil to PhD?", "Which form do I use to suspend my registration?"]},
     ],
     # Models. A provider is any OpenAI-compatible service (Groq, OpenRouter, a local Ollama server, ...).
     "providers": [

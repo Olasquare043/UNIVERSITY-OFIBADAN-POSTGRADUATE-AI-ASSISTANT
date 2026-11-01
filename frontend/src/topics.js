@@ -5,6 +5,7 @@ import {
   ClipboardCheck,
   FileSignature,
   FileText,
+  Globe,
   GraduationCap,
   Lightbulb,
   Scale,
@@ -23,6 +24,7 @@ export const TOPIC_ICONS = {
   "calendar-days": CalendarDays,
   "file-signature": FileSignature,
   "graduation-cap": GraduationCap,
+  globe: Globe,
   "book-open": BookOpen,
   award: Award,
   lightbulb: Lightbulb,
@@ -31,6 +33,22 @@ export const TOPIC_ICONS = {
 
 // Follow-up questions are picked from the topic of the question just asked.
 const FOLLOW_UP_RULES = [
+  {
+    match: /international|visa|foreign|language|english/i,
+    questions: [
+      "How do international students get a Nigerian visa?",
+      "Is there language support for non-English speakers?",
+      "How do I apply for postgraduate admission online?",
+    ],
+  },
+  {
+    match: /department|programme|field of|research field|offer/i,
+    questions: [
+      "What postgraduate degrees does the Department of Computer Science offer?",
+      "What are the requirements for admission into the MPhil/PhD programme?",
+      "How do I apply for postgraduate admission online?",
+    ],
+  },
   {
     match: /fee|pay|tuition|acceptance|instalment|charge/i,
     questions: ["Can I pay my school fees in instalments?", "What is the acceptance fee?", "How do I get my payment receipt?"],
